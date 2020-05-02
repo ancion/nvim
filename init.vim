@@ -136,6 +136,19 @@ nnoremap Y y$
 " Copy to system clipboard
 vnoremap Y "+y
 
+let g:clipboard = {
+      \   'name': 'myClipboard',
+      \   'copy': {
+      \      '+': 'tmux load-buffer -',
+      \      '*': 'tmux load-buffer -',
+      \    },
+      \   'paste': {
+      \      '+': 'tmux save-buffer -',
+      \      '*': 'tmux save-buffer -',
+      \   },
+      \   'cache_enabled': 1,
+      \ }
+
 " Indentation
 nnoremap < <<
 nnoremap > >>
@@ -272,7 +285,7 @@ noremap \s :%s//g<left><left>
 " === with this function you can comile and run you code easily
 " ===
 " Compile function 
-noremap <F12> :call CompileRunGcc()<CR>
+noremap r :call CompileRunGcc()<CR>
 func! CompileRunGcc()
 	exec "w"
 	if &filetype == 'c' 
@@ -305,7 +318,6 @@ func! CompileRunGcc()
 		:term go run %
 	endif	
 endfunc
-
 
 
 "===
@@ -358,7 +370,7 @@ Plug 'RRethy/vim-illuminate'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'KabbAmine/vCoolor.vim'
 "Plug 'pechorin/any-jump.vim'
-"Plug 'norcalli/nvim-colorizer.lua'
+Plug 'norcalli/nvim-colorizer.lua'
 Plug 'airblade/vim-rooter'
 Plug 'skywind3000/asynctasks.vim'
 Plug 'skywind3000/asyncrun.vim'
@@ -385,7 +397,10 @@ Plug 'bling/vim-bufferline'
 Plug 'ajmwagar/vim-deus'
 "Plug 'arzg/vim-colors-xcode'
 "Plug 'ajmwagar/vim-deus'
-
+Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+Plug 'connorholyday/vim-snazzy'
+" Plug 'liuchengxu/space-vim-theme'
 
 "=============================================================================
 "======> Genreal Highlighter <=======================
@@ -424,11 +439,10 @@ Plug 'Chiel92/vim-autoformat'
 "=============================================================================
  
 " File navigation
-"Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 "Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'junegunn/fzf.vim'
 "Plug 'yuki-ycino/fzf-preview.vim'
-"Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf'
 Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
 
@@ -488,7 +502,6 @@ Plug 'fatih/vim-go' , { 'for': ['go', 'vim-plug'], 'tag': '*' }
 " CSharpS
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'ctrlpvim/ctrlp.vim' , { 'for': ['cs', 'vim-plug'] } " omnisharp-vim dependency
-Plug 'vim-airline/vim-airline'
 
 "=============================================================================
 "======> Python <===========
@@ -545,8 +558,6 @@ Plug 'tpope/vim-surround' " type yskw' to wrap the word with '' or type cs'` to 
 Plug 'gcmt/wildfire.vim' " in Visual mode, type k' to select all text in '', or type k) k] k} kp
 Plug 'junegunn/vim-after-object' " da= to delete what's after =
 Plug 'junegunn/vim-easy-align' " gaip= to align the = in paragraph, 
-Plug 'tpope/vim-capslock'	" Ctrl+L (insert) to toggle capslock
-Plug 'easymotion/vim-easymotion'
 Plug 'Konfekt/FastFold'
 "Plug 'junegunn/vim-peekaboo'
 "Plug 'wellle/context.vim'
@@ -555,7 +566,7 @@ Plug 'theniceboy/argtextobj.vim'
 Plug 'rhysd/clever-f.vim'
 
 " Input Method Autoswitch
-"Plug 'rlue/vim-barbaric' " slowing down vim-multiple-cursors
+Plug 'rlue/vim-barbaric' " slowing down vim-multiple-cursors
 
 "=============================================================================
 "======> Other Tool <=====
@@ -567,7 +578,6 @@ Plug 'junegunn/goyo.vim'
 "Plug 'ron89/thesaurus_query.vim'
 
 " Bookmarks
-"Plug 'kshenoy/vim-signature'
 Plug 'MattesGroeger/vim-bookmarks'
 
 " Find & Replace
@@ -577,14 +587,14 @@ Plug 'osyo-manga/vim-anzu'
 " Documentation
 "Plug 'KabbAmine/zeavim.vim' " <LEADER>z to find doc
 
-" Mini Vim-APP
+" Vim Applications
+Plug 'makerj/vim-pdf'
+Plug 'theniceboy/vim-leader-mapper'
 "Plug 'voldikss/vim-floaterm'
 "Plug 'liuchengxu/vim-clap'
 "Plug 'jceb/vim-orgmode'
-"Plug 'mhinz/vim-startify'
-
-" Vim Applications
-Plug 'itchyny/calendar.vim'
+"===>> This plug can show you a list files recently opened when you start nvim 
+Plug 'mhinz/vim-startify'
 
 " Other visual enhancement
 Plug 'ryanoasis/vim-devicons'
@@ -592,23 +602,8 @@ Plug 'luochen1990/rainbow'
 Plug 'mg979/vim-xtabline'
 Plug 'wincent/terminus'
 
-"===>> This plug can show you a list files recently opened when you start nvim 
-Plug 'mhinz/vim-startify'
-
-Plug 'makerj/vim-pdf'
-Plug 'theniceboy/vim-leader-mapper'
-
-"Plug 'vim-airline/vim-airline-themes'
-Plug 'connorholyday/vim-snazzy'
-" Plug 'liuchengxu/space-vim-theme'
-Plug 'scrooloose/nerdtree'
 Plug 'kshenoy/vim-signature'
-Plug 'rlue/vim-barbaric'
 
-
-Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
-
-Plug 'gcmt/wildfire.vim' " in Visual mode, type k' to select all text in '', or type k) k] k} kp
 
 " Dependencies
 Plug 'MarcWeber/vim-addon-mw-utils'
@@ -724,33 +719,9 @@ noremap <LEADER>a :call Calc()<CR>
 
 
 " ======> Start of nvim-colorizer.lua ========================================
-"lua require'colorizer'.setup()
+lua require'colorizer'.setup()
 " ======> End ================================================================
 
-
-" ======> Start of vim-calendar ==============================================
-"noremap \c :Calendar -position=here<CR>
-noremap \\ :Calendar -view=clock -position=here<CR>
-let g:calendar_google_calendar = 1
-let g:calendar_google_task = 1
-augroup calendar-mappings
-	autocmd!
-	" diamond cursor
-	autocmd FileType calendar nmap <buffer> u <Plug>(calendar_up)
-	autocmd FileType calendar nmap <buffer> n <Plug>(calendar_left)
-	autocmd FileType calendar nmap <buffer> e <Plug>(calendar_down)
-	autocmd FileType calendar nmap <buffer> i <Plug>(calendar_right)
-	autocmd FileType calendar nmap <buffer> <c-u> <Plug>(calendar_move_up)
-	autocmd FileType calendar nmap <buffer> <c-n> <Plug>(calendar_move_left)
-	autocmd FileType calendar nmap <buffer> <c-e> <Plug>(calendar_move_down)
-	autocmd FileType calendar nmap <buffer> <c-i> <Plug>(calendar_move_right)
-	autocmd FileType calendar nmap <buffer> k <Plug>(calendar_start_insert)
-	autocmd FileType calendar nmap <buffer> K <Plug>(calendar_start_insert_head)
-	" unmap <C-n>, <C-p> for other plugins
-	autocmd FileType calendar nunmap <buffer> <C-n>
-	autocmd FileType calendar nunmap <buffer> <C-p>
-augroup END
-" ======> End ================================================================
 
 
 " ======> Start of Coc =======================================================
@@ -812,8 +783,8 @@ noremap <silent> C :CocList tasks<CR>
 
 
 " ======> Start of CTRLP (Dependency for omnisharp) ==========================
-let g:ctrlp_map = ''
-let g:ctrlp_cmd = 'CtrlP'
+"let g:ctrlp_map = ''
+"let g:ctrlp_cmd = 'CtrlP'
 " ======> End ================================================================
 
 
@@ -826,23 +797,6 @@ let g:airline_powerline_fonts = 0
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 " ======> End ================================================================
-
-" ======> Start of vim-easymotion ============================================
-let g:EasyMotion_do_mapping = 0
-let g:EasyMotion_do_shade = 0
-let g:EasyMotion_smartcase = 1
-map ' <Plug>(easymotion-bd-f)
-nmap ' <Plug>(easymotion-bd-f)
-"map E <Plug>(easymotion-j)
-"map U <Plug>(easymotion-k)
-"nmap f <Plug>(easymotion-overwin-f)
-"map \; <Plug>(easymotion-prefix)
-"nmap ' <Plug>(easymotion-overwin-f2)
-"map 'l <Plug>(easymotion-bd-jk)
-"nmap 'l <Plug>(easymotion-overwin-line)
-"map  'w <Plug>(easymotion-bd-w)
-"nmap 'w <Plug>(easymotion-overwin-w)
-" ======> End ================================================================ 
 
 
 
@@ -1063,49 +1017,49 @@ map <C-n> :NERDTreeToggle<CR>
 
 
 " ======> Start of OmniSharp =================================================
-let g:OmniSharp_typeLookupInPreview = 1
-let g:omnicomplete_fetch_full_documentation = 1
+"let g:OmniSharp_typeLookupInPreview = 1
+"let g:omnicomplete_fetch_full_documentation = 1
 
-let g:OmniSharp_server_use_mono = 1
-let g:OmniSharp_server_stdio = 1
-let g:OmniSharp_highlight_types = 2
-let g:OmniSharp_selector_ui = 'ctrlp'
+"let g:OmniSharp_server_use_mono = 1
+"let g:OmniSharp_server_stdio = 1
+"let g:OmniSharp_highlight_types = 2
+"let g:OmniSharp_selector_ui = 'ctrlp'
 
-autocmd Filetype cs nnoremap <buffer> gd :OmniSharpPreviewDefinition<CR>
-autocmd Filetype cs nnoremap <buffer> gr :OmniSharpFindUsages<CR>
-autocmd Filetype cs nnoremap <buffer> gy :OmniSharpTypeLookup<CR>
-autocmd Filetype cs nnoremap <buffer> ga :OmniSharpGetCodeActions<CR>
-autocmd Filetype cs nnoremap <buffer> <LEADER>rn :OmniSharpRename<CR><C-N>:res +5<CR>
+"autocmd Filetype cs nnoremap <buffer> gd :OmniSharpPreviewDefinition<CR>
+"autocmd Filetype cs nnoremap <buffer> gr :OmniSharpFindUsages<CR>
+"autocmd Filetype cs nnoremap <buffer> gy :OmniSharpTypeLookup<CR>
+"autocmd Filetype cs nnoremap <buffer> ga :OmniSharpGetCodeActions<CR>
+"autocmd Filetype cs nnoremap <buffer> <LEADER>rn :OmniSharpRename<CR><C-N>:res +5<CR>
 
-sign define OmniSharpCodeActions text=💡
+"sign define OmniSharpCodeActions text=💡
 
-augroup OSCountCodeActions
-	autocmd!
-	autocmd FileType cs set signcolumn=yes
-	autocmd CursorHold *.cs call OSCountCodeActions()
-augroup END
+"augroup OSCountCodeActions
+	"autocmd!
+	"autocmd FileType cs set signcolumn=yes
+	"autocmd CursorHold *.cs call OSCountCodeActions()
+"augroup END
 
-function! OSCountCodeActions() abort
-	if bufname('%') ==# '' || OmniSharp#FugitiveCheck() | return | endif
-	if !OmniSharp#IsServerRunning() | return | endif
-	let opts = {
-				\ 'CallbackCount': function('s:CBReturnCount'),
-				\ 'CallbackCleanup': {-> execute('sign unplace 99')}
-				\}
-	call OmniSharp#CountCodeActions(opts)
-endfunction
+"function! OSCountCodeActions() abort
+	"if bufname('%') ==# '' || OmniSharp#FugitiveCheck() | return | endif
+	"if !OmniSharp#IsServerRunning() | return | endif
+	"let opts = {
+				"\ 'CallbackCount': function('s:CBReturnCount'),
+				"\ 'CallbackCleanup': {-> execute('sign unplace 99')}
+				"\}
+	"call OmniSharp#CountCodeActions(opts)
+"endfunction
 
-function! s:CBReturnCount(count) abort
-	if a:count
-		let l = getpos('.')[1]
-		let f = expand('%:p')
-		execute ':sign place 99 line='.l.' name=OmniSharpCodeActions file='.f
-	endif
-endfunction
-" ======> End ================================================================
+"function! s:CBReturnCount(count) abort
+	"if a:count
+		"let l = getpos('.')[1]
+		"let f = expand('%:p')
+		"execute ':sign place 99 line='.l.' name=OmniSharpCodeActions file='.f
+	"endif
+"endfunction
+"" ======> End ================================================================
 
 
-" ======> Start of rainbow ===================================================
+"" ======> Start of rainbow ===================================================
 let g:rainbow_active = 1
 " ======> End ================================================================
 

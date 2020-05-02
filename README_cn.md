@@ -1,4 +1,4 @@
-# 我的NeoVim配置文件 (一个Colemak键位布局用户的NeoVim配置)
+j 我的NeoVim配置文件 (一个Colemak键位布局用户的NeoVim配置)
 
 #### [English Ver.](./README.md)
 
