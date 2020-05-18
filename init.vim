@@ -385,7 +385,7 @@ Plug 'theniceboy/vim-calc'
 "======== Pretty Dress  ==> just give a little of color to the IDE============
 "=============================================================================
 
-Plug 'theniceboy/eleline.vim'
+"Plug 'theniceboy/eleline.vim'
 Plug 'bling/vim-bufferline'
 
 "Plug 'liuchengxu/space-vim-theme'
@@ -396,11 +396,9 @@ Plug 'bling/vim-bufferline'
 "Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'ajmwagar/vim-deus'
 "Plug 'arzg/vim-colors-xcode'
-"Plug 'ajmwagar/vim-deus'
 Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'connorholyday/vim-snazzy'
-" Plug 'liuchengxu/space-vim-theme'
 
 "=============================================================================
 "======> Genreal Highlighter <=======================
@@ -634,13 +632,14 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 "let g:oceanic_next_terminal_bold = 1
 "let g:oceanic_next_terminal_italic = 1
 "let g:one_allow_italics = 1
-"let g:airline_theme = 'light'
+let g:airline_theme = 'simple'
 
 hi NonText ctermfg=gray guifg=grey10
 "hi NonText ctermfg=Black guifg=black10
 hi normal ctermfg=252 ctermbg=none
 
-
+" set ruby_host_prog 
+let g:ruby_host_prog = 'rvm system do neovim-ruby-host'
 " ===================== Start of Plugin Settings =============================
 
 
@@ -659,7 +658,6 @@ nnoremap \f :Autoformat<CR>
 " ======> Start of vim-after-object ==========================================
 autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
 " ======> End ================================================================
-
 
 
 " ======> Start of AsyncTasks ================================================
@@ -727,7 +725,7 @@ lua require'colorizer'.setup()
 " ======> Start of Coc =======================================================
 " fix the most annoying bug that coc has
 "silent! au BufEnter,BufRead,BufNewFile * silent! unmap if
-let g:coc_global_extensions = ['coc-python', 'coc-vimlsp', 'coc-html', 'coc-json', 'coc-css', 'coc-tsserver', 'coc-yank', 'coc-gitignore', 'coc-vimlsp', 'coc-tailwindcss', 'coc-stylelint', 'coc-tslint', 'coc-lists', 'coc-git', 'coc-explorer', 'coc-pyright', 'coc-sourcekit', 'coc-translator', 'coc-flutter', 'coc-todolist', 'coc-yaml', 'coc-tasks', 'coc-actions', 'coc-diagnostic']
+let g:coc_global_extensions = ['coc-python', 'coc-vimlsp', 'coc-html', 'coc-json', 'coc-css', 'coc-tsserver', 'coc-yank', 'coc-gitignore', 'coc-vimlsp', 'coc-tailwindcss', 'coc-stylelint', 'coc-tslint', 'coc-lists', 'coc-git', 'coc-explorer', 'coc-pyright', 'coc-sourcekit', 'coc-translator','coc-todolist', 'coc-yaml', 'coc-tasks', 'coc-actions', 'coc-diagnostic']
 "set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 "nmap <silent> <TAB> <Plug>(coc-range-select)
 "xmap <silent> <TAB> <Plug>(coc-range-select)
@@ -789,7 +787,9 @@ noremap <silent> C :CocList tasks<CR>
 
 
 " ======> Start of eleline.vim ===============================================
-let g:airline_powerline_fonts = 0
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+"let g:eleline_powerline_fonts = 1
 " ======> End ================================================================
 
 
@@ -797,7 +797,6 @@ let g:airline_powerline_fonts = 0
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 " ======> End ================================================================
-
 
 
 " ======> Start of vim-fugitive ==============================================
