@@ -1,4 +1,3 @@
-" __  ____   __  _   ___     _____ __  __ ____   ____
 "|  \/  \ \ / / | \ | \ \   / /_ _|  \/  |  _ \ / ___|
 "| |\/| |\ V /  |  \| |\ \ / / | || |\/| | |_) | |
 "| |  | | | |   | |\  | \ V /  | || |  | |  _ <| |___
@@ -407,6 +406,11 @@ Plug 'connorholyday/vim-snazzy'
 "Plug 'jaxbot/semantic-highlight.vim'
 Plug 'chrisbra/Colorizer' " Show colors with :ColorHighlight
 Plug 'dracula/vim',{'as':'dracula'}
+
+" =============================================================================
+" =====> Navigation WithinBuffer <====================
+" =============================================================================
+Plug 'liuchengxu/vista.vim'
 
 "=============================================================================
 "======> Undo Tree <==================
@@ -1158,16 +1162,16 @@ let g:table_mode_cell_text_object_i_map = 'k<Bar>'
 " ======> Start of Ultisnips =================================================
 let g:tex_flavor = "latex"
 inoremap <c-n> <nop>
-let g:UltiSnipsExpandTrigger="<c-e>"
-let g:UltiSnipsJumpForwardTrigger="<c-e>"
+let g:UltiSnipsExpandTrigger="<LEADER>n"
+let g:UltiSnipsJumpForwardTrigger="<LEADER>n"
 let g:UltiSnipsJumpBackwardTrigger="<c-n>"
 let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/Ultisnips/', $HOME.'/.config/nvim/plugged/vim-snippets/UltiSnips/']
 silent! au BufEnter,BufRead,BufNewFile * silent! unmap <c-r>
 " ======> End ================================================================
 
 
-" ======> Start of Undotree ==================================================
-noremap T :UndotreeToggle<CR>
+" ======> Start of UndoTree <<=================================================
+noremap D :UndotreeToggle<CR>
 let g:undotree_DiffAutoOpen = 1
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_ShortIndicators = 1
@@ -1200,23 +1204,28 @@ sign define vimspectorBPDisabled text=☞ texthl=Normal
 sign define vimspectorPC text=🔶 texthl=SpellBad
 " ======> End =================================================================
 
+" ======> Start of vista ======================================================
+
+noremap <c-t> :silent! Vista finder coc<CR>
+" ======> End =================================================================
+
 
 " ======> Start of vim-visual-multi ===========================================
 "let g:VM_theme             = 'iceblue'
 "let g:VM_default_mappings = 0
-let g:VM_leader = {'default': ',', 'visual': ',', 'buffer': ','}
-let g:VM_maps = {}
-let g:VM_custom_motions  = {'n': 'h', 'i': 'l', 'u': 'k', 'e': 'j', 'N': '0', 'I': '$', 'h': 'e'}
-let g:VM_maps['i']         = 'k'
-let g:VM_maps['I']         = 'K'
+let g:VM_leader                     = {'default': ',', 'visual': ',', 'buffer': ','}
+let g:VM_maps                       = {}
+let g:VM_custom_motions             = {'n': 'h', 'i': 'l', 'u': 'k', 'e': 'j', 'N': '0', 'I': '$', 'h': 'e'}
+let g:VM_maps['i']                  = 'k'
+let g:VM_maps['I']                  = 'K'
 let g:VM_maps['Find Under']         = '<C-k>'
 let g:VM_maps['Find Subword Under'] = '<C-k>'
-let g:VM_maps['Find Next']         = ''
-let g:VM_maps['Find Prev']         = ''
-let g:VM_maps['Remove Region'] = 'q'
-let g:VM_maps['Skip Region'] = '<c-n>'
-let g:VM_maps["Undo"]      = 'l'
-let g:VM_maps["Redo"]      = '<C-r>'
+let g:VM_maps['Find Next']          = ''
+let g:VM_maps['Find Prev']          = ''
+let g:VM_maps['Remove Region']      = 'q'
+let g:VM_maps['Skip Region']        = '<c-n>'
+let g:VM_maps["Undo"]               = 'l'
+let g:VM_maps["Redo"]               = '<C-r>'
 " ======> End ================================================================
 
 
@@ -1228,18 +1237,16 @@ let g:xtabline_settings.enable_persistance = 0
 let g:xtabline_settings.last_open_first = 1
 noremap to :XTabCycleMode<CR>
 noremap \p :XTabInfo<CR>
-"=======> End ================================================================
+" ======> End ================================================================
 
 
-" ===================== End of Plugin Settings =====================
+" ========================= End of Plugin Settings ===========================
 
-" ===
-" === Necessary Commands to Execute
-" ===
+" ===>> Necessary Commands to Execute
 exec "nohlsearch"
 
-
-" Open the _machine_specific.vim file if it has just been created
+" ============================================================================
+" ==>> Open the _machine_specific.vim file if it has just been created
 if has_machine_specific_file == 0
     exec "e ~/.config/nvim/_machine_specific.vim"
 endif
