@@ -37,6 +37,7 @@ set autochdir
 " ===
 " === Editor behavior
 " ===
+syntax on 
 set number
 set relativenumber
 set cursorline 
@@ -74,14 +75,13 @@ set lazyredraw "same as above
 set visualbell
 silent !mkdir -p ~/.config/nvim/tmp/backup
 silent !mkdir -p ~/.config/nvim/tmp/undo
-"silent !mkdir -p ~/.config/nvim/tmp/sessions
+silent !mkdir -p ~/.config/nvim/tmp/sessions
 set backupdir=~/.config/nvim/tmp/backup,.
 set directory=~/.config/nvim/tmp/backup,.
 if has('persistent_undo')
 	set undofile
 	set undodir=~/.config/nvim/tmp/undo,.
 endif
-syntax on 
 set mouse=a
 "set guifont=Source\ Code\ Variable:h16
 
@@ -200,7 +200,7 @@ noremap s <nop>
 " ===
 inoremap <C-a> <ESC>A
 " change jj to the <ESC>
-imap jj <ESC> 
+imap jj <ESC>
 
 " === Window management
 " ===
@@ -238,7 +238,7 @@ noremap <LEADER>q <C-w>j:q<CR>
 " === Tab management
 " ===
 " Create a new tab with tu
-noremap tj:tabe<CR>
+noremap tj :tabe<CR>
 " Move around tabs with tn and ti
 noremap th :-tabnext<CR>
 noremap tl :+tabnext<CR>
@@ -306,16 +306,16 @@ func! CompileRunGcc()
 		:sp
 		:term python3 %
 	elseif &filetype == 'html'
-		silent! exec "!".g:mkdp_browser." % &"
+		silent! exec "!chromium % &"
 	elseif &filetype == 'markdown'
 		exec "MarkdownPreview"
 	elseif &filetype == 'dart'
 		CocCommand flutter.run
-	elseif &filetype == 'go' 	
-		set splitbelow 
+	elseif &filetype == 'go'
+		set splitbelow
 		:sp
 		:term go run %
-	endif	
+	endif
 endfunc
 
 
@@ -329,7 +329,6 @@ function! Mysys()
         return "linux"
     endif
 endfunction
-
 
 "=== 
 "=== resolve encoding error
@@ -826,7 +825,7 @@ set rtp+=/usr/bin/fzf
 noremap <C-p> :Files<CR>
 noremap <C-f> :Rg<CR>
 "noremap <C-h> :History<CR>
-"noremap <C-t> :BTags<CR>
+noremap <C-t> :BTags<CR>
 noremap <C-l> :Lines<CR>
 noremap <C-w> :Buffers<CR>
 noremap <leader>; :History:<CR>
