@@ -224,18 +224,18 @@ noremap <left> :vertical resize-5<CR>
 noremap <right> :vertical resize+5<CR>
 
 " Place the screen up and down 
-noremap bb <C-w>t<C-w>K
+noremap nn <C-w>t<C-w>K
 " Place the teo screen side by side
 noremap vv <C-w>t<C-w>H
 
 " Rotate screens
-noremap srb <C-w>b<C-w>K
+noremap srn <C-w>b<C-w>K
 noremap srv <C-w>b<C-w>H
 " press <SPACE>+q to close the window below the current window
 noremap <LEADER>q <C-w>j:q<CR>
 
 " ===
-" === kkuuuTab management
+" === Tab management
 " ===
 " Create a new tab with tu
 noremap tj:tabe<CR>
@@ -347,17 +347,11 @@ endif
 "===unnormal character
 "===
 "if exists("&ambiwidth")
-"    set ambiwidth=double
+    "set ambiwidth=double
 "endif
 
-"set langmenu=zh_CN.UTF-8
-"language messages zh_CN.UTF-8
-
-
-
-" ===
-" === Install Plugins with Vim-Plug
-" ===
+"set langmenu=zh_CN.utf-8
+"language messages zh_cn.utf-8
 
 call plug#begin('~/.config/nvim/plugged')
 "===========================================================================
@@ -387,7 +381,7 @@ Plug 'theniceboy/vim-calc'
 "Plug 'theniceboy/eleline.vim'
 Plug 'bling/vim-bufferline'
 
-"Plug 'liuchengxu/space-vim-theme'
+Plug 'liuchengxu/space-vim-theme'
 "Plug 'morhetz/gruvbox'
 "Plug 'ayu-theme/ayu-vim'
 "Plug 'rakr/vim-one'
@@ -498,7 +492,7 @@ Plug 'jelera/vim-javascript-syntax', { 'for': ['vim-plug', 'php', 'html', 'javas
 Plug 'fatih/vim-go' , { 'for': ['go', 'vim-plug'], 'tag': '*' }
 
 "=============================================================================
-"======> C#
+"======> C# <====================
 "=============================================================================
 
 " CSharpS
@@ -595,6 +589,7 @@ Plug 'theniceboy/vim-leader-mapper'
 "Plug 'voldikss/vim-floaterm'
 "Plug 'liuchengxu/vim-clap'
 "Plug 'jceb/vim-orgmode'
+
 "===>> This plug can show you a list files recently opened when you start nvim 
 Plug 'mhinz/vim-startify'
 
@@ -603,7 +598,6 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'luochen1990/rainbow'
 Plug 'mg979/vim-xtabline'
 Plug 'wincent/terminus'
-
 Plug 'kshenoy/vim-signature'
 
 
@@ -618,9 +612,15 @@ call plug#end()
 " ============================================================================
 " ======> Dress up my vim
 " ============================================================================
-set termguicolors	" enable true colors support
+set termguicolors " enable true colors support
 
-colorscheme snazzy
+let g:space_vim_transp_bg = 1
+colorscheme space_vim_theme
+
+"colorscheme snazzy
+"let g:SnazzyTransparent =1
+"set background=dark
+
 "colorscheme dracula
 "color one
 "color deus
@@ -628,10 +628,8 @@ colorscheme snazzy
 "color ayu
 "color xcodelighthc
 
-let g:SnazzyTransparent =1
 "let ayucolor="light"
 "let ayucolor="mirage"
-set background=dark
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 "let g:oceanic_next_terminal_bold = 1
 "let g:oceanic_next_terminal_italic = 1
@@ -639,7 +637,7 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let g:airline_theme = 'simple'
 
 hi NonText ctermfg=gray guifg=grey10
-"hi NonText ctermfg=Black guifg=black10
+hi NonText ctermfg=Black guifg=black10
 hi normal ctermfg=252 ctermbg=none
 
 " set ruby_host_prog 
@@ -685,8 +683,8 @@ let g:bookmark_no_default_key_mappings = 1
 nmap mt <Plug>BookmarkToggle
 nmap ma <Plug>BookmarkAnnotate
 nmap ml <Plug>BookmarkShowAll
-nmap mi <Plug>BookmarkNext
-nmap mn <Plug>BookmarkPrev
+nmap mj <Plug>BookmarkNext
+nmap mk <Plug>BookmarkPrev
 nmap mC <Plug>BookmarkClear
 nmap mX <Plug>BookmarkClearAll
 nmap mu <Plug>BookmarkMoveUp
