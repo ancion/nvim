@@ -854,6 +854,11 @@ command! BD call fzf#run(fzf#wrap({
   \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
 \ }))
 
+command! -bang -nargs=* Rg
+            \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
+
 noremap <c-d> :BD<CR>
 
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.7 } }
