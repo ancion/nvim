@@ -166,7 +166,7 @@ vnoremap <LEADER>tt :s/    /\t/g
 noremap <silent> <LEADER>o za
 
 " Open up lazygit
-noremap \g :Git
+noremap \g :Git<CR>
 noremap <c-g> :tabe<CR>:-tabmove<CR>:term lazygit<CR>
 
 
@@ -221,7 +221,7 @@ noremap sl :set splitright<CR>:vsplit<CR>
 noremap <up> :res +5<CR>
 noremap <down> :res -5<CR>
 noremap <left> :vertical resize-5<CR>
-noremap <right> :vertical resize+5<CRx
+noremap <right> :vertical resize+5<CR>
 " Place the screen up and down
 noremap nn <C-w>t<C-w>K
 " Place the teo screen side by side
@@ -862,7 +862,7 @@ function! RipgrepFzf(query, fullscreen)
     let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
     call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
-command! -nargs=* -bang Rg call RipgrepFzf(, <bang>0)
+command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
 
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.7 } }
 

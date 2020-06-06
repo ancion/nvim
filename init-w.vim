@@ -168,7 +168,7 @@ vnoremap <LEADER>tt :s/    /\t/g
 noremap <silent> <LEADER>o za
 
 " Open up lazygit
-noremap \g :Git 
+noremap \g :Git<CR>
 noremap <c-g> :tabe<CR>:-tabmove<CR>:term lazygit<CR>
 
 
@@ -240,7 +240,7 @@ noremap <LEADER>q <C-w>j:q<CR>
 " === kkuuuTab management
 " ===
 " Create a new tab with tu
-noremap tj:tabe<CR>
+noremap tj :tabe<CR>
 " Move around tabs with tn and ti
 noremap th :-tabnext<CR>
 noremap tl :+tabnext<CR>
@@ -377,7 +377,7 @@ Plug 'skywind3000/asynctasks.vim'
 Plug 'skywind3000/asyncrun.vim'
 
 "=============================================================================
-"=== There is a calculate tool of the theniceboy self developed,just for Test=
+"=== There is a calculate tool of the theniceboy developed <==================
 "=============================================================================
 
 Plug 'theniceboy/vim-calc'
@@ -389,7 +389,7 @@ Plug 'theniceboy/vim-calc'
 "Plug 'theniceboy/eleline.vim'
 Plug 'bling/vim-bufferline'
 
-"Plug 'liuchengxu/space-vim-theme'
+Plug 'liuchengxu/space-vim-theme'
 "Plug 'morhetz/gruvbox'
 "Plug 'ayu-theme/ayu-vim'
 "Plug 'rakr/vim-one'
