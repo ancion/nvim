@@ -173,7 +173,7 @@ noremap <c-g> :tabe<CR>:-tabmove<CR>:term lazygit<CR>
 " ===
 " === Cursor Movement
 " ===
-" New cursor movement (the default arrow keys are used for resizing windows)
+" New cursor movement (the default arrow keys are used for resizin g windows)
 
 " Ctrl + K or E will move up/down the view port without moving the cursor
 noremap <C-K> 5<C-y>
@@ -322,7 +322,7 @@ endfunc
 
 
 "===
-"===PlatForm support
+"===PlatForm information
 "===
 function! Mysys()
     if has("win32") || has("win64")||has("win95")
@@ -484,12 +484,10 @@ Plug 'yuezk/vim-js', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', '
 Plug 'MaxMEllon/vim-jsx-pretty', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
 Plug 'jelera/vim-javascript-syntax', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
 "Plug 'jaxbot/browserlink.vim'
-
+Plug 'mattn/emmet-vim'
 "=============================================================================
 "======> Go <=====================
 "=============================================================================
-
-
 
 " Go
 Plug 'fatih/vim-go' , { 'for': ['go', 'vim-plug'], 'tag': '*' }
@@ -796,6 +794,15 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 "let g:eleline_powerline_fonts = 1
 " ======> End ================================================================
+
+" ======> Start of emmet<=============================================
+" enable all funtion in all mode
+let g:user_emmet_mode='i'  
+let g:user_emmet_install_global = 0 
+autocmd FileType html,css EmmetInstall
+" To remap the default<C-Y> leader
+let g:user_emmet_leader_key='<C-l>' 
+" ======> End <================================================================
 
 
 " ======> Start of vim-easy-align ============================================
