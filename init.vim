@@ -388,7 +388,8 @@ Plug 'liuchengxu/space-vim-theme'
 "Plug 'rakr/vim-one'
 "Plug 'mhartington/oceanic-next'
 "Plug 'kristijanhusak/vim-hybrid-material'
-Plug 'ajmwagar/vim-deus'
+"Plug 'ajmwagar/vim-deus
+Plug  'theniceboy/vim-deus'
 "Plug 'arzg/vim-colors-xcode'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -418,7 +419,7 @@ Plug 'mbbill/undotree'
 "=============================================================================
 
 " Debugger for python
-Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-c --enable-python --enable-go'}
+Plug 'puremourning/vimspector', {'do': './install_gadget.py  --enable-python --enable-go --enable-bash --force-enable-node --force-enable-chrome'}
 
 "=============================================================================
 "======> AutoComplete tool <=======================================
@@ -624,7 +625,7 @@ colorscheme space_vim_theme
 
 "colorscheme dracula
 "color one
-"color deus
+"colors deus
 "color gruvbox
 "color ayu
 "color xcodelighthc
@@ -655,6 +656,9 @@ nnoremap - N
 
 " ======> Start of AutoFormat ================================================
 nnoremap \f :Autoformat<CR>
+let g:formatdef_custom_js = '"js-beautify -t"'
+let g:formatters_javascript = ['custom_js']
+au BufWrite  *.js :Autoformat
 " ======> End ================================================================
 
 
