@@ -433,7 +433,7 @@ Plug 'wellle/tmux-complete.vim'
 Plug 'Chiel92/vim-autoformat'
 
 "=============================================================================
-"======> Let me find what I want faster <========================
+"======> Let me find what I wantted faster <========================
 "=============================================================================
 
 " File navigation
@@ -732,7 +732,29 @@ lua require'colorizer'.setup()
 " ======> Start of Coc =======================================================
 " fix the most annoying bug that coc has
 "silent! au BufEnter,BufRead,BufNewFile * silent! unmap if
-let g:coc_global_extensions = ['coc-python', 'coc-vimlsp', 'coc-html', 'coc-json', 'coc-css', 'coc-tsserver', 'coc-yank', 'coc-gitignore', 'coc-vimlsp', 'coc-tailwindcss', 'coc-stylelint', 'coc-tslint', 'coc-lists', 'coc-git', 'coc-explorer', 'coc-pyright', 'coc-sourcekit', 'coc-translator','coc-todolist', 'coc-yaml', 'coc-tasks', 'coc-actions', 'coc-diagnostic']
+let g:coc_global_extensions = [
+            \'coc-python',
+            \'coc-vimlsp',
+            \'coc-html',
+            \'coc-json',
+            \'coc-css',
+            \'coc-tsserver',
+            \'coc-yank',
+            \'coc-gitignore',
+            \'coc-vimlsp',
+            \'coc-tailwindcss',
+            \'coc-stylelint',
+            \'coc-tslint',
+            \'coc-lists',
+            \'coc-git',
+            \'coc-explorer',
+            \'coc-pyright',
+            \'coc-sourcekit',
+            \'coc-translator','coc-todolist',
+            \'coc-yaml',
+            \'coc-tasks',
+            \'coc-actions',
+            \'coc-diagnostic']
 "set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 "nmap <silent> <TAB> <Plug>(coc-range-select)
 "xmap <silent> <TAB> <Plug>(coc-range-select)
@@ -1006,8 +1028,9 @@ let g:vmt_fence_closing_text = '/TOC'
 " ======> End ================================================================
 
 " ======> Start of vim-map-leader ============================================
-let g:leaderMenu = {'name':  "Shortcut Menu",
-            \'<SPACE> Enter':  '====='['Clear search'],
+let g:leaderMenu = {
+            \'name':  "Shortcut Menu",
+            \'<SPACE> Enter':  ['Clear search'],
             \'<SPACE> a':  ['Calculate equation'],
             \'<SPACE> f':  ['Advanced find'],
             \'<SPACE> o':  ['Open folds'],
@@ -1235,16 +1258,13 @@ noremap <c-t> :silent! Vista finder coc<CR>
 "let g:VM_default_mappings = 0
 let g:VM_leader                     = {'default': ',', 'visual': ',', 'buffer': ','}
 let g:VM_maps                       = {}
-let g:VM_custom_motions             = {'n': 'h', 'i': 'l', 'u': 'k', 'e': 'j', 'N': '0', 'I': '$', 'h': 'e'}
-let g:VM_maps['i']                  = 'k'
-let g:VM_maps['I']                  = 'K'
 let g:VM_maps['Find Under']         = '<C-k>'
 let g:VM_maps['Find Subword Under'] = '<C-k>'
 let g:VM_maps['Find Next']          = ''
 let g:VM_maps['Find Prev']          = ''
 let g:VM_maps['Remove Region']      = 'q'
 let g:VM_maps['Skip Region']        = '<c-n>'
-let g:VM_maps["Undo"]               = 'l'
+let g:VM_maps["Undo"]               = 'u'
 let g:VM_maps["Redo"]               = '<C-r>'
 " ======> End ================================================================
 
