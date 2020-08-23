@@ -439,7 +439,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'junegunn/fzf.vim'
 "Plug 'yuki-ycino/fzf-preview.vim'
 Plug 'junegunn/fzf'
-Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
+Plug 'kevinhwang91/rnvimr'
 
 "=============================================================================
 "======> Snippets <============================
@@ -771,7 +771,7 @@ function! Show_documentation()
         call CocAction('doHover')
     endif
 endfunction
-nnoremap <LEADER>h :call Show_documentation()<CR>
+nnoremap <LEADER>m :call Show_documentation()<CR>
 
 nnoremap <silent><nowait> <LEADER>d :CocList diagnostics<CR>
 nmap <silent> <LEADER>- <Plug>(coc-diagnostic-prev)
@@ -816,7 +816,7 @@ vmap <C-e> <Plug>(coc-snippets-select)
 let g:coc_snippet_next = '<c-e>'
 let g:coc_snippet_prev = '<c-n>'
 imap <C-e> <Plug>(coc-snippets-expand-jump)
-let g:snips_author = 'David Chen'
+let g:snips_author = 'ancion'
 
 " ======> End ================================================================
 
@@ -835,11 +835,11 @@ let g:airline#extensions#tabline#enabled = 1
 
 " ======> Start of emmet<=============================================
 " enable all funtion in all mode
-let g:user_emmet_mode='i'  
-let g:user_emmet_install_global = 0 
+let g:user_emmet_mode='i'
+let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 " To remap the default<C-Y> leader
-let g:user_emmet_leader_key='<C-l>' 
+let g:user_emmet_leader_key='<C-l>'
 " ======> End <================================================================
 
 
@@ -875,7 +875,7 @@ noremap <C-f> :Files<CR>
 noremap <C-e> :Rg<CR>
 "noremap <C-h> :History<CR>
 noremap <c-d> :BD<CR>
-noremap <C-t> :BTags<CR>
+"noremap > :BTags<CR>
 noremap <C-l> :Lines<CR>
 noremap <C-w> :Buffers<CR>
 noremap <leader>; :History:<CR>
@@ -1130,7 +1130,7 @@ let g:rooter_patterns = ['__vim_project_root', '.git/']
 " ======> Start of rnvimr ====================================================
 let g:rnvimr_ex_enable = 1
 let g:rnvimr_pick_enable = 1
-nnoremap <silent> R :RnvimrSync<CR>:RnvimrToggle<CR><C-\><C-n>:RnvimrResize 0<CR>
+nnoremap <silent> R :RnvimrToggle<CR><C-\><C-n>:RnvimrResize 0<CR>
 let g:rnvimr_layout = { 'relative': 'editor',
             \ 'width': &columns,
             \ 'height': &lines,
@@ -1260,8 +1260,21 @@ sign define vimspectorPC text=🔶 texthl=SpellBad
 " ======> End =================================================================
 
 " ======> Start of vista ======================================================
-
+noremap <LEADER>v :Vista coc<CR>
 noremap <c-t> :silent! Vista finder coc<CR>
+let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+let g:vista_default_executive = 'ctags'
+let g:vista_fzf_preview = ['right:50%']
+let g:vista#renderer#enable_icon = 1
+let g:vista#renderer#icons = {
+            \   "function": "\uf794",
+            \   "variable": "\uf71b"}
+" function! NearestMethodOrFunction() abort
+"     return get(b:, 'vista_nearest_method_or_function', '')
+" endfunction
+" set statusline+=%{NearestMethodOrFunction()}
+" autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+
 " ======> End =================================================================
 
 

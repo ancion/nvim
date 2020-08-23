@@ -3,6 +3,7 @@
     "coc.preferences.enableFloatHighlight": true,
     "coc.preferences.snippetStatusText": "Ⓢ ",
     "coc.preferences.extensionUpdateCheck": "daily",
+	"coc.preferences.messageLevel": "error",
     "suggest.detailMaxLength": 60,
     "suggest.noselect": true,
     "suggest.enablePreselect": false,
@@ -42,10 +43,10 @@
         "variable": "\ue71b"
     },
     "diagnostic.signOffset": 1,
-    "diagnostic.errorSign": "×",
-    "diagnostic.warningSign": "»",
-    "diagnostic.infoSign": "ღ",
-    "diagnostic.hintSign": "ஐ",
+	"diagnostic.errorSign": "\uf467",
+	"diagnostic.warningSign": "\uf071",
+	"diagnostic.infoSign": "\uf129",
+	"diagnostic.hintSign": "\uf864",
     "diagnostic.displayByAle": false,
     "diagnostic.refreshOnInsertMode": false,
     "diagnostic.refreshAfterSave": false,
@@ -54,7 +55,7 @@
     "diagnostic.virtualText": true,
     "codeLens.enable": true,
     "list.previewHighlightGroup": "Statement",
-    "list.nextKeymap": "<C->",
+    "list.nextKeymap": "<C-b>",
     "list.previousKeymap": "<C-k>",
     "coc.preferences.formatOnSaveFiletypes": [
         "typescript",
@@ -213,71 +214,6 @@
             "initializationOptions": {
                 "cache": {
                     "directory": "/tmp/ccls"
-                }
-            }
-        },
-        "dls": {
-            "command": "diagnostic-languageserver",
-            "args": ["--stdio"],
-            "filetypes": [ "sh", "email", "dart" ],
-            "initializationOptions": {
-                "linters": {
-                    "dartanalyzer": {
-                        "command": "dartanalyzer",
-                    },
-                    "shellcheck": {
-                        "command": "shellcheck",
-                        "debounce": 100,
-                        "args": [ "--format=gcc", "-"],
-                        "offsetLine": 0,
-                        "offsetColumn": 0,
-                        "sourceName": "shellcheck",
-                        "formatLines": 1,
-                        "formatPattern": [
-                            "^[^:]+:(\\d+):(\\d+):\\s+([^:]+):\\s+(.*)$",
-                            {
-                                "line": 1,
-                                "column": 2,
-                                "message": 4,
-                                "security": 3
-                            }
-                        ],
-                        "securities": {
-                            "error": "error",
-                            "warning": "warning",
-                            "note": "info"
-                        }
-                    },
-                    "languagetool": {
-                        "command": "languagetool",
-                        "debounce": 200,
-                        "args": ["-"],
-                        "offsetLine": 0,
-                        "offsetColumn": 0,
-                        "sourceName": "languagetool",
-                        "formatLines": 2,
-                        "formatPattern": [
-                            "^\\d+?\\.\\)\\s+Line\\s+(\\d+),\\s+column\\s+(\\d+),\\s+([^\\n]+)\nMessage:\\s+(.*)$",
-                            {
-                                "line": 1,
-                                "column": 2,
-                                "message": [4, 3]
-                            }
-                        ],
-                    }
-                },
-                "formatters": {
-                    "dartfmt": {
-                        "command": "dartfmt",
-                        "args": [ "--fix" ],
-                    }
-                },
-                "filetypes": {
-                    "sh": "shellcheck",
-                    "email": "languagetool"
-                },
-                "formatFiletypes": {
-                    "dart": "dartfmt"
                 }
             }
         }
