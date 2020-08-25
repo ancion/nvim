@@ -158,7 +158,7 @@ noremap <LEADER><CR> :nohlsearch<CR>
 " Adjacent duplicate words
 noremap <LEADER>dw /\(\<\w\+\>\)\_s*\1
 
-" Space to kkuuuTab
+" Space to Tab
 nnoremap <LEADER>tt :%s/    /\t/g
 vnoremap <LEADER>tt :s/    /\t/g
 
@@ -168,7 +168,7 @@ noremap <silent> <LEADER>o za
 " Open up lazygit
 noremap \g :Git<CR>
 noremap <c-g> :tabe<CR>:-tabmove<CR>:term lazygit<CR>
-
+noremap <c-h> :tabe<CR>:-tabmove<CR>:term ranger<CR>
 
 " ===
 " === Cursor Movement
@@ -179,13 +179,13 @@ noremap <c-g> :tabe<CR>:-tabmove<CR>:term lazygit<CR>
 noremap <C-K> 5<C-y>
 noremap <C-J> 5<C-e>
 
-" U/E keys for 5 times u/e (faster navigation)
+" J/K keys for 4 times j/k (faster navigation)
 noremap <silent> K 5k
 noremap <silent> J 5j
 
-" N key: go to the start of the line
+" H key: go to the start of the line
 noremap <silent> H 0
-" I key: go to the end of the line
+" L key: go to the end of the line
 noremap <silent> L $
 
 " Faster in-line navigation
@@ -201,6 +201,18 @@ noremap s <nop>
 inoremap <C-a> <ESC>A
 " change jj to the <ESC>
 imap jj <ESC>
+
+" ===
+" === Command Mode Cursor Movement
+" ===
+cnoremap <C-h> <Home>
+cnoremap <C-l> <End>
+cnoremap <C-k> <Up>
+cnoremap <C-j> <Down>
+cnoremap <C-b> <Left>
+cnoremap <C-f> <Right>
+cnoremap <M-b> <S-Left>
+cnoremap <M-w> <S-Right>
 
 " === Window management
 " ===
@@ -260,12 +272,16 @@ autocmd BufRead,BufNewFile *.md setlocal spell
 " === Other useful stuff
 " ===
 
+" Open a new instance of st with the cwd
+nnoremap \t :tabe<CR>:-tabmove<CR>:term sh -c 'st'<CR><C-\><C-N>:q<CR>
+
 " Opening a terminal window
 "noremap <LEADER>/ :term<CR>
-noremap <LEADER>/ :set splitbelow<CR>:split<CR>:res +10<CR>:term<CR>
+noremap <LEADER>/ :set splitbelow<CR>:split<CR>:term<CR>
+"noremap <LEADER>/ :set splitbelow<CR>:split<CR>:res +10<CR>:term<CR>
 
 " Press space twice to jump to the next '<++>' and edit it
-noremap <LEADER><LEADER> <Esc>/<CR>:nohlsearch<CR>c4l
+noremap <LEADER><LEADER> <Esc>/<++><CR>:nohlsearch<CR>c4l
 
 " Spelling Check with <space>sc
 noremap <LEADER>sc :set spell!<CR>
@@ -305,15 +321,21 @@ func! CompileRunGcc()
         :sp
         :term python3 %
     elseif &filetype == 'html'
-        silent! exec "!chromium % &"
+        silent! exec "!".g:mkdp_browser." % &"
     elseif &filetype == 'markdown'
-        exec "MarkdownPreview"
+        exec "InstantMarkdownPreview"
     elseif &filetype == 'dart'
-        CocCommand flutter.run
+        "CocCommand flutter.run
+		exec "CocCommand flutter.run -d ".g:flutter_default_device
+		silent! exec "CocCommand flutter.dev.openDevLog"
+	elseif &filetype == 'javascript'
+		set splitbelow
+		:sp
+		:term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings .
     elseif &filetype == 'go'
         set splitbelow
         :sp
-        :term go run %
+        :term go run .
     endif
 endfunc
 
@@ -508,7 +530,7 @@ Plug 'Vimjas/vim-python-pep8-indent', { 'for' :['python', 'vim-plug'] }
 Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins', 'for' :['python', 'vim-plug'] }
 "Plug 'vim-scripts/indentpython.vim', { 'for' :['python', 'vim-plug'] }
 "Plug 'plytophogy/vim-virtualenv', { 'for' :['python', 'vim-plug'] }
-Plug 'tweekmonster/braceless.vim'
+Plug 'tweekmonster/braceless.vim', { 'for' :['python', 'vim-plug'] }  
 
 "=============================================================================
 "======> Tex  <========
@@ -718,13 +740,9 @@ noremap <LEADER>a :call Calc()<CR>
 "noremap <leader>ct :ContextToggle<CR>
 " ======> End ================================================================
 
-
-
 " ======> Start of nvim-colorizer.lua ========================================
 lua require'colorizer'.setup()
 " ======> End ================================================================
-
-
 
 " ======> Start of Coc =======================================================
 let g:coc_global_extensions = [
@@ -862,7 +880,7 @@ noremap <LEADER>gi :FzfGitignore<CR>
 " ======> Start of Far.vim ===================================================
 noremap <LEADER>f :F  **/*<left><left><left><left><left>
 let g:far#mapping = {
-            \ "replace_undo" : ["l"],
+            \ "replace_undo" : ["u"],
             \ }
 " ======> End ================================================================
 
@@ -941,7 +959,7 @@ let g:gitgutter_override_sign_column_highlight = 0
 let g:gitgutter_preview_win_floating = 1
 autocmd BufWritePost * GitGutter
 nnoremap <LEADER>gf :GitGutterFold<CR>
-nnoremap H :GitGutterPreviewHunk<CR>
+"nnoremap H :GitGutterPreviewHunk<CR>
 nnoremap <LEADER>g- :GitGutterPrevHunk<CR>
 nnoremap <LEADER>g= :GitGutterNextHunk<CR>
 " ======> End ================================================================
@@ -1131,7 +1149,8 @@ let g:rooter_patterns = ['__vim_project_root', '.git/']
 let g:rnvimr_ex_enable = 1
 let g:rnvimr_pick_enable = 1
 nnoremap <silent> R :RnvimrToggle<CR><C-\><C-n>:RnvimrResize 0<CR>
-let g:rnvimr_layout = { 'relative': 'editor',
+let g:rnvimr_layout = {
+            \ 'relative': 'editor',
             \ 'width': &columns,
             \ 'height': &lines,
             \ 'col': 0,
@@ -1204,7 +1223,6 @@ cnoreabbrev sw w suda://%
 nmap s <plug>(SubversiveSubstitute)
 nmap ss <plug>(SubversiveSubstituteLine)
 " ======> End ================================================================
-
 
 
 " ======> Start of vim-table-mode ============================================
