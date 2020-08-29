@@ -532,11 +532,7 @@ Plug 'Vimjas/vim-python-pep8-indent', { 'for' :['python', 'vim-plug'] }
 Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins', 'for' :['python', 'vim-plug'] }
 "Plug 'vim-scripts/indentpython.vim', { 'for' :['python', 'vim-plug'] }
 "Plug 'plytophogy/vim-virtualenv', { 'for' :['python', 'vim-plug'] }
-<<<<<<< HEAD
 Plug 'tweekmonster/braceless.vim', { 'for' :['python', 'vim-plug'] }
-=======
-Plug 'tweekmonster/braceless.vim', { 'for' :['python', 'vim-plug'] }  
->>>>>>> 7ece0e2c0e196471a69c11a38384098ae9c63dba
 
 "=============================================================================
 "======> Tex  <========
