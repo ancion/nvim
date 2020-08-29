@@ -123,6 +123,7 @@ let mapleader=" "
 " Save & quit
 noremap Q :q<CR>
 noremap S :w<CR>
+" open init.vim filre in anytime
 noremap <LEADER>rc :e ~/.config/nvim/init.vim<CR>
 
 
@@ -168,7 +169,7 @@ noremap <silent> <LEADER>o za
 " Open up lazygit
 noremap \g :Git<CR>
 noremap <c-g> :tabe<CR>:-tabmove<CR>:term lazygit<CR>
-noremap <c-h> :tabe<CR>:-tabmove<CR>:term ranger<CR>
+"noremap <c-h> :tabe<CR>:-tabmove<CR>:term ranger<CR>
 
 " ===
 " === Cursor Movement
@@ -235,12 +236,12 @@ noremap <down> :res -5<CR>
 noremap <left> :vertical resize-5<CR>
 noremap <right> :vertical resize+5<CR>
 " Place the screen up and down
-noremap nn <C-w>t<C-w>K
+noremap sx <C-w>t<C-w>K
 " Place the teo screen side by side
-noremap vv <C-w>t<C-w>H
+noremap sv <C-w>t<C-w>H
 
 " Rotate screens
-noremap srb <C-w>b<C-w>K
+noremap srx <C-w>b<C-w>K
 noremap srv <C-w>b<C-w>H
 " press <SPACE>+q to close the window below the current window
 noremap <LEADER>q <C-w>j:q<CR>
@@ -248,12 +249,12 @@ noremap <LEADER>q <C-w>j:q<CR>
 " ===
 " === Tab management
 " ===
-" Create a new tab with tu
+" Create a new tab with tj
 noremap tj :tabe<CR>
-" Move around tabs with tn and ti
+" Move around tabs with th and tl
 noremap th :-tabnext<CR>
 noremap tl :+tabnext<CR>
-" Move the tabs with tmn and tmi
+" Move the tabs with tmh and tml
 noremap tmh :-tabmove<CR>
 noremap tml :+tabmove<CR>
 
@@ -326,12 +327,12 @@ func! CompileRunGcc()
         exec "InstantMarkdownPreview"
     elseif &filetype == 'dart'
         "CocCommand flutter.run
-		exec "CocCommand flutter.run -d ".g:flutter_default_device
-		silent! exec "CocCommand flutter.dev.openDevLog"
-	elseif &filetype == 'javascript'
-		set splitbelow
-		:sp
-		:term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings .
+        exec "CocCommand flutter.run -d ".g:flutter_default_device
+        silent! exec "CocCommand flutter.dev.openDevLog"
+    elseif &filetype == 'javascript'
+        set splitbelow
+        :sp
+        :term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings .
     elseif &filetype == 'go'
         set splitbelow
         :sp
@@ -379,11 +380,9 @@ call plug#begin('~/.config/nvim/plugged')
 "===========================================================================
 
 Plug 'tiagofumo/dart-vim-flutter-layout'
-Plug 'RRethy/vim-illuminate'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'KabbAmine/vCoolor.vim'
 "Plug 'pechorin/any-jump.vim'
-Plug 'norcalli/nvim-colorizer.lua'
 Plug 'airblade/vim-rooter'
 Plug 'skywind3000/asynctasks.vim'
 Plug 'skywind3000/asyncrun.vim'
@@ -398,21 +397,22 @@ Plug 'theniceboy/vim-calc'
 "======== Pretty Dress  ==> just give a little of color to the IDE============
 "=============================================================================
 
-"Plug 'theniceboy/eleline.vim'
-Plug 'bling/vim-bufferline'
-
-Plug 'liuchengxu/space-vim-theme'
-"Plug 'morhetz/gruvbox'
-"Plug 'ayu-theme/ayu-vim'
-"Plug 'rakr/vim-one'
-"Plug 'mhartington/oceanic-next'
-"Plug 'kristijanhusak/vim-hybrid-material'
 "Plug 'ajmwagar/vim-deus
 Plug  'theniceboy/vim-deus'
+Plug 'connorholyday/vim-snazzy'
 "Plug 'arzg/vim-colors-xcode'
+"Plug 'rakr/vim-one'
+"Plug 'ayu-theme/ayu-vim'
+"Plug 'morhetz/gruvbox'
+"Plug 'mhartington/oceanic-next'
+"Plug 'kristijanhusak/vim-hybrid-material'
+
+Plug 'norcalli/nvim-colorizer.lua'
+Plug 'liuchengxu/space-vim-theme'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'connorholyday/vim-snazzy'
+"Plug 'theniceboy/eleline.vim'
+Plug 'bling/vim-bufferline'
 
 "=============================================================================
 "======> Genreal Highlighter <=======================
@@ -421,6 +421,8 @@ Plug 'connorholyday/vim-snazzy'
 "Plug 'jaxbot/semantic-highlight.vim'
 Plug 'chrisbra/Colorizer' " Show colors with :ColorHighlight
 Plug 'dracula/vim',{'as':'dracula'}
+Plug 'RRethy/vim-illuminate'
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase'  }
 
 " =============================================================================
 " =====> Navigation WithinBuffer <====================
@@ -495,7 +497,6 @@ Plug 'airblade/vim-gitgutter'
 "=============================================================================
 "======> HTML, CSS, JavaScript, PHP, JSON, etc.
 "=============================================================================
-
 Plug 'elzr/vim-json'
 Plug 'hail2u/vim-css3-syntax', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
 Plug 'spf13/PIV', { 'for' :['php', 'vim-plug'] }
@@ -505,6 +506,7 @@ Plug 'MaxMEllon/vim-jsx-pretty', { 'for': ['vim-plug', 'php', 'html', 'javascrip
 Plug 'jelera/vim-javascript-syntax', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
 "Plug 'jaxbot/browserlink.vim'
 Plug 'mattn/emmet-vim'
+Plug 'posva/vim-vue'
 "=============================================================================
 "======> Go <=====================
 "=============================================================================
@@ -530,7 +532,7 @@ Plug 'Vimjas/vim-python-pep8-indent', { 'for' :['python', 'vim-plug'] }
 Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins', 'for' :['python', 'vim-plug'] }
 "Plug 'vim-scripts/indentpython.vim', { 'for' :['python', 'vim-plug'] }
 "Plug 'plytophogy/vim-virtualenv', { 'for' :['python', 'vim-plug'] }
-Plug 'tweekmonster/braceless.vim', { 'for' :['python', 'vim-plug'] }  
+Plug 'tweekmonster/braceless.vim', { 'for' :['python', 'vim-plug'] }
 
 "=============================================================================
 "======> Tex  <========
@@ -620,13 +622,14 @@ Plug 'luochen1990/rainbow'
 Plug 'mg979/vim-xtabline'
 Plug 'wincent/terminus'
 Plug 'kshenoy/vim-signature'
+Plug 'lambdalisue/suda.vim' " do stuff like :sudowrite"
 
 
 " Dependencies
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'kana/vim-textobj-user'
 Plug 'roxma/nvim-yarp'
-Plug 'rbgrouleff/bclose.vim' " For ranger.vim
+"Plug 'rbgrouleff/bclose.vim' " For ranger.vim
 
 call plug#end()
 
@@ -767,6 +770,7 @@ let g:coc_global_extensions = [
             \'coc-tslint-plugin',
             \'coc-tsserver',
             \'coc-vimlsp',
+            \'coc-vetur',
             \'coc-yaml',
             \'coc-yank']
 inoremap <silent><expr> <TAB>
@@ -857,7 +861,7 @@ let g:user_emmet_mode='i'
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 " To remap the default<C-Y> leader
-let g:user_emmet_leader_key='<C-l>'
+let g:user_emmet_leader_key='<C-m>'
 " ======> End <================================================================
 
 
@@ -890,7 +894,7 @@ set rtp+=/usr/bin/fzf
 "set rtp+=~/.fzf/bin/fzf
 "set rtp+=/home/linuxbrew/.linuxbrew/opt/fzf
 noremap <C-f> :Files<CR>
-noremap <C-e> :Rg<CR>
+noremap <C-r> :Rg<CR>
 "noremap <C-h> :History<CR>
 noremap <c-d> :BD<CR>
 "noremap > :BTags<CR>
@@ -918,14 +922,14 @@ command! BD call fzf#run(fzf#wrap({
             \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
             \ }))
 
-function! RipgrepFzf(query, fullscreen)
-    let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
-    let initial_command = printf(command_fmt, shellescape(a:query))
-    let reload_command = printf(command_fmt, '{q}')
-    let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
-    call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
-endfunction
-command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
+"function! RipgrepFzf(query, fullscreen)
+"let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+"let initial_command = printf(command_fmt, shellescape(a:query))
+"let reload_command = printf(command_fmt, '{q}')
+"let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+"call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+"endfunction
+"command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
 
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.7 } }
 
@@ -1148,7 +1152,17 @@ let g:rooter_patterns = ['__vim_project_root', '.git/']
 " ======> Start of rnvimr ====================================================
 let g:rnvimr_ex_enable = 1
 let g:rnvimr_pick_enable = 1
+"let g:rnvimr_draw_border = 0
+let g:rnvimr_bw_enable = 1
+highlight link RnvimrNormal CursorLine
 nnoremap <silent> R :RnvimrToggle<CR><C-\><C-n>:RnvimrResize 0<CR>
+let g:rnvimr_action = {
+            \ '<C-t>': 'NvimEdit tabedit',
+            \ '<C-x>': 'NvimEdit split',
+            \ '<C-v>': 'NvimEdit vsplit',
+            \ 'gw': 'JumpNvimCwd',
+            \ 'yw':'EmitRangerCwd'
+            \}
 let g:rnvimr_layout = {
             \ 'relative': 'editor',
             \ 'width': &columns,
@@ -1224,8 +1238,6 @@ nmap s <plug>(SubversiveSubstitute)
 nmap ss <plug>(SubversiveSubstituteLine)
 " ======> End ================================================================
 
-
-" ======> Start of vim-table-mode ============================================
 noremap <LEADER>tm :TableModeToggle<CR>
 "let g:table_mode_disable_mappings = 1
 let g:table_mode_cell_text_object_i_map = 'k<Bar>'
