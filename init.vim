@@ -169,7 +169,11 @@ noremap <silent> <LEADER>o za
 " Open up lazygit
 noremap \g :Git<CR>
 noremap <c-g> :tabe<CR>:-tabmove<CR>:term lazygit<CR>
+<<<<<<< HEAD
 "noremap <c-h> :tabe<CR>:-tabmove<CR>:term ranger<CR>
+=======
+noremap <c-h> :tabe<CR>:-tabmove<CR>:term ranger<CR>
+>>>>>>> 7ece0e2c0e196471a69c11a38384098ae9c63dba
 
 " ===
 " === Cursor Movement
@@ -327,12 +331,21 @@ func! CompileRunGcc()
         exec "InstantMarkdownPreview"
     elseif &filetype == 'dart'
         "CocCommand flutter.run
+<<<<<<< HEAD
         exec "CocCommand flutter.run -d ".g:flutter_default_device
         silent! exec "CocCommand flutter.dev.openDevLog"
     elseif &filetype == 'javascript'
         set splitbelow
         :sp
         :term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings .
+=======
+		exec "CocCommand flutter.run -d ".g:flutter_default_device
+		silent! exec "CocCommand flutter.dev.openDevLog"
+	elseif &filetype == 'javascript'
+		set splitbelow
+		:sp
+		:term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings .
+>>>>>>> 7ece0e2c0e196471a69c11a38384098ae9c63dba
     elseif &filetype == 'go'
         set splitbelow
         :sp
@@ -532,7 +545,11 @@ Plug 'Vimjas/vim-python-pep8-indent', { 'for' :['python', 'vim-plug'] }
 Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins', 'for' :['python', 'vim-plug'] }
 "Plug 'vim-scripts/indentpython.vim', { 'for' :['python', 'vim-plug'] }
 "Plug 'plytophogy/vim-virtualenv', { 'for' :['python', 'vim-plug'] }
+<<<<<<< HEAD
 Plug 'tweekmonster/braceless.vim', { 'for' :['python', 'vim-plug'] }
+=======
+Plug 'tweekmonster/braceless.vim', { 'for' :['python', 'vim-plug'] }  
+>>>>>>> 7ece0e2c0e196471a69c11a38384098ae9c63dba
 
 "=============================================================================
 "======> Tex  <========
@@ -861,7 +878,11 @@ let g:user_emmet_mode='i'
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 " To remap the default<C-Y> leader
+<<<<<<< HEAD
 let g:user_emmet_leader_key='<C-m>'
+=======
+let g:user_emmet_leader_key='<C-l>'
+>>>>>>> 7ece0e2c0e196471a69c11a38384098ae9c63dba
 " ======> End <================================================================
 
 
@@ -1152,6 +1173,7 @@ let g:rooter_patterns = ['__vim_project_root', '.git/']
 " ======> Start of rnvimr ====================================================
 let g:rnvimr_ex_enable = 1
 let g:rnvimr_pick_enable = 1
+<<<<<<< HEAD
 "let g:rnvimr_draw_border = 0
 let g:rnvimr_bw_enable = 1
 highlight link RnvimrNormal CursorLine
@@ -1163,6 +1185,9 @@ let g:rnvimr_action = {
             \ 'gw': 'JumpNvimCwd',
             \ 'yw':'EmitRangerCwd'
             \}
+=======
+nnoremap <silent> R :RnvimrToggle<CR><C-\><C-n>:RnvimrResize 0<CR>
+>>>>>>> 7ece0e2c0e196471a69c11a38384098ae9c63dba
 let g:rnvimr_layout = {
             \ 'relative': 'editor',
             \ 'width': &columns,
@@ -1238,6 +1263,11 @@ nmap s <plug>(SubversiveSubstitute)
 nmap ss <plug>(SubversiveSubstituteLine)
 " ======> End ================================================================
 
+<<<<<<< HEAD
+=======
+
+" ======> Start of vim-table-mode ============================================
+>>>>>>> 7ece0e2c0e196471a69c11a38384098ae9c63dba
 noremap <LEADER>tm :TableModeToggle<CR>
 "let g:table_mode_disable_mappings = 1
 let g:table_mode_cell_text_object_i_map = 'k<Bar>'
