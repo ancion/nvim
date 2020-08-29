@@ -462,7 +462,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 "Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'junegunn/fzf.vim'
 "Plug 'yuki-ycino/fzf-preview.vim'
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
 Plug 'kevinhwang91/rnvimr'
 
 "=============================================================================
@@ -894,7 +894,7 @@ set rtp+=/usr/bin/fzf
 "set rtp+=~/.fzf/bin/fzf
 "set rtp+=/home/linuxbrew/.linuxbrew/opt/fzf
 noremap <C-f> :Files<CR>
-noremap <C-r> :Rg<CR>
+noremap <C-e> :Rg<CR>
 "noremap <C-h> :History<CR>
 noremap <c-d> :BD<CR>
 "noremap > :BTags<CR>
@@ -922,14 +922,14 @@ command! BD call fzf#run(fzf#wrap({
             \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
             \ }))
 
-"function! RipgrepFzf(query, fullscreen)
-"let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
-"let initial_command = printf(command_fmt, shellescape(a:query))
-"let reload_command = printf(command_fmt, '{q}')
-"let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
-"call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
-"endfunction
-"command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
+function! RipgrepFzf(query, fullscreen)
+let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+let initial_command = printf(command_fmt, shellescape(a:query))
+let reload_command = printf(command_fmt, '{q}')
+let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
 
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.7 } }
 
