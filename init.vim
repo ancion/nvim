@@ -38,6 +38,7 @@ set autochdir
 " === Editor behavior
 " ===
 syntax on
+"set hidden
 set number
 set relativenumber
 set cursorline
@@ -391,7 +392,7 @@ Plug 'skywind3000/asyncrun.vim'
 "=== There is a calculate tool of the theniceboy self developed,just for Test=
 "=============================================================================
 
-Plug 'theniceboy/vim-calc'
+"Plug 'theniceboy/vim-calc'
 
 "=============================================================================
 "======== Pretty Dress  ==> just give a little of color to the IDE============
@@ -422,7 +423,7 @@ Plug 'bling/vim-bufferline'
 Plug 'chrisbra/Colorizer' " Show colors with :ColorHighlight
 Plug 'dracula/vim',{'as':'dracula'}
 Plug 'RRethy/vim-illuminate'
-Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase'  }
+"Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase'  }
 
 " =============================================================================
 " =====> Navigation WithinBuffer <====================
@@ -458,7 +459,7 @@ Plug 'Chiel92/vim-autoformat'
 "=============================================================================
 
 " File navigation
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+"Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 "Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'junegunn/fzf.vim'
 "Plug 'yuki-ycino/fzf-preview.vim'
@@ -498,9 +499,9 @@ Plug 'airblade/vim-gitgutter'
 "======> HTML, CSS, JavaScript, PHP, JSON, etc.
 "=============================================================================
 Plug 'elzr/vim-json'
-Plug 'hail2u/vim-css3-syntax', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
-Plug 'spf13/PIV', { 'for' :['php', 'vim-plug'] }
-Plug 'pangloss/vim-javascript', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
+"Plug 'hail2u/vim-css3-syntax', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
+"Plug 'spf13/PIV', { 'for' :['php', 'vim-plug'] }
+"Plug 'pangloss/vim-javascript', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
 Plug 'yuezk/vim-js', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
 Plug 'MaxMEllon/vim-jsx-pretty', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
 Plug 'jelera/vim-javascript-syntax', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
@@ -512,22 +513,22 @@ Plug 'posva/vim-vue'
 "=============================================================================
 
 " Go
-Plug 'fatih/vim-go' , { 'for': ['go', 'vim-plug'], 'tag': '*' }
+"Plug 'fatih/vim-go' , { 'for': ['go', 'vim-plug'], 'tag': '*' }
 
 "=============================================================================
 "======> C# <====================
 "=============================================================================
 
 " CSharpS
-Plug 'OmniSharp/omnisharp-vim'
-Plug 'ctrlpvim/ctrlp.vim' , { 'for': ['cs', 'vim-plug'] } " omnisharp-vim dependency
+"Plug 'OmniSharp/omnisharp-vim'
+"Plug 'ctrlpvim/ctrlp.vim' , { 'for': ['cs', 'vim-plug'] } " omnisharp-vim dependency
 
 "=============================================================================
 "======> Python <===========
 "=============================================================================
 
 " Python
-Plug 'tmhedberg/SimpylFold', { 'for' :['python', 'vim-plug'] }
+"Plug 'tmhedberg/SimpylFold', { 'for' :['python', 'vim-plug'] }
 Plug 'Vimjas/vim-python-pep8-indent', { 'for' :['python', 'vim-plug'] }
 Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins', 'for' :['python', 'vim-plug'] }
 "Plug 'vim-scripts/indentpython.vim', { 'for' :['python', 'vim-plug'] }
@@ -546,15 +547,15 @@ Plug 'tweekmonster/braceless.vim', { 'for' :['python', 'vim-plug'] }
 "=============================================================================
 
 " Flutter
-Plug 'dart-lang/dart-vim-plugin'
-Plug 'thosakwe/vim-flutter'
+"Plug 'dart-lang/dart-vim-plugin'
+"Plug 'thosakwe/vim-flutter'
 
 "=============================================================================
 "======> Swift <===============
 "=============================================================================
 
 " Swift
-Plug 'keith/swift.vim'
+"Plug 'keith/swift.vim'
 
 "=============================================================================
 "======>
@@ -734,7 +735,7 @@ let g:colorizer_syntax = 1
 
 
 " ======> Start of vim-calc ==================================================
-noremap <LEADER>a :call Calc()<CR>
+"noremap <LEADER>a :call Calc()<CR>
 " ======> End ================================================================
 
 
@@ -833,8 +834,8 @@ nnoremap <leader>tu :CocCommand todolist.download<CR>:CocCommand todolist.upload
 " coc-tasks
 noremap <silent> C :CocList tasks<CR>
 " coc-snippets
-imap <C-l> <Plug>(coc-snippets-expand)
-vmap <C-e> <Plug>(coc-snippets-select)
+imap <LEADER>n <Plug>(coc-snippets-expand)
+vmap <LEADER>n <Plug>(coc-snippets-select)
 let g:coc_snippet_next = '<c-e>'
 let g:coc_snippet_prev = '<c-n>'
 imap <C-e> <Plug>(coc-snippets-expand-jump)
@@ -1092,7 +1093,7 @@ let g:leaderMapperWidth = 60
 
 
 " ======> Start of nerdTree ==================================================
-map <C-n> :NERDTreeToggle<CR>
+"map <C-n> :NERDTreeToggle<CR>
 " ======> End=================================================================
 
 
