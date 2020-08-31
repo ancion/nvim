@@ -464,7 +464,7 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'junegunn/fzf.vim'
 "Plug 'yuki-ycino/fzf-preview.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
-Plug 'kevinhwang91/rnvimr'
+"Plug 'kevinhwang91/rnvimr'
 
 "=============================================================================
 "======> Snippets <============================
