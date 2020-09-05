@@ -148,7 +148,7 @@ let g:clipboard = {
             \      '*': 'tmux save-buffer -',
             \   },
             \   'cache_enabled': 1,
-            \ }
+            \}
 
 " Indentation
 nnoremap < <<
@@ -181,6 +181,7 @@ noremap <c-g> :tabe<CR>:-tabmove<CR>:term lazygit<CR>
 noremap <C-K> 5<C-y>
 noremap <C-J> 5<C-e>
 
+
 " J/K keys for 4 times j/k (faster navigation)
 noremap <silent> K 5k
 noremap <silent> J 5j
@@ -203,8 +204,10 @@ noremap s <nop>
 inoremap <C-a> <ESC>A
 " change jj to the <ESC>
 imap jj <ESC>
+" go to next line in insert mode with cursor middle in line 
+inoremap <C-j> <ESC>A<CR>
 
-" ===
+"===
 " === Command Mode Cursor Movement
 " ===
 cnoremap <C-h> <Home>
@@ -325,7 +328,7 @@ func! CompileRunGcc()
     elseif &filetype == 'html'
         silent! exec "!".g:mkdp_browser." % &"
     elseif &filetype == 'markdown'
-        exec "InstantMarkdownPreview"
+        exec "MarkdownPreview"
     elseif &filetype == 'dart'
         "CocCommand flutter.run
         exec "CocCommand flutter.run -d ".g:flutter_default_device
@@ -464,7 +467,7 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'junegunn/fzf.vim'
 "Plug 'yuki-ycino/fzf-preview.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
-"Plug 'kevinhwang91/rnvimr'
+Plug 'kevinhwang91/rnvimr'
 
 "=============================================================================
 "======> Snippets <============================
