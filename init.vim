@@ -86,7 +86,7 @@ endif
 set mouse=a
 "set guifont=Source\ Code\ Variable:h16
 
-set colorcolumn=80
+set colorcolumn=90
 set updatetime=100
 set virtualedit=block
 
@@ -646,7 +646,7 @@ let g:space_vim_transp_bg = 1
 colorscheme space_vim_theme
 
 "colorscheme snazzy
-"let g:SnazzyTransparent =1
+let g:SnazzyTransparent =1
 "set background=dark
 
 "colorscheme dracula
