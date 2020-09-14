@@ -900,8 +900,8 @@ set rtp+=/usr/bin/fzf
 noremap <C-f> :Files<CR>
 noremap <C-e> :Rg<CR>
 "noremap <C-h> :History<CR>
-noremap <c-d> :BD<CR>
-"noremap > :BTags<CR>
+noremap <C-d> :BD<CR>
+noremap <C-\> :BTags<CR>
 noremap <C-l> :Lines<CR>
 noremap <C-w> :Buffers<CR>
 noremap <leader>; :History:<CR>
