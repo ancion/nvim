@@ -12,15 +12,15 @@
 if empty(glob('~\AppData\Local\nvim\autoload\plug.vim'))
     silent! exec "md ~\AppData\Local\nvim\autoload"
     silent! exec "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim',$ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath('~\AppData\Local\nvim-data\site\autoload\plug.vim' ))"
-	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 " ===> Create a _machine_specific.vim file to adjust machine specific stuff, like python interpreter location
 " =============================================================================
 let has_machine_specific_file = 1
 if empty(glob('~\AppData\Local\nvim\_machine_specific.vim'))
-	let has_machine_specific_file = 0
-	silent! exec "!cp ~\AppData\Local\nvim\default_configs\_machine_specific_default.vim ~\AppData\Local\nvim\_machine_specific.vim"
+    let has_machine_specific_file = 0
+    silent! exec "!cp ~\AppData\Local\nvim\default_configs\_machine_specific_default.vim ~\AppData\Local\nvim\_machine_specific.vim"
 endif
 source ~\AppData\Local\nvim\_machine_specific.vim
 " ====================
@@ -39,8 +39,8 @@ set autochdir
 " ===
 set number
 set relativenumber
-set cursorline 
-set cursorcolumn 
+set cursorline
+set cursorcolumn
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -80,10 +80,10 @@ endif
 set backupdir=~\AppData\Local\nvim\tmp\backup,
 set directory=~\AppData\Local\nvim\tmp\backup,
 if has('persistent_undo')
-	set undofile
-	set undodir=~\AppData\Local\nvim\tmp\undo,
+    set undofile
+    set undodir=~\AppData\Local\nvim\tmp\undo,
 endif
-syntax on 
+syntax on
 set mouse=a
 "set guifont=Source\ Code\ Variable:h16
 
@@ -138,17 +138,17 @@ nnoremap Y y$
 vnoremap Y "+y
 
 let g:clipboard = {
-      \   'name': 'myClipboard',
-      \   'copy': {
-      \      '+': 'tmux load-buffer -',
-      \      '*': 'tmux load-buffer -',
-      \    },
-      \   'paste': {
-      \      '+': 'tmux save-buffer -',
-      \      '*': 'tmux save-buffer -',
-      \   },
-      \   'cache_enabled': 1,
-      \ }
+            \   'name': 'myClipboard',
+            \   'copy': {
+            \      '+': 'tmux load-buffer -',
+            \      '*': 'tmux load-buffer -',
+            \    },
+            \   'paste': {
+            \      '+': 'tmux save-buffer -',
+            \      '*': 'tmux save-buffer -',
+            \   },
+            \   'cache_enabled': 1,
+            \ }
 
 " Indentation
 nnoremap < <<
@@ -202,7 +202,7 @@ noremap s <nop>
 " ===
 inoremap <C-a> <ESC>A
 " change jj to the <ESC>
-imap jj <ESC> 
+imap jj <ESC>
 
 " === Window management
 " ===
@@ -225,13 +225,13 @@ noremap <down> :res -5<CR>
 noremap <left> :vertical resize-5<CR>
 noremap <right> :vertical resize+5<CR>
 
-" Place the screen up and down 
-noremap bb <C-w>t<C-w>K
+" Place the screen up and down
+noremap sx <C-w>t<C-w>K
 " Place the teo screen side by side
-noremap vv <C-w>t<C-w>H
+noremap sv <C-w>t<C-w>H
 
 " Rotate screens
-noremap srb <C-w>b<C-w>K
+noremap srx <C-w>b<C-w>K
 noremap srv <C-w>b<C-w>H
 " press <SPACE>+q to close the window below the current window
 noremap <LEADER>q <C-w>j:q<CR>
@@ -285,39 +285,39 @@ noremap \s :%s//g<left><left>
 " ===
 " === with this function you can comile and run you code easily
 " ===
-" Compile function 
+" Compile function
 noremap r :call CompileRunGcc()<CR>
 func! CompileRunGcc()
-	exec "w"
-	if &filetype == 'c' 
-		exec "!g++ % -o %<"
-		exec "!time ./%<"
-	elseif &filetype == 'cpp' 
-		set splitbelow
-		exec "!g++ -std=c++11 % -Wall -o %<"
-		:sp
-		:res -15
-		:term ./%<
-	elseif &filetype =='java'
-		exec "!javac %"
-		exec "!java %<"
-	elseif &filetype == 'sh'
-		:!time bash %
-	elseif &filetype == 'python'
-		set splitbelow
-		:sp
-		:term python3 %
-	elseif &filetype == 'html'
-		silent! exec "!".g:mkdp_browser." % &"
-	elseif &filetype == 'markdown'
-		exec "MarkdownPreview"
-	elseif &filetype == 'dart'
-		CocCommand flutter.run
-	elseif &filetype == 'go' 	
-		set splitbelow 
-		:sp
-		:term go run %
-	endif	
+    exec "w"
+    if &filetype == 'c'
+        exec "!g++ % -o %<"
+        exec "!time ./%<"
+    elseif &filetype == 'cpp'
+        set splitbelow
+        exec "!g++ -std=c++11 % -Wall -o %<"
+        :sp
+        :res -15
+        :term ./%<
+    elseif &filetype =='java'
+        exec "!javac %"
+        exec "!java %<"
+    elseif &filetype == 'sh'
+        :!time bash %
+    elseif &filetype == 'python'
+        set splitbelow
+        :sp
+        :term python3 %
+    elseif &filetype == 'html'
+        silent! exec "!".g:mkdp_browser." % &"
+    elseif &filetype == 'markdown'
+        exec "MarkdownPreview"
+    elseif &filetype == 'dart'
+        CocCommand flutter.run
+    elseif &filetype == 'go'
+        set splitbelow
+        :sp
+        :term go run %
+    endif
 endfunc
 
 
@@ -333,7 +333,7 @@ function! Mysys()
 endfunction
 
 
-"=== 
+"===
 "=== resolve encoding error
 "===
 set encoding=utf-8
@@ -424,7 +424,7 @@ Plug 'mbbill/undotree'
 "======> DUBUGGER  TOOL <===================
 "=============================================================================
 
-" Debugger for python 
+" Debugger for python
 Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-c --enable-python --enable-go'}
 
 "=============================================================================
@@ -441,7 +441,7 @@ Plug 'Chiel92/vim-autoformat'
 "=============================================================================
 "======> Let me find what I want faster <========================
 "=============================================================================
- 
+
 " File navigation
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 "Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -480,7 +480,7 @@ Plug 'airblade/vim-gitgutter'
 
 "=============================================================================
 "======> HTML, CSS, JavaScript, PHP, JSON, etc.
-"============================================================================= 
+"=============================================================================
 
 Plug 'elzr/vim-json'
 Plug 'hail2u/vim-css3-syntax', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
@@ -541,7 +541,7 @@ Plug 'thosakwe/vim-flutter'
 Plug 'keith/swift.vim'
 
 "=============================================================================
-"======> 
+"======>
 "=============================================================================
 
 " Other filetypes
@@ -560,7 +560,7 @@ Plug 'theniceboy/antovim' " gs to switch
 Plug 'tpope/vim-surround' " type yskw' to wrap the word with '' or type cs'` to change 'word' to `word`
 Plug 'gcmt/wildfire.vim' " in Visual mode, type k' to select all text in '', or type k) k] k} kp
 Plug 'junegunn/vim-after-object' " da= to delete what's after =
-Plug 'junegunn/vim-easy-align' " gaip= to align the = in paragraph, 
+Plug 'junegunn/vim-easy-align' " gaip= to align the = in paragraph,
 Plug 'Konfekt/FastFold'
 "Plug 'junegunn/vim-peekaboo'
 "Plug 'wellle/context.vim'
@@ -596,7 +596,7 @@ Plug 'theniceboy/vim-leader-mapper'
 "Plug 'voldikss/vim-floaterm'
 "Plug 'liuchengxu/vim-clap'
 "Plug 'jceb/vim-orgmode'
-"===>> This plug can show you a list files recently opened when you start nvim 
+"===>> This plug can show you a list files recently opened when you start nvim
 Plug 'mhinz/vim-startify'
 
 " Other visual enhancement
@@ -619,7 +619,7 @@ call plug#end()
 " ============================================================================
 " ======> Dress up my vim
 " ============================================================================
-set termguicolors	" enable true colors support
+set termguicolors   " enable true colors support
 
 colorscheme snazzy
 "colorscheme dracula
@@ -643,7 +643,7 @@ hi NonText ctermfg=gray guifg=grey10
 "hi NonText ctermfg=Black guifg=black10
 hi normal ctermfg=252 ctermbg=none
 
-" set ruby_host_prog 
+" set ruby_host_prog
 let g:ruby_host_prog = 'rvm system do neovim-ruby-host'
 " ===================== Start of Plugin Settings =============================
 
@@ -673,11 +673,11 @@ let g:asyncrun_open = 6
 " ======>Start of  Bullets.vim ===============================================
 "let g:bullets_set_mappings = 0
 let g:bullets_enabled_file_types = [
-			\ 'markdown',
-			\ 'text',
-			\ 'gitcommit',
-			\ 'scratch'
-			\]
+            \ 'markdown',
+            \ 'text',
+            \ 'gitcommit',
+            \ 'scratch'
+            \]
 " ======> End ================================================================
 
 
@@ -736,18 +736,18 @@ let g:coc_global_extensions = ['coc-python', 'coc-vimlsp', 'coc-html', 'coc-json
 "xmap <silent> <TAB> <Plug>(coc-range-select)
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1]	=~ '\s'
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]    =~ '\s'
 endfunction
 inoremap <silent><expr> <TAB>
-	\ pumvisible() ? "\<C-n>" :
-	\ <SID>check_back_space() ? "\<TAB>" :
-	\ coc#refresh()
+            \ pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 function! s:check_back_space() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1]  =~# '\s'
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <silent><expr> <c-o> coc#refresh()
@@ -771,7 +771,7 @@ nmap tt :CocCommand explorer<CR>
 nmap ts <Plug>(coc-translator-p)
 " Remap for do codeAction of selected region
 function! s:cocActionsOpenFromSelected(type) abort
-  execute 'CocCommand actions.open ' . a:type
+    execute 'CocCommand actions.open ' . a:type
 endfunction
 xmap <silent> <leader>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
 nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
@@ -806,7 +806,7 @@ nmap ga <Plug>(EasyAlign)
 
 " ======> Start of vim-fugitive ==============================================
 nnoremap gb :Gblame<CR>
-" ======> End ================================================================ 
+" ======> End ================================================================
 
 
 " ======> Start of fzf-gitignore =============================================
@@ -817,8 +817,8 @@ noremap <LEADER>gi :FzfGitignore<CR>
 " ======> Start of Far.vim ===================================================
 noremap <LEADER>f :F  **/*<left><left><left><left><left>
 let g:far#mapping = {
-		\ "replace_undo" : ["l"],
-		\ }
+            \ "replace_undo" : ["l"],
+            \ }
 " ======> End ================================================================
 
 
@@ -826,10 +826,10 @@ let g:far#mapping = {
 "set rtp+=/usr/bin/fzf
 "set rtp+=~/.fzf/bin/fzf
 "set rtp+=/home/linuxbrew/.linuxbrew/opt/fzf
-noremap <C-p> :Files<CR>
-noremap <C-f> :Rg<CR>
-"noremap <C-h> :History<CR>
-"noremap <C-t> :BTags<CR>
+noremap <C-f> :Files<CR>
+noremap <C-e> :Rg<CR>
+noremap <C-\> :BTags<CR>
+noremap <c-d> :BD<CR>
 noremap <C-l> :Lines<CR>
 noremap <C-w> :Buffers<CR>
 noremap <leader>; :History:<CR>
@@ -838,28 +838,27 @@ let g:fzf_preview_window = 'right:60%'
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
 
 function! s:list_buffers()
-  redir => list
-  silent ls
-  redir END
-  return split(list, "\n")
+    redir => list
+    silent ls
+    redir END
+    return split(list, "\n")
 endfunction
 
 function! s:delete_buffers(lines)
-  execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
+    execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
 endfunction
 
 command! BD call fzf#run(fzf#wrap({
-  \ 'source': s:list_buffers(),
-  \ 'sink*': { lines -> s:delete_buffers(lines) },
-  \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
-\ }))
+            \ 'source': s:list_buffers(),
+            \ 'sink*': { lines -> s:delete_buffers(lines) },
+            \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
+            \ }))
 
 command! -bang -nargs=* Rg
             \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
-  \   fzf#vim#with_preview(), <bang>0)
+            \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+            \   fzf#vim#with_preview(), <bang>0)
 
-noremap <c-d> :BD<CR>
 
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.7 } }
 
@@ -893,7 +892,7 @@ let g:gitgutter_override_sign_column_highlight = 0
 let g:gitgutter_preview_win_floating = 1
 autocmd BufWritePost * GitGutter
 nnoremap <LEADER>gf :GitGutterFold<CR>
-nnoremap H :GitGutterPreviewHunk<CR>
+"nnoremap H :GitGutterPreviewHunk<CR>
 nnoremap <LEADER>g- :GitGutterPrevHunk<CR>
 nnoremap <LEADER>g= :GitGutterNextHunk<CR>
 " ======> End ================================================================
@@ -954,14 +953,14 @@ let g:mkdp_open_ip = ''
 let g:mkdp_echo_preview_url = 0
 let g:mkdp_browserfunc = ''
 let g:mkdp_preview_options = {
-			\ 'mkit': {},
-			\ 'katex': {},
-			\ 'uml': {},
-			\ 'maid': {},
-			\ 'disable_sync_scroll': 0,
-			\ 'sync_scroll_type': 'middle',
-			\ 'hide_yaml_meta': 1
-			\ }
+            \ 'mkit': {},
+            \ 'katex': {},
+            \ 'uml': {},
+            \ 'maid': {},
+            \ 'disable_sync_scroll': 0,
+            \ 'sync_scroll_type': 'middle',
+            \ 'hide_yaml_meta': 1
+            \ }
 let g:mkdp_markdown_css = ''
 let g:mkdp_highlight_css = ''
 let g:mkdp_port = ''
@@ -993,27 +992,27 @@ let g:vmt_fence_closing_text = '/TOC'
 
 " ======> Start of vim-map-leader ============================================
 let g:leaderMenu = {'name':  "Shortcut Menu",
-\'<SPACE> Enter':  '====='['Clear search'],
-\'<SPACE> a':  ['Calculate equation'],
-\'<SPACE> f':  ['Advanced find'],
-\'<SPACE> o':  ['Open folds'],
-\'<SPACE> q':  ['Close win below'],
-\'<SPACE> /':  ['Open terminal'],
-\'<SPACE> rc': ['Edit nvim config'],
-\'<SPACE> dw':  ['Remove adj. dup. words'],
-\'<SPACE> tt':  ['spc to tabs'],
-\'<SPACE> *2':  ['Find <++>'],
-\'<SPACE> sc':  ['Toggle spell-check'],
-\'<SPACE> gf':  ['Fold unchanged'],
-\'<SPACE> g-':  ['Previous hunk'],
-\'<SPACE> g=':  ['Next Hunk'],
-\'<SPACE> rn':  ['Rename variable'],
-\'<SPACE> tm':  ['Toggle table-mode'],
-\'<SPACE> gi':  ['New .gitignore'],
-\'<SPACE> gy':  ['Toggle focus mode'],
-\'<SPACE> cn':  ['commente the code'],
-\'<SPACE> cu':  ['uncomment the code'],
-\}
+            \'<SPACE> Enter':  '====='['Clear search'],
+            \'<SPACE> a':  ['Calculate equation'],
+            \'<SPACE> f':  ['Advanced find'],
+            \'<SPACE> o':  ['Open folds'],
+            \'<SPACE> q':  ['Close win below'],
+            \'<SPACE> /':  ['Open terminal'],
+            \'<SPACE> rc': ['Edit nvim config'],
+            \'<SPACE> dw':  ['Remove adj. dup. words'],
+            \'<SPACE> tt':  ['spc to tabs'],
+            \'<SPACE> *2':  ['Find <++>'],
+            \'<SPACE> sc':  ['Toggle spell-check'],
+            \'<SPACE> gf':  ['Fold unchanged'],
+            \'<SPACE> g-':  ['Previous hunk'],
+            \'<SPACE> g=':  ['Next Hunk'],
+            \'<SPACE> rn':  ['Rename variable'],
+            \'<SPACE> tm':  ['Toggle table-mode'],
+            \'<SPACE> gi':  ['New .gitignore'],
+            \'<SPACE> gy':  ['Toggle focus mode'],
+            \'<SPACE> cn':  ['commente the code'],
+            \'<SPACE> cu':  ['uncomment the code'],
+            \}
 
 nnoremap <silent> ? :call leaderMapper#start() "<Space>"<CR>
 let g:leaderMapperWidth = 80
@@ -1043,27 +1042,27 @@ map <C-n> :NERDTreeToggle<CR>
 "sign define OmniSharpCodeActions text=💡
 
 "augroup OSCountCodeActions
-	"autocmd!
-	"autocmd FileType cs set signcolumn=yes
-	"autocmd CursorHold *.cs call OSCountCodeActions()
+"autocmd!
+"autocmd FileType cs set signcolumn=yes
+"autocmd CursorHold *.cs call OSCountCodeActions()
 "augroup END
 
 "function! OSCountCodeActions() abort
-	"if bufname('%') ==# '' || OmniSharp#FugitiveCheck() | return | endif
-	"if !OmniSharp#IsServerRunning() | return | endif
-	"let opts = {
-				"\ 'CallbackCount': function('s:CBReturnCount'),
-				"\ 'CallbackCleanup': {-> execute('sign unplace 99')}
-				"\}
-	"call OmniSharp#CountCodeActions(opts)
+"if bufname('%') ==# '' || OmniSharp#FugitiveCheck() | return | endif
+"if !OmniSharp#IsServerRunning() | return | endif
+"let opts = {
+            "\ 'CallbackCount': function('s:CBReturnCount'),
+            "\ 'CallbackCleanup': {-> execute('sign unplace 99')}
+"\}
+"call OmniSharp#CountCodeActions(opts)
 "endfunction
 
 "function! s:CBReturnCount(count) abort
-	"if a:count
-		"let l = getpos('.')[1]
-		"let f = expand('%:p')
-		"execute ':sign place 99 line='.l.' name=OmniSharpCodeActions file='.f
-	"endif
+"if a:count
+"let l = getpos('.')[1]
+"let f = expand('%:p')
+"execute ':sign place 99 line='.l.' name=OmniSharpCodeActions file='.f
+"endif
 "endfunction
 "" ======> End ================================================================
 
@@ -1078,7 +1077,7 @@ let g:rooter_patterns = ['__vim_project_root', '.git/']
 " ======> End ================================================================
 
 
- 
+
 " ======> Start of reply.vim =================================================
 "noremap <LEADER>rp :w<CR>:Repl<CR><C-\><C-N><C-w><C-h>
 "noremap <LEADER>rs :ReplSend<CR><C-w><C-l>a<CR><C-\><C-N><C-w><C-h>
@@ -1089,28 +1088,28 @@ let g:rooter_patterns = ['__vim_project_root', '.git/']
 
 " ======> Start of vim-signature =============================================
 let g:SignatureMap = {
-			\ 'Leader':"m",
-			\ 'PlaceNextMark':"m,",
-			\ 'ToggleMarkAtLine':"m.",
-			\ 'PurgeMarksAtLine':"dm",
-			\ 'DeleteMark':"",
-			\ 'PurgeMarks':"",
-			\ 'PurgeMarkers':"",
-			\ 'GotoNextLineAlpha':"m<LEADER>",
-			\ 'GotoPrevLineAlpha':"",
-			\ 'GotoNextSpotAlpha':"m<LEADER>",
-			\ 'GotoPrevSpotAlpha':"",
-			\ 'GotoNextLineByPos':"",
-			\ 'GotoPrevLineByPos':"",
-			\ 'GotoNextSpotByPos':"",
-			\ 'GotoPrevSpotByPos':"",
-			\ 'GotoNextMarker':"",
-			\ 'GotoPrevMarker':"",
-			\ 'GotoNextMarkerAny':"",
-			\ 'GotoPrevMarkerAny':"",
-			\ 'ListLocalMarks':"m/",
-			\ 'ListLocalMarkers':"m?"
-			\ }
+            \ 'Leader':"m",
+            \ 'PlaceNextMark':"m,",
+            \ 'ToggleMarkAtLine':"m.",
+            \ 'PurgeMarksAtLine':"dm",
+            \ 'DeleteMark':"",
+            \ 'PurgeMarks':"",
+            \ 'PurgeMarkers':"",
+            \ 'GotoNextLineAlpha':"m<LEADER>",
+            \ 'GotoPrevLineAlpha':"",
+            \ 'GotoNextSpotAlpha':"m<LEADER>",
+            \ 'GotoPrevSpotAlpha':"",
+            \ 'GotoNextLineByPos':"",
+            \ 'GotoPrevLineByPos':"",
+            \ 'GotoNextSpotByPos':"",
+            \ 'GotoPrevSpotByPos':"",
+            \ 'GotoNextMarker':"",
+            \ 'GotoPrevMarker':"",
+            \ 'GotoNextMarkerAny':"",
+            \ 'GotoPrevMarkerAny':"",
+            \ 'ListLocalMarks':"m/",
+            \ 'ListLocalMarkers':"m?"
+            \ }
 " ======> End ================================================================
 
 
@@ -1123,7 +1122,7 @@ let g:SignatureMap = {
 "set sessionoptions-=options
 "noremap sl :OpenSession<CR>
 "noremap sS :SaveSession<CR>
-"noremap ss :SaveSession 
+"noremap ss :SaveSession
 "noremap sc :SaveSession<CR>:CloseSession<CR>:q<CR>
 "noremap so :OpenSession default<CR>
 "noremap sD :DeleteSession<CR>
@@ -1172,10 +1171,10 @@ let g:undotree_WindowLayout = 2
 let g:undotree_DiffpanelHeight = 8
 let g:undotree_SplitWidth = 24
 function g:Undotree_CustomMap()
-	nmap <buffer> u <plug>UndotreeNextState
-	nmap <buffer> b <plug>UndotreePreviousState
-	nmap <buffer> U 5<plug>UndotreeNextState
-	nmap <buffer> B 5<plug>UndotreePreviousState
+    nmap <buffer> u <plug>UndotreeNextState
+    nmap <buffer> b <plug>UndotreePreviousState
+    nmap <buffer> U 5<plug>UndotreeNextState
+    nmap <buffer> B 5<plug>UndotreePreviousState
 endfunc
 " ======> End ================================================================
 
@@ -1183,14 +1182,14 @@ endfunc
 " ======> Start of vimspector ================================================
 let g:vimspector_enable_mappings = 'HUMAN'
 function! s:read_template_into_buffer(template)
-	" has to be a function to avoid the extra space fzf#run insers otherwise
-	execute '0r ~\AppData\Local\nvim\sample_vimspector_json\'.a:template
+    " has to be a function to avoid the extra space fzf#run insers otherwise
+    execute '0r ~\AppData\Local\nvim\sample_vimspector_json\'.a:template
 endfunction
 command! -bang -nargs=* LoadVimSpectorJsonTemplate call fzf#run({
-			\   'source': 'ls -1 ~\AppData\Local\nvim\sample_vimspector_json',
-			\   'down': 20,
-			\   'sink': function('<sid>read_template_into_buffer')
-			\ })
+            \   'source': 'ls -1 ~\AppData\Local\nvim\sample_vimspector_json',
+            \   'down': 20,
+            \   'sink': function('<sid>read_template_into_buffer')
+            \ })
 noremap <leader>vs :tabe .vimspector.json<CR>:LoadVimSpectorJsonTemplate<CR>
 sign define vimspectorBP text=☛ texthl=Normal
 sign define vimspectorBPDisabled text=☞ texthl=Normal
@@ -1208,16 +1207,13 @@ noremap <c-t> :silent! Vista finder coc<CR>
 "let g:VM_default_mappings = 0
 let g:VM_leader                     = {'default': ',', 'visual': ',', 'buffer': ','}
 let g:VM_maps                       = {}
-let g:VM_custom_motions             = {'n': 'h', 'i': 'l', 'u': 'k', 'e': 'j', 'N': '0', 'I': '$', 'h': 'e'}
-let g:VM_maps['i']                  = 'k'
-let g:VM_maps['I']                  = 'K'
 let g:VM_maps['Find Under']         = '<C-k>'
 let g:VM_maps['Find Subword Under'] = '<C-k>'
 let g:VM_maps['Find Next']          = ''
 let g:VM_maps['Find Prev']          = ''
 let g:VM_maps['Remove Region']      = 'q'
 let g:VM_maps['Skip Region']        = '<c-n>'
-let g:VM_maps["Undo"]               = 'l'
+let g:VM_maps["Undo"]               = 'u'
 let g:VM_maps["Redo"]               = '<C-r>'
 " ======> End ================================================================
 
