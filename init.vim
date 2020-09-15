@@ -411,7 +411,6 @@ Plug 'connorholyday/vim-snazzy'
 "Plug 'morhetz/gruvbox'
 "Plug 'mhartington/oceanic-next'
 "Plug 'kristijanhusak/vim-hybrid-material'
-
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'liuchengxu/space-vim-theme'
 Plug 'vim-airline/vim-airline'
@@ -1353,5 +1352,9 @@ if has_machine_specific_file == 0
 endif
 
 " some useful cammand in vim
-" 1、:w !sudo tee %
-" 2、:%Tohtml
+" 1、:w !sudo tee %  save current file with a rooter persistion
+" 2、:%TOhtml        covert current file to html 
+" 3、:r !ls          insert the partitical result(only filename) of ls in current dictionaty 
+" 4、:e path         open default filemanager and show a file list and opration menu
+" 5、:n filename     new a file
+" 6、:w  filename    restore you file, but not change to the new file
