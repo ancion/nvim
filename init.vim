@@ -43,6 +43,7 @@ set number
 set relativenumber
 set cursorline
 set cursorcolumn
+set cmdheight=2 
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -375,7 +376,7 @@ endif
 "set ambiwidth=double
 "endif
 
-"set langmenu=zh_CN.utf-8
+set langmenu=zh_CN.utf-8
 "language messages zh_cn.utf-8
 
 call plug#begin('~/.config/nvim/plugged')
