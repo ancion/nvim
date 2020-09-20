@@ -30,7 +30,6 @@ source ~/.config/nvim/_machine_specific.vim
 " ===
 " === System
 " ===
-"set clipboard=unnamed
 let &t_ut=''
 set autochdir
 
@@ -43,7 +42,7 @@ set number
 set relativenumber
 set cursorline
 set cursorcolumn
-set cmdheight=2 
+set cmdheight=2
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -91,6 +90,7 @@ set colorcolumn=90
 set updatetime=100
 set virtualedit=block
 
+
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 " ===
@@ -132,24 +132,29 @@ noremap <LEADER>rc :e ~/.config/nvim/init.vim<CR>
 " Open Startify
 noremap <LEADER>st :Startify<CR>
 
+set clipboard=unnamedplus
 " make Y to copy till the end of the line
 nnoremap Y y$
 
 " Copy to system clipboard
 vnoremap Y "+y
 
-let g:clipboard = {
-            \   'name': 'myClipboard',
-            \   'copy': {
-            \      '+': 'tmux load-buffer -',
-            \      '*': 'tmux load-buffer -',
-            \    },
-            \   'paste': {
-            \      '+': 'tmux save-buffer -',
-            \      '*': 'tmux save-buffer -',
-            \   },
-            \   'cache_enabled': 1,
-            \}
+" copy wsl nvim clipboard content to Windows clipboard
+vnoremap p[ :!clip.exe <CR>u
+
+"set g:clipboard=xclip
+"let g:clipboard = {
+"            \   'name': 'myClipboard',
+"            \   'copy': {
+"            \      '+': 'tmux load-buffer -',
+"            \      '*': 'tmux load-buffer -',
+"            \    },
+"            \   'paste': {
+"            \      '+': 'tmux save-buffer -',
+"            \      '*': 'tmux save-buffer -',
+"            \   },
+"            \   'cache_enabled': 1,
+"            \}
 
 " Indentation
 nnoremap < <<
@@ -205,7 +210,7 @@ noremap s <nop>
 inoremap <C-a> <ESC>A
 " change jj to the <ESC>
 imap jj <ESC>
-" go to next line in insert mode with cursor middle in line 
+" go to next line in insert mode with cursor middle in line
 inoremap <C-j> <ESC>A<CR>
 
 "===
@@ -927,11 +932,11 @@ command! BD call fzf#run(fzf#wrap({
             \ }))
 
 function! RipgrepFzf(query, fullscreen)
-let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
-let initial_command = printf(command_fmt, shellescape(a:query))
-let reload_command = printf(command_fmt, '{q}')
-let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
-call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+    let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+    let initial_command = printf(command_fmt, shellescape(a:query))
+    let reload_command = printf(command_fmt, '{q}')
+    let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+    call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
 command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
 
@@ -1353,8 +1358,8 @@ endif
 
 " some useful cammand in vim
 " 1、:w !sudo tee %  save current file with a rooter persistion
-" 2、:%TOhtml        covert current file to html 
-" 3、:r !ls          insert the partitical result(only filename) of ls in current dictionaty 
+" 2、:%TOhtml        covert current file to html
+" 3、:r !ls          insert the partitical result(only filename) of ls in current dictionaty
 " 4、:e path         open default filemanager and show a file list and opration menu
 " 5、:n filename     new a file
 " 6、:w  filename    restore you file, but not change to the new file
