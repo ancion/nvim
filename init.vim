@@ -342,7 +342,7 @@ func! CompileRunGcc()
     elseif &filetype == 'javascript'
         set splitbelow
         :sp
-        :term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings .
+        :term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings %
     elseif &filetype == 'go'
         set splitbelow
         :sp
@@ -622,7 +622,7 @@ Plug 'theniceboy/vim-leader-mapper'
 "Plug 'liuchengxu/vim-clap'
 "Plug 'jceb/vim-orgmode'
 
-"===>> This plug can show you a list files recently opened when you start nvim
+" This plug can show you a list files recently opened when you start nvim
 Plug 'mhinz/vim-startify'
 
 " Other visual enhancement
@@ -1179,7 +1179,7 @@ let g:rnvimr_layout = {
             \ 'col': 0,
             \ 'row': 0,
             \ 'style': 'minimal' }
-let g:rnvimr_presets = [{'width': 0.8, 'height': 0.6}]
+let g:rnvimr_presets = [{'width': 0.8, 'height': 0.8}]
 " ======> End ================================================================
 
 
