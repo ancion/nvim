@@ -288,7 +288,8 @@ nnoremap \t :tabe<CR>:-tabmove<CR>:term sh -c 'st'<CR><C-\><C-N>:q<CR>
 
 " Opening a terminal window
 "noremap <LEADER>/ :term<CR>
-noremap <LEADER>/ :set splitbelow<CR>:split<CR>:term<CR>
+"noremap <LEADER>/ :set splitbelow<CR>:split<CR>:term<CR>
+noremap <LEADER>/ :FloatermNew<CR>
 "noremap <LEADER>/ :set splitbelow<CR>:split<CR>:res +10<CR>:term<CR>
 
 " Press space twice to jump to the next '<++>' and edit it
@@ -328,9 +329,10 @@ func! CompileRunGcc()
     elseif &filetype == 'sh'
         :!time bash %
     elseif &filetype == 'python'
-        set splitbelow
-        :sp
-        :term python3 %
+        :FloatermNew python3 %
+        "set splitbelow
+        ":sp
+        ":term python3 %
     elseif &filetype == 'html'
         silent! exec "!".g:mkdp_browser." % &"
     elseif &filetype == 'markdown'
@@ -621,7 +623,7 @@ Plug 'theniceboy/vim-leader-mapper'
 "Plug 'voldikss/vim-floaterm'
 "Plug 'liuchengxu/vim-clap'
 "Plug 'jceb/vim-orgmode'
-
+Plug 'voldikss/vim-floaterm'
 " This plug can show you a list files recently opened when you start nvim
 Plug 'mhinz/vim-startify'
 
@@ -647,8 +649,8 @@ call plug#end()
 " ============================================================================
 set termguicolors " enable true colors support
 
-let g:space_vim_transp_bg = 1
-colorscheme space_vim_theme
+"let g:space_vim_transp_bg = 1
+"colorscheme space_vim_theme
 
 "colorscheme snazzy
 let g:SnazzyTransparent =1
@@ -656,7 +658,7 @@ let g:SnazzyTransparent =1
 
 "colorscheme dracula
 "color one
-"colors deus
+colors deus
 "color gruvbox
 "color ayu
 "color xcodelighthc
@@ -896,6 +898,16 @@ let g:far#mapping = {
             \ "replace_undo" : ["u"],
             \ }
 " ======> End ================================================================
+" ======> Start of floaterm<=============================================
+let g:floaterm_width     = 0.8
+let g:floaterm_height    = 0.8
+let g:floaterm_winblend  = 5
+let g:floaterm_autoclose = 0
+let g:floaterm_wintype   = 'floating'
+let g:floaterm_open_command = "vsplit"
+let g:floaterm_title     = '🐋···Floaterm($1/$2)···💦'
+noremap R :FloatermNew ranger<CR>
+" ======> End <================================================================
 
 
 " ======> Start of fzf=======================================================
@@ -1159,27 +1171,27 @@ let g:rooter_patterns = ['__vim_project_root', '.git/']
 
 
 " ======> Start of rnvimr ====================================================
-let g:rnvimr_ex_enable = 1
-let g:rnvimr_pick_enable = 1
-"let g:rnvimr_draw_border = 0
-let g:rnvimr_bw_enable = 1
-highlight link RnvimrNormal CursorLine
-nnoremap <silent> R :RnvimrToggle<CR><C-\><C-n>:RnvimrResize 0<CR>
-let g:rnvimr_action = {
-            \ '<C-t>': 'NvimEdit tabedit',
-            \ '<C-x>': 'NvimEdit split',
-            \ '<C-v>': 'NvimEdit vsplit',
-            \ 'gw': 'JumpNvimCwd',
-            \ 'yw':'EmitRangerCwd'
-            \}
-let g:rnvimr_layout = {
-            \ 'relative': 'editor',
-            \ 'width': &columns,
-            \ 'height': &lines,
-            \ 'col': 0,
-            \ 'row': 0,
-            \ 'style': 'minimal' }
-let g:rnvimr_presets = [{'width': 0.8, 'height': 0.8}]
+"let g:rnvimr_ex_enable = 1
+"let g:rnvimr_pick_enable = 1
+""let g:rnvimr_draw_border = 0
+"let g:rnvimr_bw_enable = 1
+"highlight link RnvimrNormal CursorLine
+"nnoremap <silent> R :RnvimrToggle<CR><C-\><C-n>:RnvimrResize 0<CR>
+"let g:rnvimr_action = {
+"            \ '<C-t>': 'NvimEdit tabedit',
+"            \ '<C-x>': 'NvimEdit split',
+"            \ '<C-v>': 'NvimEdit vsplit',
+"            \ 'gw': 'JumpNvimCwd',
+"            \ 'yw':'EmitRangerCwd'
+"            \}
+"let g:rnvimr_layout = {
+"            \ 'relative': 'editor',
+"            \ 'width': &columns,
+"            \ 'height': &lines,
+"            \ 'col': 0,
+"            \ 'row': 0,
+"            \ 'style': 'minimal' }
+"let g:rnvimr_presets = [{'width': 0.8, 'height': 0.8}]
 " ======> End ================================================================
 
 
