@@ -84,7 +84,7 @@ if has('persistent_undo')
     set undodir=~/.config/nvim/tmp/undo,.
 endif
 set mouse=a
-"set guifont=Source\ Code\ Variable:h16
+"set guifont=Fira\ Code:h16
 
 set colorcolumn=90
 set updatetime=100
@@ -346,9 +346,10 @@ func! CompileRunGcc()
         :sp
         :term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings %
     elseif &filetype == 'go'
-        set splitbelow
-        :sp
-        :term go run .
+        :FloatermNew go run .
+        "set splitbelow
+        ":sp
+        ":term go run .
     endif
 endfunc
 
@@ -523,7 +524,7 @@ Plug 'posva/vim-vue'
 "=============================================================================
 
 " Go
-"Plug 'fatih/vim-go' , { 'for': ['go', 'vim-plug'], 'tag': '*' }
+Plug 'fatih/vim-go' , { 'do': ':GoUpdateBinaries', 'for': ['go', 'vim-plug'] }
 
 "=============================================================================
 "======> C# <====================
@@ -1369,9 +1370,9 @@ if has_machine_specific_file == 0
 endif
 
 " some useful cammand in vim
-" 1、:w !sudo tee %  save current file with a rooter persistion
+" 1、:w !sudo tee %  save current file with a rooter permistion
 " 2、:%TOhtml        covert current file to html
-" 3、:r !ls          insert the partitical result(only filename) of ls in current dictionaty
+" 3、:r !ls          insert the partical result(only filename) of ls in current dictionaty
 " 4、:e path         open default filemanager and show a file list and opration menu
 " 5、:n filename     new a file
-" 6、:w  filename    restore you file, but not change to the new file
+" 6、:w filename    restore you file, but not change to the new file
