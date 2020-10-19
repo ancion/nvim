@@ -61,7 +61,6 @@ set foldmethod=indent
 set foldlevel=99
 set foldenable
 set formatoptions-=tc
-set splitright
 set splitbelow
 set noshowmode
 set showcmd
@@ -89,7 +88,12 @@ set mouse=a
 set colorcolumn=90
 set updatetime=100
 set virtualedit=block
-
+filetype indent on 
+"filetype plugin on 
+autocmd FileType javascript,css,html,xml,json setlocal ai
+autocmd FileType javascript,css,html,xml,josn setlocal tabstop=2
+autocmd FileType javascript,css,html,xml,json setlocal softtabstop=2
+autocmd FileType javascript,css,html,xml,json setlocal shiftwidth=2
 
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
@@ -213,7 +217,7 @@ imap jj <ESC>
 " go to next line in insert mode with cursor middle in line
 inoremap <C-j> <ESC>A<CR>
 
-"===
+" ===
 " === Command Mode Cursor Movement
 " ===
 cnoremap <C-h> <Home>
@@ -225,6 +229,7 @@ cnoremap <C-f> <Right>
 cnoremap <M-b> <S-Left>
 cnoremap <M-w> <S-Right>
 
+" ===
 " === Window management
 " ===
 " use <space>+new arrow keys for moving the cursor around windows
@@ -271,7 +276,7 @@ noremap tml :+tabmove<CR>
 " user tx to make ASII art
 map tx :r !figlet
 
-"===
+" ===
 " === Markdown Settings
 " ===
 " Snippets
@@ -287,8 +292,8 @@ autocmd BufRead,BufNewFile *.md setlocal spell
 nnoremap \t :tabe<CR>:-tabmove<CR>:term sh -c 'st'<CR><C-\><C-N>:q<CR>
 
 " Opening a terminal window
-"noremap <LEADER>/ :term<CR>
-"noremap <LEADER>/ :set splitbelow<CR>:split<CR>:term<CR>
+" noremap <LEADER>/ :term<CR>
+" noremap <LEADER>/ :set splitbelow<CR>:split<CR>:term<CR>
 noremap <LEADER>/ :FloatermNew<CR>
 "noremap <LEADER>/ :set splitbelow<CR>:split<CR>:res +10<CR>:term<CR>
 
@@ -342,9 +347,10 @@ func! CompileRunGcc()
         exec "CocCommand flutter.run -d ".g:flutter_default_device
         silent! exec "CocCommand flutter.dev.openDevLog"
     elseif &filetype == 'javascript'
-        set splitbelow
-        :sp
-        :term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings %
+        :FloatermNew export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings %
+        "set splitbelow
+        ":sp
+        ":term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings %
     elseif &filetype == 'go'
         :FloatermNew go run .
         "set splitbelow
@@ -979,19 +985,27 @@ let g:php_folding = 1
 
 
 " ======> Start of  GitGutter ================================================
-let g:gitgutter_signs = 0
-let g:gitgutter_map_keys = 0
-let g:gitgutter_override_sign_column_highlight = 0
-let g:gitgutter_preview_win_floating = 1
-autocmd BufWritePost * GitGutter
-nnoremap <LEADER>gf :GitGutterFold<CR>
-"nnoremap H :GitGutterPreviewHunk<CR>
-nnoremap <LEADER>g- :GitGutterPrevHunk<CR>
-nnoremap <LEADER>g= :GitGutterNextHunk<CR>
+ let g:gitgutter_signs = 0
+ let g:gitgutter_sign_allow_clobber = 0
+ let g:gitgutter_map_keys = 0
+ let g:gitgutter_override_sign_column_highlight = 0
+ let g:gitgutter_preview_win_floating = 1
+ let g:gitgutter_sign_added = '▎'
+ let g:gitgutter_sign_modified = '░'
+ let g:gitgutter_sign_removed = '▏'
+ let g:gitgutter_sign_removed_first_line = '▔'
+ let g:gitgutter_sign_modified_removed = '▒'
+ autocmd BufWritePost * GitGutter
+ nnoremap <LEADER>gf :GitGutterFold<CR>
+ "nnoremap H :GitGutterPreviewHunk<CR>
+ nnoremap <LEADER>g- :GitGutterPrevHunk<CR>
+ nnoremap <LEADER>g= :GitGutterNextHunk<CR>"
 " ======> End ================================================================
 
 
 " ======> Start of vim-go ====================================================
+let g:go_echo_go_info = 0
+let g:go_doc_popup_window = 1
 let g:go_def_mapping_enabled = 0
 let g:go_template_autocreate = 0
 let g:go_textobj_enabled = 0
@@ -1273,7 +1287,10 @@ inoremap <c-n> <nop>
 let g:UltiSnipsExpandTrigger="<LEADER>n"
 let g:UltiSnipsJumpForwardTrigger="<LEADER>n"
 let g:UltiSnipsJumpBackwardTrigger="<c-n>"
-let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/Ultisnips/', $HOME.'/.config/nvim/plugged/vim-snippets/UltiSnips/']
+let g:UltiSnipsSnippetDirectories = [
+            \$HOME.'/.config/nvim/Ultisnips/',
+            \$HOME.'/.config/nvim/plugged/vim-snippets/UltiSnips/'
+            \]
 silent! au BufEnter,BufRead,BufNewFile * silent! unmap <c-r>
 " ======> End ================================================================
 
@@ -1322,11 +1339,11 @@ let g:vista#renderer#enable_icon = 1
 let g:vista#renderer#icons = {
             \   "function": "\uf794",
             \   "variable": "\uf71b"}
-" function! NearestMethodOrFunction() abort
-"     return get(b:, 'vista_nearest_method_or_function', '')
-" endfunction
-" set statusline+=%{NearestMethodOrFunction()}
-" autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+ function! NearestMethodOrFunction() abort
+     return get(b:, 'vista_nearest_method_or_function', '')
+ endfunction
+ set statusline+=%{NearestMethodOrFunction()}
+ autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 
 " ======> End =================================================================
 
