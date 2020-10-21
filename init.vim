@@ -329,8 +329,9 @@ func! CompileRunGcc()
         :res -15
         :term ./%<
     elseif &filetype =='java'
-        exec "!javac %"
-        exec "!time java %<"
+        exec 'FloatermNew javac % && echo % | cut -d "." -f1 | xargs java'
+        "exec "!javac %"
+        "exec "!time java %<"
     elseif &filetype == 'sh'
         :!time bash %
     elseif &filetype == 'python'
@@ -627,7 +628,6 @@ Plug 'osyo-manga/vim-anzu'
 " Vim Applications
 Plug 'makerj/vim-pdf'
 Plug 'theniceboy/vim-leader-mapper'
-"Plug 'voldikss/vim-floaterm'
 "Plug 'liuchengxu/vim-clap'
 "Plug 'jceb/vim-orgmode'
 Plug 'voldikss/vim-floaterm'
@@ -656,8 +656,8 @@ call plug#end()
 " ============================================================================
 set termguicolors " enable true colors support
 
-"let g:space_vim_transp_bg = 1
-"colorscheme space_vim_theme
+let g:space_vim_transp_bg = 1
+colorscheme space_vim_theme
 
 "colorscheme snazzy
 let g:SnazzyTransparent =1
@@ -665,7 +665,7 @@ let g:SnazzyTransparent =1
 
 "colorscheme dracula
 "color one
-colors deus
+"colors deus
 "color gruvbox
 "color ayu
 "color xcodelighthc
@@ -790,6 +790,7 @@ let g:coc_global_extensions = [
             \'coc-vimlsp',
             \'coc-vetur',
             \'coc-yaml',
+            \'coc-go',
             \'coc-yank']
 inoremap <silent><expr> <TAB>
             \ pumvisible() ? "\<C-n>" :
@@ -807,8 +808,10 @@ function! Show_documentation()
     call CocActionAsync("highlight")
     if (index(['vim','help'], &filetype) >= 0)
         execute 'h '.expand('<cword>')
+        execute 'normal srv'
     else
         call CocAction('doHover')
+        execute 'normal srv'
     endif
 endfunction
 nnoremap <LEADER>m :call Show_documentation()<CR>
@@ -908,7 +911,7 @@ let g:far#mapping = {
 " ======> Start of floaterm<=============================================
 let g:floaterm_width     = 0.8
 let g:floaterm_height    = 0.8
-let g:floaterm_winblend  = 5
+let g:floaterm_winblend  = 10
 let g:floaterm_autoclose = 0
 let g:floaterm_wintype   = 'floating'
 let g:floaterm_open_command = "vsplit"
@@ -985,21 +988,24 @@ let g:php_folding = 1
 
 
 " ======> Start of  GitGutter ================================================
- let g:gitgutter_signs = 0
- let g:gitgutter_sign_allow_clobber = 0
- let g:gitgutter_map_keys = 0
- let g:gitgutter_override_sign_column_highlight = 0
- let g:gitgutter_preview_win_floating = 1
- let g:gitgutter_sign_added = '▎'
- let g:gitgutter_sign_modified = '░'
- let g:gitgutter_sign_removed = '▏'
- let g:gitgutter_sign_removed_first_line = '▔'
- let g:gitgutter_sign_modified_removed = '▒'
- autocmd BufWritePost * GitGutter
- nnoremap <LEADER>gf :GitGutterFold<CR>
- "nnoremap H :GitGutterPreviewHunk<CR>
- nnoremap <LEADER>g- :GitGutterPrevHunk<CR>
- nnoremap <LEADER>g= :GitGutterNextHunk<CR>"
+"let g:gitgutter_signs = 0
+let g:gitgutter_sign_allow_clobber = 1
+let g:gitgutter_map_keys = 0
+let g:gitgutter_override_sign_column_highlight = 0
+let g:gitgutter_preview_win_floating = 1
+let g:gitgutter_sign_added = '▎'
+let g:gitgutter_sign_modified = '░'
+let g:gitgutter_sign_removed = '▏'
+let g:gitgutter_sign_removed_first_line = '▔'
+let g:gitgutter_sign_modified_removed = '▒'
+highlight GitGutterAdd    guifg=#009900 ctermfg=2
+highlight GitGutterChange guifg=#bbbb00 ctermfg=3
+highlight GitGutterDelete guifg=#ff2222 ctermfg=1
+autocmd BufWritePost * GitGutter
+nnoremap <LEADER>gf :GitGutterFold<CR>
+"nnoremap H :GitGutterPreviewHunk<CR>
+nnoremap <LEADER>g- :GitGutterPrevHunk<CR>
+nnoremap <LEADER>g= :GitGutterNextHunk<CR>"
 " ======> End ================================================================
 
 
@@ -1031,6 +1037,7 @@ let g:go_highlight_types = 1
 let g:go_highlight_variable_assignments = 0
 let g:go_highlight_variable_declarations = 0
 let g:go_doc_keywordprg_enabled = 0
+let g:go_fmt_command = "goimports"
 " ======> End ================================================================
 
 
