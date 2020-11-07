@@ -88,8 +88,8 @@ set mouse=a
 set colorcolumn=90
 set updatetime=100
 set virtualedit=block
-filetype indent on 
-"filetype plugin on 
+filetype indent on
+"filetype plugin on
 autocmd FileType javascript,css,html,xml,json setlocal ai
 autocmd FileType javascript,css,html,xml,josn setlocal tabstop=2
 autocmd FileType javascript,css,html,xml,json setlocal softtabstop=2
@@ -218,7 +218,8 @@ inoremap <C-a> <ESC>A
 " change jj to the <ESC>
 imap jj <ESC>
 " go to next line in insert mode with cursor middle in line
-inoremap <C-j> <ESC>A<CR>
+inoremap <C-j> <ESC>o
+
 
 " ===
 " === Command Mode Cursor Movement
@@ -668,9 +669,9 @@ set termguicolors " enable true colors support
 let g:SnazzyTransparent =1
 "set background=dark
 
-colorscheme dracula
+"colorscheme dracula
 "color one
-"colors deus
+colors deus
 "color gruvbox
 "color ayu
 "color xcodelighthc
@@ -859,8 +860,8 @@ nnoremap <leader>tu :CocCommand todolist.download<CR>:CocCommand todolist.upload
 " coc-tasks
 noremap <silent> C :CocList tasks<CR>
 " coc-snippets
-imap <LEADER>n <Plug>(coc-snippets-expand)
-vmap <LEADER>n <Plug>(coc-snippets-select)
+imap <M-/> <Plug>(coc-snippets-expand)
+vmap <M-/> <Plug>(coc-snippets-select)
 let g:coc_snippet_next = '<c-e>'
 let g:coc_snippet_prev = '<c-n>'
 imap <C-e> <Plug>(coc-snippets-expand-jump)
@@ -1297,8 +1298,8 @@ let g:table_mode_cell_text_object_i_map = 'k<Bar>'
 " ======> Start of Ultisnips =================================================
 let g:tex_flavor = "latex"
 inoremap <c-n> <nop>
-let g:UltiSnipsExpandTrigger="<LEADER>n"
-let g:UltiSnipsJumpForwardTrigger="<LEADER>n"
+let g:UltiSnipsExpandTrigger="<M-/>"
+let g:UltiSnipsJumpForwardTrigger="<M-/>"
 let g:UltiSnipsJumpBackwardTrigger="<c-n>"
 let g:UltiSnipsSnippetDirectories = [
             \$HOME.'/.config/nvim/Ultisnips/',
@@ -1352,11 +1353,11 @@ let g:vista#renderer#enable_icon = 1
 let g:vista#renderer#icons = {
             \   "function": "\uf794",
             \   "variable": "\uf71b"}
- function! NearestMethodOrFunction() abort
-     return get(b:, 'vista_nearest_method_or_function', '')
- endfunction
- set statusline+=%{NearestMethodOrFunction()}
- autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+function! NearestMethodOrFunction() abort
+    return get(b:, 'vista_nearest_method_or_function', '')
+endfunction
+set statusline+=%{NearestMethodOrFunction()}
+autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 
 " ======> End =================================================================
 
