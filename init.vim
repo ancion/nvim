@@ -51,8 +51,8 @@ set autoindent
 set list
 set listchars=tab:\|\ ,trail:▫
 set scrolloff=5
-set ttimeoutlen=0
-set notimeout
+set timeoutlen=500
+"set notimeout
 set viewoptions=cursor,folds,slash,unix
 set nowrap
 set tw=0
@@ -196,6 +196,9 @@ noremap <C-J> 5<C-e>
 noremap <silent> K 5k
 noremap <silent> J 5j
 
+vnoremap <M-k> :move '<-2<CR>gv-gv'
+vnoremap <M-j> :move '>+1<CR>gv-gv'
+
 " H key: go to the start of the line
 noremap <silent> H 0
 " L key: go to the end of the line
@@ -333,7 +336,8 @@ func! CompileRunGcc()
         "exec "!javac %"
         "exec "!time java %<"
     elseif &filetype == 'sh'
-        :!time bash %
+        exec "FloatermNew bash %"
+        ":!time bash %
     elseif &filetype == 'python'
         :FloatermNew python3 %
         "set splitbelow
@@ -590,7 +594,7 @@ Plug 'jceb/vim-orgmode', {'for': ['vim-plug', 'org']}
 "Plug 'Raimondi/delimitMate'
 Plug 'jiangmiao/auto-pairs'
 Plug 'mg979/vim-visual-multi'
-Plug 'scrooloose/nerdcommenter' " in <space>cn to comment a line
+Plug 'preservim/nerdcommenter' " in <space>cn to comment a line
 Plug 'theniceboy/antovim' " gs to switch
 Plug 'tpope/vim-surround' " type yskw' to wrap the word with '' or type cs'` to change 'word' to `word`
 Plug 'gcmt/wildfire.vim' " in Visual mode, type k' to select all text in '', or type k) k] k} kp
@@ -633,6 +637,7 @@ Plug 'theniceboy/vim-leader-mapper'
 Plug 'voldikss/vim-floaterm'
 " This plug can show you a list files recently opened when you start nvim
 Plug 'mhinz/vim-startify'
+Plug 'liuchengxu/vim-which-key'
 
 " Other visual enhancement
 Plug 'ryanoasis/vim-devicons'
@@ -656,14 +661,14 @@ call plug#end()
 " ============================================================================
 set termguicolors " enable true colors support
 
-let g:space_vim_transp_bg = 1
-colorscheme space_vim_theme
+"let g:space_vim_transp_bg = 1
+"colorscheme space_vim_theme
 
 "colorscheme snazzy
 let g:SnazzyTransparent =1
 "set background=dark
 
-"colorscheme dracula
+colorscheme dracula
 "color one
 "colors deus
 "color gruvbox
@@ -1058,6 +1063,7 @@ let g:vim_jsx_pretty_colorful_config = 1
 
 
 " ======>Start of MarkdownPreview ============================================
+let g:mkdp_path_to_chrome = 'chromium'
 let g:mkdp_auto_start = 0
 let g:mkdp_auto_close = 1
 let g:mkdp_refresh_slow = 0
@@ -1369,6 +1375,11 @@ let g:VM_maps['Skip Region']        = '<c-n>'
 let g:VM_maps["Undo"]               = 'u'
 let g:VM_maps["Redo"]               = '<C-r>'
 " ======> End ================================================================
+
+
+" ======> Start of Plug name<=============================================
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+" ======> End <================================================================
 
 
 " ======> Start of xtabline ==================================================
