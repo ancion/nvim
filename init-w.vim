@@ -204,6 +204,8 @@ inoremap <C-a> <ESC>A
 " change jj to the <ESC>
 imap jj <ESC>
 
+imap <c-j> <ESC>o  
+
 " === Window management
 " ===
 " use <space>+new arrow keys for moving the cursor around windows
@@ -362,6 +364,7 @@ endif
 " ===
 
 call plug#begin('~\AppData\Local\nvim\plugged')
+
 "===========================================================================
 "===First of all we should put some basic plug to apply ourself properties==
 "===========================================================================

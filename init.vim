@@ -51,8 +51,8 @@ set autoindent
 set list
 set listchars=tab:\|\ ,trail:▫
 set scrolloff=5
-set ttimeoutlen=0
-set notimeout
+set timeoutlen=500
+"set notimeout
 set viewoptions=cursor,folds,slash,unix
 set nowrap
 set tw=0
@@ -61,7 +61,6 @@ set foldmethod=indent
 set foldlevel=99
 set foldenable
 set formatoptions-=tc
-set splitright
 set splitbelow
 set noshowmode
 set showcmd
@@ -84,12 +83,17 @@ if has('persistent_undo')
     set undodir=~/.config/nvim/tmp/undo,.
 endif
 set mouse=a
-"set guifont=Source\ Code\ Variable:h16
+"set guifont=Fira\ Code:h16
 
 set colorcolumn=90
 set updatetime=100
 set virtualedit=block
-
+filetype indent on
+"filetype plugin on
+autocmd FileType javascript,css,html,xml,json setlocal ai
+autocmd FileType javascript,css,html,xml,josn setlocal tabstop=2
+autocmd FileType javascript,css,html,xml,json setlocal softtabstop=2
+autocmd FileType javascript,css,html,xml,json setlocal shiftwidth=2
 
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
@@ -192,6 +196,9 @@ noremap <C-J> 5<C-e>
 noremap <silent> K 5k
 noremap <silent> J 5j
 
+vnoremap <M-k> :move '<-2<CR>gv-gv'
+vnoremap <M-j> :move '>+1<CR>gv-gv'
+
 " H key: go to the start of the line
 noremap <silent> H 0
 " L key: go to the end of the line
@@ -211,9 +218,10 @@ inoremap <C-a> <ESC>A
 " change jj to the <ESC>
 imap jj <ESC>
 " go to next line in insert mode with cursor middle in line
-inoremap <C-j> <ESC>A<CR>
+inoremap <C-j> <ESC>o
 
-"===
+
+" ===
 " === Command Mode Cursor Movement
 " ===
 cnoremap <C-h> <Home>
@@ -225,6 +233,7 @@ cnoremap <C-f> <Right>
 cnoremap <M-b> <S-Left>
 cnoremap <M-w> <S-Right>
 
+" ===
 " === Window management
 " ===
 " use <space>+new arrow keys for moving the cursor around windows
@@ -271,7 +280,7 @@ noremap tml :+tabmove<CR>
 " user tx to make ASII art
 map tx :r !figlet
 
-"===
+" ===
 " === Markdown Settings
 " ===
 " Snippets
@@ -287,8 +296,9 @@ autocmd BufRead,BufNewFile *.md setlocal spell
 nnoremap \t :tabe<CR>:-tabmove<CR>:term sh -c 'st'<CR><C-\><C-N>:q<CR>
 
 " Opening a terminal window
-"noremap <LEADER>/ :term<CR>
-noremap <LEADER>/ :set splitbelow<CR>:split<CR>:term<CR>
+" noremap <LEADER>/ :term<CR>
+" noremap <LEADER>/ :set splitbelow<CR>:split<CR>:term<CR>
+noremap <LEADER>/ :FloatermNew<CR>
 "noremap <LEADER>/ :set splitbelow<CR>:split<CR>:res +10<CR>:term<CR>
 
 " Press space twice to jump to the next '<++>' and edit it
@@ -323,14 +333,17 @@ func! CompileRunGcc()
         :res -15
         :term ./%<
     elseif &filetype =='java'
-        exec "!javac %"
-        exec "!time java %<"
+        exec 'FloatermNew javac % && echo % | cut -d "." -f1 | xargs java'
+        "exec "!javac %"
+        "exec "!time java %<"
     elseif &filetype == 'sh'
-        :!time bash %
+        exec "FloatermNew bash %"
+        ":!time bash %
     elseif &filetype == 'python'
-        set splitbelow
-        :sp
-        :term python3 %
+        :FloatermNew python3 %
+        "set splitbelow
+        ":sp
+        ":term python3 %
     elseif &filetype == 'html'
         silent! exec "!".g:mkdp_browser." % &"
     elseif &filetype == 'markdown'
@@ -340,13 +353,15 @@ func! CompileRunGcc()
         exec "CocCommand flutter.run -d ".g:flutter_default_device
         silent! exec "CocCommand flutter.dev.openDevLog"
     elseif &filetype == 'javascript'
-        set splitbelow
-        :sp
-        :term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings .
+        :FloatermNew export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings %
+        "set splitbelow
+        ":sp
+        ":term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings %
     elseif &filetype == 'go'
-        set splitbelow
-        :sp
-        :term go run .
+        :FloatermNew go run .
+        "set splitbelow
+        ":sp
+        ":term go run .
     endif
 endfunc
 
@@ -408,7 +423,7 @@ Plug 'skywind3000/asyncrun.vim'
 "=============================================================================
 
 "Plug 'ajmwagar/vim-deus
-Plug  'theniceboy/vim-deus'
+Plug 'theniceboy/vim-deus'
 Plug 'connorholyday/vim-snazzy'
 "Plug 'arzg/vim-colors-xcode'
 "Plug 'rakr/vim-one'
@@ -521,7 +536,7 @@ Plug 'posva/vim-vue'
 "=============================================================================
 
 " Go
-"Plug 'fatih/vim-go' , { 'for': ['go', 'vim-plug'], 'tag': '*' }
+Plug 'fatih/vim-go' , { 'do': ':GoUpdateBinaries', 'for': ['go', 'vim-plug'] }
 
 "=============================================================================
 "======> C# <====================
@@ -540,7 +555,7 @@ Plug 'posva/vim-vue'
 Plug 'Vimjas/vim-python-pep8-indent', { 'for' :['python', 'vim-plug'] }
 Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins', 'for' :['python', 'vim-plug'] }
 "Plug 'vim-scripts/indentpython.vim', { 'for' :['python', 'vim-plug'] }
-"Plug 'plytophogy/vim-virtualenv', { 'for' :['python', 'vim-plug'] }
+Plug 'plytophogy/vim-virtualenv', { 'for' :['python', 'vim-plug'] }
 Plug 'tweekmonster/braceless.vim', { 'for' :['python', 'vim-plug'] }
 
 "=============================================================================
@@ -580,7 +595,7 @@ Plug 'jceb/vim-orgmode', {'for': ['vim-plug', 'org']}
 "Plug 'Raimondi/delimitMate'
 Plug 'jiangmiao/auto-pairs'
 Plug 'mg979/vim-visual-multi'
-Plug 'scrooloose/nerdcommenter' " in <space>cn to comment a line
+Plug 'preservim/nerdcommenter' " in <space>cn to comment a line
 Plug 'theniceboy/antovim' " gs to switch
 Plug 'tpope/vim-surround' " type yskw' to wrap the word with '' or type cs'` to change 'word' to `word`
 Plug 'gcmt/wildfire.vim' " in Visual mode, type k' to select all text in '', or type k) k] k} kp
@@ -618,12 +633,12 @@ Plug 'osyo-manga/vim-anzu'
 " Vim Applications
 Plug 'makerj/vim-pdf'
 Plug 'theniceboy/vim-leader-mapper'
-"Plug 'voldikss/vim-floaterm'
 "Plug 'liuchengxu/vim-clap'
 "Plug 'jceb/vim-orgmode'
-
-"===>> This plug can show you a list files recently opened when you start nvim
+Plug 'voldikss/vim-floaterm'
+" This plug can show you a list files recently opened when you start nvim
 Plug 'mhinz/vim-startify'
+Plug 'liuchengxu/vim-which-key'
 
 " Other visual enhancement
 Plug 'ryanoasis/vim-devicons'
@@ -781,6 +796,7 @@ let g:coc_global_extensions = [
             \'coc-vimlsp',
             \'coc-vetur',
             \'coc-yaml',
+            \'coc-go',
             \'coc-yank']
 inoremap <silent><expr> <TAB>
             \ pumvisible() ? "\<C-n>" :
@@ -798,8 +814,10 @@ function! Show_documentation()
     call CocActionAsync("highlight")
     if (index(['vim','help'], &filetype) >= 0)
         execute 'h '.expand('<cword>')
+        execute 'normal srv'
     else
         call CocAction('doHover')
+        execute 'normal srv'
     endif
 endfunction
 nnoremap <LEADER>m :call Show_documentation()<CR>
@@ -842,8 +860,8 @@ nnoremap <leader>tu :CocCommand todolist.download<CR>:CocCommand todolist.upload
 " coc-tasks
 noremap <silent> C :CocList tasks<CR>
 " coc-snippets
-imap <LEADER>n <Plug>(coc-snippets-expand)
-vmap <LEADER>n <Plug>(coc-snippets-select)
+imap <M-/> <Plug>(coc-snippets-expand)
+vmap <M-/> <Plug>(coc-snippets-select)
 let g:coc_snippet_next = '<c-e>'
 let g:coc_snippet_prev = '<c-n>'
 imap <C-e> <Plug>(coc-snippets-expand-jump)
@@ -896,6 +914,16 @@ let g:far#mapping = {
             \ "replace_undo" : ["u"],
             \ }
 " ======> End ================================================================
+" ======> Start of floaterm<=============================================
+let g:floaterm_width     = 0.8
+let g:floaterm_height    = 0.8
+let g:floaterm_winblend  = 10
+let g:floaterm_autoclose = 0
+let g:floaterm_wintype   = 'floating'
+let g:floaterm_open_command = "vsplit"
+let g:floaterm_title     = '🐋···Floaterm($1/$2)···💦'
+noremap R :FloatermNew ranger<CR>
+" ======> End <================================================================
 
 
 " ======> Start of fzf=======================================================
@@ -966,19 +994,30 @@ let g:php_folding = 1
 
 
 " ======> Start of  GitGutter ================================================
-let g:gitgutter_signs = 0
+"let g:gitgutter_signs = 0
+let g:gitgutter_sign_allow_clobber = 1
 let g:gitgutter_map_keys = 0
 let g:gitgutter_override_sign_column_highlight = 0
 let g:gitgutter_preview_win_floating = 1
+let g:gitgutter_sign_added = '▎'
+let g:gitgutter_sign_modified = '░'
+let g:gitgutter_sign_removed = '▏'
+let g:gitgutter_sign_removed_first_line = '▔'
+let g:gitgutter_sign_modified_removed = '▒'
+highlight GitGutterAdd    guifg=#009900 ctermfg=2
+highlight GitGutterChange guifg=#bbbb00 ctermfg=3
+highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 autocmd BufWritePost * GitGutter
 nnoremap <LEADER>gf :GitGutterFold<CR>
 "nnoremap H :GitGutterPreviewHunk<CR>
 nnoremap <LEADER>g- :GitGutterPrevHunk<CR>
-nnoremap <LEADER>g= :GitGutterNextHunk<CR>
+nnoremap <LEADER>g= :GitGutterNextHunk<CR>"
 " ======> End ================================================================
 
 
 " ======> Start of vim-go ====================================================
+let g:go_echo_go_info = 0
+let g:go_doc_popup_window = 1
 let g:go_def_mapping_enabled = 0
 let g:go_template_autocreate = 0
 let g:go_textobj_enabled = 0
@@ -1004,6 +1043,7 @@ let g:go_highlight_types = 1
 let g:go_highlight_variable_assignments = 0
 let g:go_highlight_variable_declarations = 0
 let g:go_doc_keywordprg_enabled = 0
+let g:go_fmt_command = "goimports"
 " ======> End ================================================================
 
 
@@ -1024,6 +1064,7 @@ let g:vim_jsx_pretty_colorful_config = 1
 
 
 " ======>Start of MarkdownPreview ============================================
+let g:mkdp_path_to_chrome = 'msedge'
 let g:mkdp_auto_start = 0
 let g:mkdp_auto_close = 1
 let g:mkdp_refresh_slow = 0
@@ -1159,29 +1200,29 @@ let g:rooter_patterns = ['__vim_project_root', '.git/']
 
 
 " ======> Start of rnvimr ====================================================
-let g:rnvimr_enable_ex = 1
-let g:rnvimr_enable_picker = 1
-let g:rnvimr_draw_border = 0
-let g:rnvimr_enable_bw = 1
-let g:rnvimr_border_attr = {'fg': 14, 'bg': -1}
-let g:rnvimr_ranger_cmd = 'ranger --cmd="set draw_borders both"'
-highlight link RnvimrNormal CursorLine
-nnoremap <silent> R :RnvimrToggle<CR><C-\><C-n>:RnvimrResize 0<CR>
-let g:rnvimr_action = {
-            \ '<C-t>': 'NvimEdit tabedit',
-            \ '<C-x>': 'NvimEdit split',
-            \ '<C-v>': 'NvimEdit vsplit',
-            \ 'gw': 'JumpNvimCwd',
-            \ 'yw':'EmitRangerCwd'
-            \}
-let g:rnvimr_layout = {
-            \ 'relative': 'editor',
-            \ 'width': &columns,
-            \ 'height': &lines,
-            \ 'col': 0,
-            \ 'row': 0,
-            \ 'style': 'minimal' }
-let g:rnvimr_presets = [{'width': 0.8, 'height': 0.8}]
+"let g:rnvimr_enable_ex = 1
+"let g:rnvimr_enable_picker = 1
+"let g:rnvimr_draw_border = 0
+"let g:rnvimr_enable_bw = 1
+"let g:rnvimr_border_attr = {'fg': 14, 'bg': -1}
+"let g:rnvimr_ranger_cmd = 'ranger --cmd="set draw_borders both"'
+"highlight link RnvimrNormal CursorLine
+"nnoremap <silent> R :RnvimrToggle<CR><C-\><C-n>:RnvimrResize 0<CR>
+"let g:rnvimr_action = {
+"            \ '<C-t>': 'NvimEdit tabedit',
+"            \ '<C-x>': 'NvimEdit split',
+"            \ '<C-v>': 'NvimEdit vsplit',
+"            \ 'gw': 'JumpNvimCwd',
+"            \ 'yw':'EmitRangerCwd'
+"            \}
+"let g:rnvimr_layout = {
+"            \ 'relative': 'editor',
+"            \ 'width': &columns,
+"            \ 'height': &lines,
+"            \ 'col': 0,
+"            \ 'row': 0,
+"            \ 'style': 'minimal' }
+"let g:rnvimr_presets = [{'width': 0.8, 'height': 0.8}]
 " ======> End ================================================================
 
 
@@ -1259,10 +1300,13 @@ let g:table_mode_cell_text_object_i_map = 'k<Bar>'
 " ======> Start of Ultisnips =================================================
 let g:tex_flavor = "latex"
 inoremap <c-n> <nop>
-let g:UltiSnipsExpandTrigger="<LEADER>n"
-let g:UltiSnipsJumpForwardTrigger="<LEADER>n"
+let g:UltiSnipsExpandTrigger="<M-/>"
+let g:UltiSnipsJumpForwardTrigger="<M-/>"
 let g:UltiSnipsJumpBackwardTrigger="<c-n>"
-let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/Ultisnips/', $HOME.'/.config/nvim/plugged/vim-snippets/UltiSnips/']
+let g:UltiSnipsSnippetDirectories = [
+            \$HOME.'/.config/nvim/Ultisnips/',
+            \$HOME.'/.config/nvim/plugged/vim-snippets/UltiSnips/'
+            \]
 silent! au BufEnter,BufRead,BufNewFile * silent! unmap <c-r>
 " ======> End ================================================================
 
@@ -1311,11 +1355,11 @@ let g:vista#renderer#enable_icon = 1
 let g:vista#renderer#icons = {
             \   "function": "\uf794",
             \   "variable": "\uf71b"}
-" function! NearestMethodOrFunction() abort
-"     return get(b:, 'vista_nearest_method_or_function', '')
-" endfunction
-" set statusline+=%{NearestMethodOrFunction()}
-" autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+function! NearestMethodOrFunction() abort
+    return get(b:, 'vista_nearest_method_or_function', '')
+endfunction
+set statusline+=%{NearestMethodOrFunction()}
+autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 
 " ======> End =================================================================
 
@@ -1334,6 +1378,11 @@ let g:VM_maps['Skip Region']        = '<c-n>'
 let g:VM_maps["Undo"]               = 'u'
 let g:VM_maps["Redo"]               = '<C-r>'
 " ======> End ================================================================
+
+
+" ======> Start of Plug name<=============================================
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+" ======> End <================================================================
 
 
 " ======> Start of xtabline ==================================================
@@ -1359,9 +1408,9 @@ if has_machine_specific_file == 0
 endif
 
 " some useful cammand in vim
-" 1、:w !sudo tee %  save current file with a rooter persistion
+" 1、:w !sudo tee %  save current file with a rooter permistion
 " 2、:%TOhtml        covert current file to html
-" 3、:r !ls          insert the partitical result(only filename) of ls in current dictionaty
+" 3、:r !ls          insert the partical result(only filename) of ls in current dictionaty
 " 4、:e path         open default filemanager and show a file list and opration menu
 " 5、:n filename     new a file
-" 6、:w  filename    restore you file, but not change to the new file
+" 6、:w filename    restore you file, but not change to the new file
