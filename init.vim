@@ -1205,10 +1205,12 @@ let g:rooter_patterns = ['__vim_project_root', '.git/']
 
 
 " ======> Start of rnvimr ====================================================
-"let g:rnvimr_ex_enable = 1
-"let g:rnvimr_pick_enable = 1
-""let g:rnvimr_draw_border = 0
-"let g:rnvimr_bw_enable = 1
+"let g:rnvimr_enable_ex = 1
+"let g:rnvimr_enable_picker = 1
+"let g:rnvimr_draw_border = 0
+"let g:rnvimr_enable_bw = 1
+"let g:rnvimr_border_attr = {'fg': 14, 'bg': -1}
+"let g:rnvimr_ranger_cmd = 'ranger --cmd="set draw_borders both"'
 "highlight link RnvimrNormal CursorLine
 "nnoremap <silent> R :RnvimrToggle<CR><C-\><C-n>:RnvimrResize 0<CR>
 "let g:rnvimr_action = {
