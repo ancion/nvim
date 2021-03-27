@@ -85,7 +85,7 @@ endif
 set mouse=a
 "set guifont=Fira\ Code:h16
 
-set colorcolumn=90
+set colorcolumn=100
 set updatetime=100
 set virtualedit=block
 filetype indent on
@@ -428,7 +428,7 @@ Plug 'connorholyday/vim-snazzy'
 "Plug 'arzg/vim-colors-xcode'
 "Plug 'rakr/vim-one'
 "Plug 'ayu-theme/ayu-vim'
-"Plug 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
 "Plug 'mhartington/oceanic-next'
 "Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'norcalli/nvim-colorizer.lua'
@@ -436,6 +436,7 @@ Plug 'liuchengxu/space-vim-theme'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 "Plug 'theniceboy/eleline.vim'
+Plug 'kyoz/purify', { 'rtp': 'vim'  }
 Plug 'bling/vim-bufferline'
 
 "=============================================================================
@@ -666,13 +667,15 @@ set termguicolors " enable true colors support
 "colorscheme space_vim_theme
 
 "colorscheme snazzy
-let g:SnazzyTransparent =1
-"set background=dark
+"let g:SnazzyTransparent = 1
+set background=dark
 
 "colorscheme dracula
-"color one
 colors deus
+"color purify
 "color gruvbox
+
+"color one
 "color ayu
 "color xcodelighthc
 
@@ -682,11 +685,11 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 "let g:oceanic_next_terminal_bold = 1
 "let g:oceanic_next_terminal_italic = 1
 "let g:one_allow_italics = 1
-let g:airline_theme = 'simple'
+let g:airline_theme = 'night_owl'
 
-hi NonText ctermfg=gray guifg=grey10
-hi NonText ctermfg=Black guifg=black10
-hi normal ctermfg=252 ctermbg=none
+hi NonText ctermfg = gray guifg  = grey10
+hi NonText ctermfg = Black guifg = black10
+hi normal ctermfg  = 252 ctermbg = none
 
 " set ruby_host_prog
 let g:ruby_host_prog = 'rvm system do neovim-ruby-host'
@@ -718,7 +721,7 @@ let g:asyncrun_open = 6
 " ======> End ================================================================
 
 
-" ======>Start of  Bullets.vim ===============================================
+" ======>Start of Bullets.vim ===============================================
 "let g:bullets_set_mappings = 0
 let g:bullets_enabled_file_types = [
             \ 'markdown',
@@ -914,6 +917,8 @@ let g:far#mapping = {
             \ "replace_undo" : ["u"],
             \ }
 " ======> End ================================================================
+
+
 " ======> Start of floaterm<=============================================
 let g:floaterm_width     = 0.8
 let g:floaterm_height    = 0.8
@@ -1137,7 +1142,7 @@ let g:leaderMenu = {
             \}
 
 nnoremap <silent> ? :call leaderMapper#start() "<Space>"<CR>
-let g:leaderMapperWidth = 60
+let g:leaderMapperWidth = 70
 " ======> End ================================================================
 
 
@@ -1411,4 +1416,4 @@ endif
 " 3、:r !ls          insert the partical result(only filename) of ls in current dictionaty
 " 4、:e path         open default filemanager and show a file list and opration menu
 " 5、:n filename     new a file
-" 6、:w filename    restore you file, but not change to the new file
+" 6、:w filename     restore you file, but not change to the new file
