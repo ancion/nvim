@@ -23,6 +23,7 @@ if empty(glob('~/.config/nvim/_machine_specific.vim'))
     silent! exec "!cp ~/.config/nvim/default_configs/_machine_specific_default.vim ~/.config/nvim/_machine_specific.vim"
 endif
 source ~/.config/nvim/_machine_specific.vim
+
 " ====================
 " === Editor Setup ===
 " ====================
@@ -449,9 +450,9 @@ Plug 'dracula/vim',{'as':'dracula'}
 Plug 'RRethy/vim-illuminate'
 "Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase'  }
 
-" =============================================================================
+" ============================================================================
 " =====> Navigation WithinBuffer <====================
-" =============================================================================
+" ============================================================================
 Plug 'liuchengxu/vista.vim'
 
 "=============================================================================
@@ -509,7 +510,7 @@ Plug 'mzlogin/vim-markdown-toc', { 'for': ['gitignore', 'markdown'] }
 Plug 'theniceboy/bullets.vim'
 
 "=============================================================================
-"======> Git <===============================================
+"======> Git related <======================
 "=============================================================================
 
 " Git
@@ -671,8 +672,8 @@ set termguicolors " enable true colors support
 set background=dark
 
 "colorscheme dracula
-colors deus
-"color purify
+"colors deus
+color purify
 "color gruvbox
 
 "color one
