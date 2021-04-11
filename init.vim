@@ -38,12 +38,12 @@ set autochdir
 " === Editor behavior
 " ===
 syntax on
-"set hidden
+set hidden
 set number
 set relativenumber
 set cursorline
 set cursorcolumn
-set cmdheight=2
+set cmdheight=1
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -1346,10 +1346,11 @@ command! -bang -nargs=* LoadVimSpectorJsonTemplate call fzf#run({
             \   'sink': function('<sid>read_template_into_buffer')
             \ })
 noremap <leader>vs :tabe .vimspector.json<CR>:LoadVimSpectorJsonTemplate<CR>
-sign define vimspectorBP text=☛ texthl=Normal
-sign define vimspectorBPDisabled text=☞ texthl=Normal
-sign define vimspectorPC text=🔶 texthl=SpellBad
+sign define vimspectorBP         text=🟢 texthl=Normal
+sign define vimspectorBPDisabled text=🔴 texthl=Normal
+sign define vimspectorPC         text=👉 texthl=SpellBad
 " ======> End =================================================================
+
 
 " ======> Start of vista ======================================================
 noremap <LEADER>v :Vista coc<CR>
