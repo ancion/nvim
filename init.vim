@@ -668,7 +668,7 @@ set termguicolors " enable true colors support
 "colorscheme space_vim_theme
 
 "colorscheme snazzy
-"let g:SnazzyTransparent = 1
+let g:SnazzyTransparent = 1
 set background=dark
 
 "colorscheme dracula
