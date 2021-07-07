@@ -1,7 +1,7 @@
 " ======> Start of Run function <==============================================
 " with this function you can comile and run you code easily
 " ======> End <================================================================
-noremap <A-F10> :call CompileRunGcc()<CR>
+noremap <F22> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
     exec "w"
     if &filetype == 'c'

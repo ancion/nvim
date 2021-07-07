@@ -26,30 +26,37 @@ let g:terminal_color_14 = '#9AEDFE'
 " ======> Dress up my vim
 " ============================================================================
 set termguicolors " enable true colors support
+let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 
 "let g:space_vim_transp_bg = 1
 "colorscheme space_vim_theme
 
 "colorscheme snazzy
-let g:SnazzyTransparent = 1
-set background=dark
+"let g:SnazzyTransparent = 1
+"set background=dark
 
-"colorscheme dracula
+" let g:nightflyCursorColor = 1
+" let g:nightflyTransparent = 1
+" let g:nightflyNormalFloat = 1
+" color nightfly
+
+"color purify
+
+colorscheme dracula
 "colors deus
-color purify
 "color gruvbox
-
-"color one
-"color ayu
 "color xcodelighthc
 
+"color one
+"let g:one_allow_italics = 1
+
+"color ayu
 "let ayucolor="light"
 "let ayucolor="mirage"
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+"
 "let g:oceanic_next_terminal_bold = 1
 "let g:oceanic_next_terminal_italic = 1
-"let g:one_allow_italics = 1
-let g:airline_theme = 'night_owl'
+"let g:airline_theme = 'night_owl'
 
 hi NonText ctermfg = gray guifg  = grey10
 hi NonText ctermfg = Black guifg = black10
@@ -68,7 +75,7 @@ noremap \p :XTabInfo<CR>
 " ======> Start of eleline.vim ===============================================
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-"let g:eleline_powerline_fonts = 1
+let g:eleline_powerline_fonts = 1
 " ======> End ================================================================
 
 " ======> Start of Colorizer =================================================

@@ -4,9 +4,9 @@ call plug#begin('~/.config/nvim/plugged')
 "===First of all we should put some basic plug to apply ourself properties==
 "===========================================================================
 
-Plug 'tiagofumo/dart-vim-flutter-layout'
-Plug 'AndrewRadev/splitjoin.vim'
+Plug 'norcalli/nvim-colorizer.lua'
 Plug 'KabbAmine/vCoolor.vim'
+Plug 'AndrewRadev/splitjoin.vim'
 "Plug 'pechorin/any-jump.vim'
 Plug 'airblade/vim-rooter'
 Plug 'skywind3000/asynctasks.vim'
@@ -22,6 +22,11 @@ Plug 'skywind3000/asyncrun.vim'
 "======== Pretty Dress  ==> just give a little of color to the IDE============
 "=============================================================================
 
+"Plug 'theniceboy/eleline.vim'
+"Plug 'bling/vim-bufferline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 "Plug 'ajmwagar/vim-deus
 Plug 'theniceboy/vim-deus'
 Plug 'connorholyday/vim-snazzy'
@@ -31,13 +36,8 @@ Plug 'connorholyday/vim-snazzy'
 Plug 'morhetz/gruvbox'
 "Plug 'mhartington/oceanic-next'
 "Plug 'kristijanhusak/vim-hybrid-material'
-Plug 'norcalli/nvim-colorizer.lua'
-Plug 'liuchengxu/space-vim-theme'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-"Plug 'theniceboy/eleline.vim'
 Plug 'kyoz/purify', { 'rtp': 'vim'  }
-Plug 'bling/vim-bufferline'
+Plug 'liuchengxu/space-vim-theme'
 
 "=============================================================================
 "======> Genreal Highlighter <=======================
@@ -52,6 +52,7 @@ Plug 'RRethy/vim-illuminate'
 " ============================================================================
 " =====> Navigation WithinBuffer <====================
 " ============================================================================
+
 Plug 'liuchengxu/vista.vim'
 
 "=============================================================================
@@ -173,6 +174,7 @@ Plug 'tweekmonster/braceless.vim', { 'for' :['python', 'vim-plug'] }
 " Flutter
 "Plug 'dart-lang/dart-vim-plugin'
 "Plug 'thosakwe/vim-flutter'
+"Plug 'tiagofumo/dart-vim-flutter-layout'
 
 "=============================================================================
 "======> Swift <===============
@@ -203,7 +205,7 @@ Plug 'gcmt/wildfire.vim' " in Visual mode, type k' to select all text in '', or 
 Plug 'junegunn/vim-after-object' " da= to delete what's after =
 Plug 'junegunn/vim-easy-align' " gaip= to align the = in paragraph,
 Plug 'Konfekt/FastFold'
-"Plug 'junegunn/vim-peekaboo'
+Plug 'junegunn/vim-peekaboo'
 "Plug 'wellle/context.vim'
 Plug 'svermeulen/vim-subversive'
 Plug 'theniceboy/argtextobj.vim'
@@ -239,7 +241,9 @@ Plug 'theniceboy/vim-leader-mapper'
 Plug 'voldikss/vim-floaterm'
 " This plug can show you a list files recently opened when you start nvim
 Plug 'mhinz/vim-startify'
-Plug 'liuchengxu/vim-which-key'
+
+Plug 'folke/which-key.nvim'
+"Plug 'liuchengxu/vim-which-key'
 
 " Other visual enhancement
 Plug 'ryanoasis/vim-devicons'
