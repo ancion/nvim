@@ -1,5 +1,6 @@
 
-" ======> Start of vim-map-leader ============================================
+" ======> Settings of vim-map-leader {{{
+" -----------------------------------------------------------------------------
 let g:leaderMenu = {
             \'name':  "Shortcut Menu",
             \'<SPACE> Enter':  ['Clear search'],
@@ -26,9 +27,12 @@ let g:leaderMenu = {
 
 nnoremap <silent> ? :call leaderMapper#start() "<Space>"<CR>
 let g:leaderMapperWidth = 70
-" ======> End ================================================================
 
-" ======> Start of Plug name<=============================================
+" ------------------------------------------------------------------------------
+" ====== End }}}
+
+" ======> Settings of Which-key {{{
+" ------------------------------------------------------------------------------
 "nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 lua << EOF
     require("which-key").setup {
@@ -67,4 +71,7 @@ lua << EOF
         show_help = true -- show help message on the command line when the popup is visible
     }
 EOF
-" ======> End <================================================================
+" ------------------------------------------------------------------------------
+" ====== End }}}
+"
+" vim: foldmethod=marker foldlevel=0:

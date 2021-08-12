@@ -22,7 +22,7 @@ set expandtab
 set autoindent
 set list
 set listchars=tab:\|\ ,trail:▫
-set scrolloff=5
+set scrolloff=10
 set timeoutlen=500
 "set notimeout
 set viewoptions=cursor,folds,slash,unix
@@ -42,8 +42,8 @@ set smartcase
 set shortmess+=c
 set inccommand=split
 set completeopt=longest,noinsert,menuone,noselect,preview
-set ttyfast "should make scrolling faster
-set lazyredraw "same as above
+set ttyfast                " should make scrolling faster
+set lazyredraw             " same as above
 set visualbell
 set mouse=a
 "set guifont=Fira\ Code:h16
@@ -53,10 +53,13 @@ set updatetime=100
 set virtualedit=block
 filetype indent on
 "filetype plugin on
-autocmd FileType javascript,css,html,xml,json setlocal ai
-autocmd FileType javascript,css,html,xml,josn setlocal tabstop=2
-autocmd FileType javascript,css,html,xml,json setlocal softtabstop=2
-autocmd FileType javascript,css,html,xml,json setlocal shiftwidth=2
+augroup FrontFileIndent
+    autocmd!
+    autocmd FileType javascript,css,html,xml,json setlocal ai
+    autocmd FileType javascript,css,html,xml,josn setlocal tabstop=2
+    autocmd FileType javascript,css,html,xml,json setlocal softtabstop=2
+    autocmd FileType javascript,css,html,xml,json setlocal shiftwidth=2
+augroup end
 
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
@@ -127,8 +130,10 @@ inoremap <C-a> <ESC>A
 " change jj to the <ESC>
 imap jj <ESC>
 " go to next line in insert mode with cursor middle in line
-inoremap <C-j> <ESC>o
+inoremap <C-o> <ESC>o
 
+inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
+inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 
 " ===
 " === Command Mode Cursor Movement
@@ -202,7 +207,8 @@ noremap <LEADER>q <C-w>j:q<CR>
 noremap <silent> <LEADER>o za
 
 " open init.vim filre in anytime
-noremap <LEADER>rc :e ~/.config/nvim/init.vim<CR>
+noremap <LEADER>rc :e $MYVIMRC<CR>
+noremap <LEADER>sv :source $MYVIMRC<CR>
 
 " Search
 noremap <LEADER><CR> :nohlsearch<CR>
@@ -213,8 +219,6 @@ noremap <LEADER>dw /\(\<\w\+\>\)\_s*\1
 " Space to Tab
 nnoremap <LEADER>tt :%s/    /\t/g
 vnoremap <LEADER>tt :s/    /\t/g
-
-
 
 " find and replace
 noremap \s :%s//g<left><left>
@@ -244,7 +248,6 @@ if !exists('g:vscode')
 elseif exists('g:vscode')
 
 endif
-
 
 exec "nohlsearch"
 

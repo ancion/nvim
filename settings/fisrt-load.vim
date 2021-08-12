@@ -7,9 +7,8 @@
 " Author: @ancion
 
 
-" ===
-" === Auto load for first time uses
-" ===
+" =======>  Auto load for first time uses {{{
+" -----------------------------------------------------------------------------------------
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
     silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
                 \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -31,6 +30,9 @@ if has_machine_specific_file == 0
     exec "e ~/.config/nvim/_machine_specific.vim"
 endif
 
+" -----------------------------------------------------------------------------------------
+" ===== End  }}}
+
 " some useful cammand in vim
 " 1、:w !sudo tee %  save current file with a rooter permistion
 " 2、:%TOhtml        covert current file to html
@@ -38,3 +40,5 @@ endif
 " 4、:e path         open default filemanager and show a file list and opration menu
 " 5、:n filename     new a file
 " 6、:w filename     restore you file, but not change to the new file
+
+" vim: foldmethod=marker foldlevel=0:

@@ -1,5 +1,6 @@
 
-" ======> Start of OmniSharp =================================================
+" ======> Settings of OmniSharp {{{
+" ------------------------------------------------------------------------------
 "let g:OmniSharp_typeLookupInPreview = 1
 "let g:omnicomplete_fetch_full_documentation = 1
 
@@ -39,5 +40,8 @@
 "execute ':sign place 99 line='.l.' name=OmniSharpCodeActions file='.f
 "endif
 "endfunction
-"" ======> End ================================================================
+" ------------------------------------------------------------------------------
+" ====== End }}}
 
+" vim: foldmethod=marker foldlevel=0:
+"

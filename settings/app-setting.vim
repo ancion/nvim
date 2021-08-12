@@ -3,12 +3,14 @@
 noremap <LEADER>st :Startify<CR>
 " ======> End <================================================================
 
-" ======> Start of lazygit <===================================================
+" ======> Settings of lazygit {{{
+" -----------------------------------------------------------------------------
 " Open up lazygit
 noremap \g :Git<CR>
 noremap <c-g> :tabe<CR>:-tabmove<CR>:term lazygit<CR>
 "noremap <c-h> :tabe<CR>:-tabmove<CR>:term ranger<CR>
-" ======> End <================================================================
+" -----------------------------------------------------------------------------
+" ======> End }}}
 
 " ======> Start of figlet <====================================================
 " user tx to make ASII art
@@ -33,14 +35,17 @@ map <LEADER>gy :Goyo<CR>
 autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
 " ======> End ================================================================
 
-" ======> Start of AutoFormat ================================================
+" ======> Settings of AutoFormat {{{
+" ----------------------------------------------------------------------------
 nnoremap \f :Autoformat<CR>
 let g:formatdef_custom_js = '"js-beautify -t"'
 let g:formatters_javascript = ['custom_js']
 au BufWrite  *.js :Autoformat
-" ======> End ================================================================
+" ------------------------------------------------------------------------------
+" ====== End }}}
 "
-" ======>Start of Bullets.vim ===============================================
+" ======> Settings of Bullets.vim {{{
+" ------------------------------------------------------------------------------
 "let g:bullets_set_mappings = 0
 let g:bullets_enabled_file_types = [
             \ 'markdown',
@@ -48,7 +53,8 @@ let g:bullets_enabled_file_types = [
             \ 'gitcommit',
             \ 'scratch'
             \]
-" ======> End ================================================================
+" ------------------------------------------------------------------------------
+" ====== End }}}
 
 
 " ======> Start of start a new terminal<=============================================
@@ -94,7 +100,8 @@ nmap s <plug>(SubversiveSubstitute)
 nmap ss <plug>(SubversiveSubstituteLine)
 " ======> End ================================================================
 
-" ======> Start of vim-visual-multi ===========================================
+" ======> Settings of vim-visual-multi  {{{
+" -----------------------------------------------------------------------------
 "let g:VM_theme             = 'iceblue'
 "let g:VM_default_mappings = 0
 let g:VM_leader                     = {'default': ',', 'visual': ',', 'buffer': ','}
@@ -107,9 +114,11 @@ let g:VM_maps['Remove Region']      = 'q'
 let g:VM_maps['Skip Region']        = '<c-n>'
 let g:VM_maps["Undo"]               = 'u'
 let g:VM_maps["Redo"]               = '<C-r>'
-" ======> End ================================================================
+" -----------------------------------------------------------------------------
+" ======> End }}}
 
-" ======> Start of vista ======================================================
+" ======> Settings of vista {{{
+" -----------------------------------------------------------------------------
 noremap <LEADER>v :Vista coc<CR>
 noremap <c-t> :silent! Vista finder coc<CR>
 let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
@@ -124,10 +133,11 @@ function! NearestMethodOrFunction() abort
 endfunction
 set statusline+=%{NearestMethodOrFunction()}
 autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+" -----------------------------------------------------------------------------
+" ======> End  }}}
 
-" ======> End =================================================================
-
-" ======> Start of fastfold ==================================================
+" ======> Settings of fastfold {{{
+" -----------------------------------------------------------------------------
 nmap zuz <Plug>(FastFoldUpdate)
 let g:fastfold_savehook = 1
 let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
@@ -144,7 +154,8 @@ let g:perl_fold_blocks = 1
 let g:r_syntax_folding = 1
 let g:rust_fold = 1
 let g:php_folding = 1
-" ======> End ================================================================
+" -----------------------------------------------------------------------------
+" ======> End }}}
 
 " ======> Start of vim-calc ==================================================
 "noremap <LEADER>a :call Calc()<CR>
@@ -166,7 +177,8 @@ let g:php_folding = 1
 "map <C-n> :NERDTreeToggle<CR>
 " ======> End=================================================================
 
-" ======> Start of vim-multiple-cursor =======================================
+" ======> Settings of vim-multiple-cursor {{{
+" ----------------------------------------------------------------------------
 "let g:multi_cursor_use_default_mapping = 0
 "let g:multi_cursor_start_word_key = '<c-k>'
 "let g:multi_cursor_select_all_word_key = '<a-k>'
@@ -176,10 +188,16 @@ let g:php_folding = 1
 "let g:multi_cursor_prev_key = '<c-p>'
 "let g:multi_cursor_skip_key = '<C-s>'
 "let g:multi_cursor_quit_key = '<Esc>'
-" ======> End ================================================================
+" ----------------------------------------------------------------------------
+" ======> End }}}
 
-" ======> Start of reply.vim =================================================
+" ======> Settings of reply.vim {{{
+" ----------------------------------------------------------------------------
 "noremap <LEADER>rp :w<CR>:Repl<CR><C-\><C-N><C-w><C-h>
 "noremap <LEADER>rs :ReplSend<CR><C-w><C-l>a<CR><C-\><C-N><C-w><C-h>
 "noremap <LEADER>rt :ReplStop<CR>
-" ======> End ================================================================
+" ----------------------------------------------------------------------------
+" ======> End }}}
+"
+" vim: foldmethod=marker foldlevel=0:
+"

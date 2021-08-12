@@ -1,6 +1,6 @@
-" ======> Start of Run function <==============================================
-" with this function you can comile and run you code easily
-" ======> End <================================================================
+
+" ======> Function of Run and Complier {{{
+" ------------------------------------------------------------------------------
 noremap <F22> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
     exec "w"
@@ -46,10 +46,11 @@ func! CompileRunGcc()
     endif
 endfunc
 
-" ======> Start of Platform info <=============================================
-" PlatForm information
-" ======> End <================================================================
+" ------------------------------------------------------------------------------
+" ====== End }}}
 
+" =====> PlatForm information {{{
+" ------------------------------------------------------------------------------
 function! Mysys()
     if has("win32") || has("win64")||has("win95")
         return "windows"
@@ -57,10 +58,11 @@ function! Mysys()
         return "linux"
     endif
 endfunction
+" ------------------------------------------------------------------------------
+" ====== End }}}
 
-"===
-"=== resolve encoding error
-"===
+"=======> resolve encoding error {{{
+" ------------------------------------------------------------------------------
 set encoding=utf-8
 set langmenu=zh_CN.utf-8
 set fileencodings=utf-8,ucs-bom,cp936,big5,gbk,gb2312,euc-jp,euc-kr,latin-1
@@ -71,16 +73,13 @@ elseif Mysys()=="linux"
     let &termencoding=&encoding
     set fileencodings=utf-8,gbk,ucs-bom,cp936
 endif
-"===
-"===unnormal character
-"===
-"if exists("&ambiwidth")
-"set ambiwidth=double
-"endif
+"
+" ------------------------------------------------------------------------------
+"======= End }}}
 
-"=========================================================================
-" local undo and backup file position
-"=========================================================================
+"======= local undo and backup file position {{{
+" ------------------------------------------------------------------------------
+" 
 silent !mkdir -p ~/.config/nvim/tmp/backup
 silent !mkdir -p ~/.config/nvim/tmp/undo
 silent !mkdir -p ~/.config/nvim/tmp/sessions
@@ -90,3 +89,9 @@ if has('persistent_undo')
     set undofile
     set undodir=~/.config/nvim/tmp/undo,.
 endif
+" ------------------------------------------------------------------------------
+" ====== End }}}
+
+" vim: foldmethod=marker foldlevel=0:
+
+ 

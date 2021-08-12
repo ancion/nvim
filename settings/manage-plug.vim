@@ -1,4 +1,7 @@
 
+"========= [[[ Manage Plugs ]]] {{{
+"---------------------------------------------------------------------------
+
 call plug#begin('~/.config/nvim/plugged')
 "===========================================================================
 "===First of all we should put some basic plug to apply ourself properties==
@@ -34,6 +37,7 @@ Plug 'connorholyday/vim-snazzy'
 "Plug 'rakr/vim-one'
 "Plug 'ayu-theme/ayu-vim'
 Plug 'morhetz/gruvbox'
+Plug 'overcache/NeoSolarized'
 "Plug 'mhartington/oceanic-next'
 "Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'kyoz/purify', { 'rtp': 'vim'  }
@@ -224,7 +228,7 @@ Plug 'junegunn/goyo.vim'
 "Plug 'ron89/thesaurus_query.vim'
 
 " Bookmarks
-Plug 'MattesGroeger/vim-bookmarks'
+" Plug 'MattesGroeger/vim-bookmarks'
 
 " Find & Replace
 Plug 'brooth/far.vim', { 'on': ['F', 'Far', 'Fardo'] }
@@ -261,3 +265,6 @@ Plug 'roxma/nvim-yarp'
 "Plug 'rbgrouleff/bclose.vim' " For ranger.vim
 
 call plug#end()
+"-----------------------------------------------------------------------------
+" ========= End }}}
+" vim: foldmethod=marker foldlevel=0:

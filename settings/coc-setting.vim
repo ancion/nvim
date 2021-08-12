@@ -1,5 +1,6 @@
 
-" ======> Start of Coc =======================================================
+" ======> Start of Coc {{{
+" --------------------------------------------------------------------------------------
 let g:coc_global_extensions = [
             \'coc-actions',
             \'coc-css',
@@ -37,18 +38,28 @@ function! s:check_back_space() abort
     return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 inoremap <silent><expr> <c-space> coc#refresh()
-inoremap <silent><expr> <c-o> coc#refresh()
 function! Show_documentation()
     call CocActionAsync("highlight")
     if (index(['vim','help'], &filetype) >= 0)
         execute 'h '.expand('<cword>')
         execute 'normal srv'
-    else
+    elseif(coc#rpc#ready())
         call CocAction('doHover')
         execute 'normal srv'
+    else 
+        exec "!" . &keywordprg . " " . expand('<cword>')
     endif
 endfunction
-nnoremap <LEADER>m :call Show_documentation()<CR>
+nnoremap M :call Show_documentation()<CR>
+
+autocmd CursorHold * silent call CocActionAsync("highlight")
+augroup CocTsGroup 
+    autocmd!
+    " Setup formatexpr specified filetype
+    autocmd FileType typescripe,json setl formatexpr=CocAction('formatSelected')
+    " update signature on help jump placeholder
+    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
 
 nnoremap <silent><nowait> <LEADER>d :CocList diagnostics<CR>
 nmap <silent> <LEADER>- <Plug>(coc-diagnostic-prev)
@@ -75,12 +86,10 @@ nmap <leader>rn <Plug>(coc-rename)
 nmap <LEADER>e :CocCommand explorer<CR>
 " coc-translator
 nmap ts <Plug>(coc-translator-p)
-" Remap for do codeAction of selected region
-function! s:cocActionsOpenFromSelected(type) abort
-    execute 'CocCommand actions.open ' . a:type
-endfunction
-xmap <silent> <leader>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
-nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
+
+xmap <silent> <leader>a <Plug>(coc-codeaction-selected)
+nmap <silent> <leader>a <Plug>(coc-codeaction-selected)
+
 " coctodolist
 nnoremap <leader>tn :CocCommand todolist.create<CR>
 nnoremap <leader>tl :CocList todolist<CR>
@@ -90,9 +99,12 @@ noremap <silent> C :CocList tasks<CR>
 " coc-snippets
 imap <M-/> <Plug>(coc-snippets-expand)
 vmap <M-/> <Plug>(coc-snippets-select)
-let g:coc_snippet_next = '<c-e>'
-let g:coc_snippet_prev = '<c-n>'
+let g:coc_snippet_next = '<c-n>'
+let g:coc_snippet_prev = '<c-e>'
 imap <C-e> <Plug>(coc-snippets-expand-jump)
 let g:snips_author = 'ancion'
 
-" ======> End ================================================================
+" --------------------------------------------------------------------------------------
+" ======> End }}}
+"
+" vim: set foldmethod=marker foldlevel=0:

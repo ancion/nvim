@@ -1,7 +1,7 @@
-" ======> Start of Colorizer <=================================================
-" Terminal colors
-" ======> End <================================================================
 
+" ======> Settings of Colorizer {{{
+" -----------------------------------------------------------------------------
+" Terminal colors
 let g:neoterm_autoscroll = 1
 autocmd TermOpen term://* startinsert
 tnoremap <C-N> <C-\><C-N>
@@ -21,24 +21,35 @@ let g:terminal_color_11 = '#F4F99D'
 let g:terminal_color_12 = '#CAA9FA'
 let g:terminal_color_13 = '#FF92D0'
 let g:terminal_color_14 = '#9AEDFE'
+" -----------------------------------------------------------------------------
+" ======> End }}}
 
-" ============================================================================
-" ======> Dress up my vim
-" ============================================================================
+" ======>  [[[ Dress up my vim  ]]] == {{{
+" -----------------------------------------------------------------------------
 set termguicolors " enable true colors support
 let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 
 "let g:space_vim_transp_bg = 1
 "colorscheme space_vim_theme
 
-"colorscheme snazzy
 "let g:SnazzyTransparent = 1
 "set background=dark
+"colorscheme snazzy
 
-" let g:nightflyCursorColor = 1
-" let g:nightflyTransparent = 1
-" let g:nightflyNormalFloat = 1
-" color nightfly
+ "let g:nightflyCursorColor = 1
+ "let g:nightflyTransparent = 1
+ "let g:nightflyNormalFloat = 1
+ "color nightfly
+
+"let g:neosolarized_termtrans        = 1
+"let g:neosolarized_contrast         = "normal"
+"let g:neosolarized_visibility       = "normal"
+"let g:neosolarized_vertSplitBgTrans = 1
+"let g:neosolarized_bold             = 1
+"let g:neosolarized_underline        = 1
+"let g:neosolarized_italic           = 0
+"let g:neosolarized_termBoldAsBright = 1
+"colorscheme NeoSolarized
 
 "color purify
 
@@ -47,22 +58,31 @@ colorscheme dracula
 "color gruvbox
 "color xcodelighthc
 
-"color one
 "let g:one_allow_italics = 1
+"color one
 
-"color ayu
 "let ayucolor="light"
 "let ayucolor="mirage"
+"color ayu
 "
-"let g:oceanic_next_terminal_bold = 1
+"let g:oceanic_next_terminal_bold   = 1
 "let g:oceanic_next_terminal_italic = 1
-"let g:airline_theme = 'night_owl'
+let g:airline_theme                = 'night_owl'
 
-hi NonText ctermfg = gray guifg  = grey10
-hi NonText ctermfg = Black guifg = black10
-hi normal ctermfg  = 252 ctermbg = none
+hi NonText ctermfg = Gray     guifg = Grey10
+hi NonText ctermfg = Black    guifg = Black10
+hi normal  ctermfg = 252    ctermbg = NONE     guibg = NONE
 
-" ======> Start of xtabline ==================================================
+" Set cursor line color on visual mode
+"highlight Visual cterm=NONE ctermbg=236 guifg=NONE guibg=LightBlue
+"highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=NONE
+
+
+" -----------------------------------------------------------------------------------------
+" =======End }}}
+
+" ======> Settings of xtabline {{{
+" -----------------------------------------------------------------------------------------
 let g:xtabline_settings = {'theme':'dracula'}
 let g:xtabline_settings.enable_mappings = 0
 let g:xtabline_settings.tabline_modes = ['tabs', 'buffers']
@@ -70,26 +90,39 @@ let g:xtabline_settings.enable_persistance = 0
 let g:xtabline_settings.last_open_first = 1
 noremap to :XTabCycleMode<CR>
 noremap \p :XTabInfo<CR>
-" ======> End ================================================================
+" -----------------------------------------------------------------------------------------
+" ======> End }}}
 
-" ======> Start of eleline.vim ===============================================
+" ======> Settings of eleline.vim {{{
+" -----------------------------------------------------------------------------------------
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:eleline_powerline_fonts = 1
-" ======> End ================================================================
+" -----------------------------------------------------------------------------------------
+" ======> End }}}
 
-" ======> Start of Colorizer =================================================
+" ======> Settings of Colorizer {{{
+" -----------------------------------------------------------------------------------------
 let g:colorizer_syntax = 1
-" ======> End ================================================================
+" -----------------------------------------------------------------------------------------
+" ======> End }}}
 
-" ======> Start of nvim-colorizer.lua ========================================
+" ======> Settings of nvim-colorizer.lua {{{
+" -----------------------------------------------------------------------------------------
 lua require'colorizer'.setup()
-" ======> End ================================================================
+" -----------------------------------------------------------------------------------------
+" ======> End }}}
 
-" ======> Start of jsx =======================================================
+" ======> Settings of jsx {{{
+" -----------------------------------------------------------------------------------------
 let g:vim_jsx_pretty_colorful_config = 1
-" ======> End ================================================================
+" -----------------------------------------------------------------------------------------
+" ======> End }}}
 
-"" ======> Start of rainbow ===================================================
+"" ======> Setttings of rainbow  {{{
+" -----------------------------------------------------------------------------------------
 let g:rainbow_active = 1
-" ======> End ================================================================
+" -----------------------------------------------------------------------------------------
+" ======> End }}}
+
+" vim: foldmethod=marker foldlevel=0:

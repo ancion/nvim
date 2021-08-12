@@ -1,4 +1,6 @@
-" ======> Start of vimspector ================================================
+
+" ======> Start of vimspector {{{
+" -----------------------------------------------------------------------------------------
 let g:vimspector_enable_mappings = 'HUMAN'
 function! s:read_template_into_buffer(template)
     " has to be a function to avoid the extra space fzf#run insers otherwise
@@ -13,5 +15,8 @@ noremap <leader>vs :tabe .vimspector.json<CR>:LoadVimSpectorJsonTemplate<CR>
 sign define vimspectorBP         text=🟢 texthl=Normal
 sign define vimspectorBPDisabled text=🔴 texthl=Normal
 sign define vimspectorPC         text=👉 texthl=SpellBad
-" ======> End =================================================================
+" -----------------------------------------------------------------------------------------
+" ======> End  }}}
+"
+" vim: foldmethod=marker foldlevel=0:
 

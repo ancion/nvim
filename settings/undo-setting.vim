@@ -1,5 +1,6 @@
 
-" ======> Start of UndoTree <<=================================================
+" ======> Settings of UndoTree {{{
+" ----------------------------------------------------------------------------
 noremap D :UndotreeToggle<CR>
 let g:undotree_DiffAutoOpen = 1
 let g:undotree_SetFocusWhenToggle = 1
@@ -13,4 +14,7 @@ function g:Undotree_CustomMap()
     nmap <buffer> U 5<plug>UndotreeNextState
     nmap <buffer> B 5<plug>UndotreePreviousState
 endfunc
-" ======> End ================================================================
+"-----------------------------------------------------------------------------
+" ======> End }}}
+"
+" vim: foldmethod=marker foldlevel=0:
