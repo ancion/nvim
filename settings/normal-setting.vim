@@ -26,7 +26,8 @@ func! CompileRunGcc()
         ":sp
         ":term python3 %
     elseif &filetype == 'html'
-        silent! exec "!".g:mkdp_browser." % &"
+        "silent! exec "!".g:mkdp_browser." % &"
+        silent! exec "!live-server % &"
     elseif &filetype == 'markdown'
         exec "MarkdownPreview"
     elseif &filetype == 'dart'
