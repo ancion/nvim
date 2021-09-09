@@ -180,7 +180,7 @@
 	},
 	"languageserver": {
 		"lua": {
-			"command": "$HOME/.luarocks/bin/lua-lsp",
+			"command": "lua-lsp",
 			"filetypes": ["lua"]
 		},
 		"golang": {

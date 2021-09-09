@@ -53,8 +53,8 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 
 "color purify
 
-colorscheme dracula
-"colors deus
+"colorscheme dracula
+colors deus
 "color gruvbox
 "color xcodelighthc
 
@@ -67,11 +67,12 @@ colorscheme dracula
 "
 "let g:oceanic_next_terminal_bold   = 1
 "let g:oceanic_next_terminal_italic = 1
-let g:airline_theme                = 'night_owl'
+let g:airline_theme = 'night_owl'
 
-hi NonText ctermfg = Gray     guifg = Grey10
-hi NonText ctermfg = Black    guifg = Black10
-hi normal  ctermfg = 252    ctermbg = NONE     guibg = NONE
+hi NonText ctermfg = Gray     guifg = Grey
+hi Normal  ctermfg = 252    ctermbg = None     guibg = None
+hi Pmenu   ctermbg = None     guibg = None
+hi NormalFloat cterm = None   guibg = None
 
 " Set cursor line color on visual mode
 "highlight Visual cterm=NONE ctermbg=236 guifg=NONE guibg=LightBlue
@@ -83,7 +84,7 @@ hi normal  ctermfg = 252    ctermbg = NONE     guibg = NONE
 
 " ======> Settings of xtabline {{{
 " -----------------------------------------------------------------------------------------
-let g:xtabline_settings = {'theme':'dracula'}
+let g:xtabline_settings = {'theme' : 'default'}
 let g:xtabline_settings.enable_mappings = 0
 let g:xtabline_settings.tabline_modes = ['tabs', 'buffers']
 let g:xtabline_settings.enable_persistance = 0

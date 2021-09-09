@@ -39,7 +39,7 @@ Plug 'connorholyday/vim-snazzy'
 Plug 'morhetz/gruvbox'
 Plug 'overcache/NeoSolarized'
 "Plug 'mhartington/oceanic-next'
-"Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'kyoz/purify', { 'rtp': 'vim'  }
 Plug 'liuchengxu/space-vim-theme'
 
