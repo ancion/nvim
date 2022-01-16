@@ -13,7 +13,7 @@ set hidden
 set number
 set relativenumber
 set cursorline
-"set cursorcolumn
+set cursorcolumn
 set cmdheight=1
 set tabstop=4
 set softtabstop=4

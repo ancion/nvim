@@ -33,12 +33,16 @@ inoremap <silent><expr> <TAB>
             \ <SID>check_back_space() ? "\<TAB>" :
             \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                                         \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+inoremap <silent><expr> <c-space> coc#refresh()
+
 function! s:check_back_space() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-inoremap <silent><expr> <c-space> coc#refresh()
+
 function! Show_documentation()
     call CocActionAsync("highlight")
     if (index(['vim','help'], &filetype) >= 0)
@@ -46,14 +50,16 @@ function! Show_documentation()
         execute 'normal srv'
     elseif(coc#rpc#ready())
         call CocAction('doHover')
-        execute 'normal srv'
     else 
         exec "!" . &keywordprg . " " . expand('<cword>')
     endif
+    execute 'normal srv'
 endfunction
+
 nnoremap M :call Show_documentation()<CR>
 
 autocmd CursorHold * silent call CocActionAsync("highlight")
+
 augroup CocTsGroup 
     autocmd!
     " Setup formatexpr specified filetype
@@ -70,8 +76,8 @@ nmap <silent> <LEADER>= <Plug>(coc-diagnostic-next)
 nnoremap <c-c> :CocCommand<CR>
 " Text Objects
 xmap kf <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
 omap kf <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
 omap af <Plug>(coc-funcobj-a)
 xmap kc <Plug>(coc-classobj-i)
 omap kc <Plug>(coc-classobj-i)
@@ -90,6 +96,7 @@ nmap ts <Plug>(coc-translator-p)
 
 xmap <silent> <leader>a <Plug>(coc-codeaction-selected)
 nmap <silent> <leader>a <Plug>(coc-codeaction-selected)
+vmap <silent> <C-S><CR> <Plug>(coc-format-selected)
 
 " coctodolist
 nnoremap <leader>tn :CocCommand todolist.create<CR>
@@ -104,6 +111,13 @@ let g:coc_snippet_next = '<c-n>'
 let g:coc_snippet_prev = '<c-e>'
 imap <C-e> <Plug>(coc-snippets-expand-jump)
 let g:snips_author = 'ancion'
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+" Add `:Fold` command to fold current buffer.
+command! -nargs=? Fold   :call CocAction('fold', <f-args>)
+" Add `:OR` command for organize imports of the current buffer.
+command! -nargs=0 OR     :call CocAction('runCommand', 'editor.action.organizeImport')
 
 " --------------------------------------------------------------------------------------
 " ======> End }}}

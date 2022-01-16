@@ -79,6 +79,7 @@ Plug 'puremourning/vimspector', {'do': './install_gadget.py  --enable-python --e
 " Auto Complete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'wellle/tmux-complete.vim'
+Plug 'github/copilot.vim'
 
 " Formatter
 Plug 'Chiel92/vim-autoformat'

@@ -1,6 +1,5 @@
 
 " ======> Settings of MarkdownPreview {{{
-"
 " ------------------------------------------------------------------------------
 let g:mkdp_path_to_chrome = 'msedge'
 let g:mkdp_auto_start = 0
