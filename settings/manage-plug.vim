@@ -52,6 +52,8 @@ Plug 'chrisbra/Colorizer' " Show colors with :ColorHighlight
 Plug 'dracula/vim',{'as':'dracula'}
 Plug 'RRethy/vim-illuminate'
 "Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase'  }
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/playground'
 
 " ============================================================================
 " =====> Navigation WithinBuffer <====================
@@ -121,7 +123,6 @@ Plug 'theniceboy/bullets.vim'
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'theniceboy/vim-gitignore', { 'for': ['gitignore', 'vim-plug'] }
-Plug 'fszymanski/fzf-gitignore', { 'do': ':UpdateRemotePlugins' }
 "Plug 'mhinz/vim-signify'
 Plug 'airblade/vim-gitgutter'
 

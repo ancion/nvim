@@ -244,7 +244,7 @@ if !exists('g:vscode')
     "source $HOME/.config/nvim/settings/rnvimr-setting.vim
     source $HOME/.config/nvim/settings/showkey-setting.vim
     source $HOME/.config/nvim/settings/signature-setting.vim
-    source $HOME/.config/nvim/settings/bookmark-setting.vim
+    source $HOME/.config/nvim/settings/treesitter-setting.vim
 elseif exists('g:vscode')
 
 endif

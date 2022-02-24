@@ -13,7 +13,6 @@ let g:coc_global_extensions = [
             \'coc-lua',
             \'coc-prettier',
             \'coc-pyright',
-            \'coc-python',
             \'coc-snippets',
             \'coc-sourcekit',
             \'coc-stylelint',
@@ -60,7 +59,7 @@ nnoremap M :call Show_documentation()<CR>
 
 autocmd CursorHold * silent call CocActionAsync("highlight")
 
-augroup CocTsGroup 
+augroup CocTsGroup
     autocmd!
     " Setup formatexpr specified filetype
     autocmd FileType typescripe,json setl formatexpr=CocAction('formatSelected')
@@ -105,8 +104,8 @@ nnoremap <leader>tu :CocCommand todolist.download<CR>:CocCommand todolist.upload
 " coc-tasks
 noremap <silent> C :CocList tasks<CR>
 " coc-snippets
-imap <M-/> <Plug>(coc-snippets-expand)
-vmap <M-/> <Plug>(coc-snippets-select)
+imap <A-/> <Plug>(coc-snippets-expand)
+vmap <A-/> <Plug>(coc-snippets-select)
 let g:coc_snippet_next = '<c-n>'
 let g:coc_snippet_prev = '<c-e>'
 imap <C-e> <Plug>(coc-snippets-expand-jump)

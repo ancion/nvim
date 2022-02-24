@@ -72,6 +72,7 @@ let g:airline_theme = 'night_owl'
 hi NonText ctermfg = Gray     guifg = Grey
 hi Normal  ctermfg = 252    ctermbg = None     guibg = None
 hi Pmenu   ctermbg = None     guibg = None
+hi PmenuSel ctermbg = Cyan ctermfg = Black guibg = Cyan guifg = Black
 hi NormalFloat cterm = None   guibg = None
 
 " Set cursor line color on visual mode
@@ -120,7 +121,7 @@ let g:vim_jsx_pretty_colorful_config = 1
 " -----------------------------------------------------------------------------------------
 " ======> End }}}
 
-"" ======> Setttings of rainbow  {{{
+" ======> Settings of rainbow  {{{
 " -----------------------------------------------------------------------------------------
 let g:rainbow_active = 1
 " -----------------------------------------------------------------------------------------
