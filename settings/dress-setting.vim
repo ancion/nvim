@@ -57,6 +57,7 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 colors deus
 "color gruvbox
 "color xcodelighthc
+"colorscheme catppuccin
 
 "let g:one_allow_italics = 1
 "color one

@@ -39,6 +39,7 @@ set showcmd
 set wildmenu
 set ignorecase
 set smartcase
+set laststatus=3
 set shortmess+=c
 set inccommand=split
 set completeopt=longest,noinsert,menuone,noselect,preview
@@ -60,6 +61,15 @@ augroup FrontFileIndent
     autocmd FileType javascript,css,html,xml,json setlocal softtabstop=2
     autocmd FileType javascript,css,html,xml,json setlocal shiftwidth=2
 augroup end
+
+" WSL yank 后复制到系统剪切板
+let s:clip = '/mnt/c/Windows/System32/clip.exe'
+if executable(s:clip) 
+  augroup WSLYank
+    autocmd!
+    autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
+  augroup END
+endif
 
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
@@ -83,7 +93,7 @@ nnoremap Y y$
 vnoremap Y "+y
 
 " copy wsl nvim clipboard content to Windows clipboard
-vnoremap p[ :!clip.exe <CR>u
+" vnoremap p[ :!clip.exe <CR>u
 
 "set g:clipboard=xclip
 

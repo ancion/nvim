@@ -42,6 +42,7 @@ Plug 'overcache/NeoSolarized'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'kyoz/purify', { 'rtp': 'vim'  }
 Plug 'liuchengxu/space-vim-theme'
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
 "=============================================================================
 "======> Genreal Highlighter <=======================
@@ -240,8 +241,8 @@ Plug 'osyo-manga/vim-anzu'
 "Plug 'KabbAmine/zeavim.vim' " <LEADER>z to find doc
 
 " Vim Applications
+
 Plug 'makerj/vim-pdf'
-Plug 'theniceboy/vim-leader-mapper'
 "Plug 'liuchengxu/vim-clap'
 "Plug 'jceb/vim-orgmode'
 Plug 'voldikss/vim-floaterm'
