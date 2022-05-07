@@ -43,6 +43,8 @@ Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'kyoz/purify', { 'rtp': 'vim'  }
 Plug 'liuchengxu/space-vim-theme'
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+Plug 'bluz71/vim-nightfly-guicolors'
+Plug 'folke/tokyonight.nvim'
 
 "=============================================================================
 "======> Genreal Highlighter <=======================
