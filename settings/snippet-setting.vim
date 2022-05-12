@@ -7,8 +7,8 @@ let g:UltiSnipsExpandTrigger="<M-/>"
 let g:UltiSnipsJumpForwardTrigger="<M-/>"
 let g:UltiSnipsJumpBackwardTrigger="<c-n>"
 let g:UltiSnipsSnippetDirectories = [
-            \$HOME.'/.config/nvim/Ultisnips/',
-            \$HOME.'/.config/nvim/plugged/vim-snippets/UltiSnips/'
+            \g:setting_dir. '/Ultisnips/',
+            \g:setting_dir. '/plugged/vim-snippets/UltiSnips/'
             \]
 silent! au BufEnter,BufRead,BufNewFile * silent! unmap <c-r>
 " ----------------------------------------------------------------------------

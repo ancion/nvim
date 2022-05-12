@@ -74,6 +74,7 @@ let g:airline_theme = 'night_owl'
 hi Normal       ctermbg=None guibg=None
 hi NonText      ctermfg=Gray guifg=Grey
 hi NormalFloat  ctermbg=None guibg=None
+hi FloatBorder  ctermbg=None guibg=None
 hi Pmenu        ctermbg=None guibg=None
 hi PmenuSel     ctermbg=Cyan guifg=Black guibg=Cyan ctermfg=Black
 hi LineNr       ctermbg=None guibg=None

@@ -34,4 +34,13 @@ noremap <LEADER>gi :FzfGitignore<CR>
 " ----------------------------------------------------------------------------
 " ======> End }}}
 
+" ======> Settings of lazygit {{{
+" -----------------------------------------------------------------------------
+" Open up lazygit
+noremap \g :Git<CR>
+noremap <c-g> :tabe<CR>:-tabmove<CR>:term lazygit<CR>
+"noremap <c-h> :tabe<CR>:-tabmove<CR>:term ranger<CR>
+" -----------------------------------------------------------------------------
+" ======> End }}}
+
 " vim: foldmethod=marker foldlevel=0:

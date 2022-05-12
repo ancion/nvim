@@ -2,7 +2,8 @@
 "========= [[[ Manage Plugs ]]] {{{
 "---------------------------------------------------------------------------
 
-call plug#begin('~/.config/nvim/plugged')
+" call plug#begin('~/.config/nvim/plugged')
+call plug#begin(g:setting_dir ."/plugged")
 "===========================================================================
 "===First of all we should put some basic plug to apply ourself properties==
 "===========================================================================
@@ -36,6 +37,7 @@ Plug 'connorholyday/vim-snazzy'
 "Plug 'arzg/vim-colors-xcode'
 "Plug 'rakr/vim-one'
 "Plug 'ayu-theme/ayu-vim'
+Plug 'dracula/vim',{'as':'dracula'}
 Plug 'morhetz/gruvbox'
 Plug 'overcache/NeoSolarized'
 "Plug 'mhartington/oceanic-next'
@@ -52,7 +54,6 @@ Plug 'folke/tokyonight.nvim'
 
 "Plug 'jaxbot/semantic-highlight.vim'
 Plug 'chrisbra/Colorizer' " Show colors with :ColorHighlight
-Plug 'dracula/vim',{'as':'dracula'}
 Plug 'RRethy/vim-illuminate'
 "Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase'  }
 Plug 'nvim-treesitter/nvim-treesitter'
@@ -162,7 +163,7 @@ Plug 'fatih/vim-go' , { 'do': ':GoUpdateBinaries', 'for': ['go', 'vim-plug'] }
 "=============================================================================
 
 " Python
-"Plug 'tmhedberg/SimpylFold', { 'for' :['python', 'vim-plug'] }
+Plug 'tmhedberg/SimpylFold', { 'for' :['python', 'vim-plug'] }
 Plug 'Vimjas/vim-python-pep8-indent', { 'for' :['python', 'vim-plug'] }
 Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins', 'for' :['python', 'vim-plug'] }
 "Plug 'vim-scripts/indentpython.vim', { 'for' :['python', 'vim-plug'] }

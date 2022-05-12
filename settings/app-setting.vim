@@ -3,14 +3,6 @@
 noremap <LEADER>st :Startify<CR>
 " ======> End <================================================================
 
-" ======> Settings of lazygit {{{
-" -----------------------------------------------------------------------------
-" Open up lazygit
-noremap \g :Git<CR>
-noremap <c-g> :tabe<CR>:-tabmove<CR>:term lazygit<CR>
-"noremap <c-h> :tabe<CR>:-tabmove<CR>:term ranger<CR>
-" -----------------------------------------------------------------------------
-" ======> End }}}
 
 " ======> Start of figlet <====================================================
 " user tx to make ASII art
@@ -176,6 +168,15 @@ let g:php_folding = 1
 " ======> Start of nerdTree ==================================================
 "map <C-n> :NERDTreeToggle<CR>
 " ======> End=================================================================
+
+
+" ======> Settings of nerdcommenter {{{
+" ----------------------------------------------------------------------------
+let g:NERDSpaceDelims     = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign    = "left"
+" ----------------------------------------------------------------------------
+" ======> End }}}
 
 " ======> Settings of vim-multiple-cursor {{{
 " ----------------------------------------------------------------------------
