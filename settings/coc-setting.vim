@@ -9,6 +9,7 @@ let g:coc_global_extensions = [
             \'coc-gitignore',
             \'coc-html',
             \'coc-json',
+            \'coc-java',
             \'coc-lists',
             \'coc-lua',
             \'coc-prettier',
@@ -29,15 +30,18 @@ let g:coc_global_extensions = [
             \'coc-yank']
 inoremap <silent><expr> <TAB>
             \ pumvisible() ? "\<C-n>" :
-            \ <SID>check_back_space() ? "\<TAB>" :
+            \ <SID>CheckBackspace() ? "\<TAB>" :
             \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                                         \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <cr> pumvisible() 
+                        \? coc#_select_confirm()
+                        \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 inoremap <silent><expr> <c-space> coc#refresh()
 
-function! s:check_back_space() abort
+nnoremap M :call Show_documentation()<CR>
+
+function! s:CheckBackspace() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
@@ -46,16 +50,13 @@ function! Show_documentation()
     call CocActionAsync("highlight")
     if (index(['vim','help'], &filetype) >= 0)
         execute 'h '.expand('<cword>')
-        execute 'normal srv'
     elseif(coc#rpc#ready())
-        call CocAction('doHover')
+        call CocActionAsync('doHover')
     else 
-        exec "!" . &keywordprg . " " . expand('<cword>')
+        exec "!" . &keywordprg . " " .expand('<cword>')
     endif
     execute 'normal srv'
 endfunction
-
-nnoremap M :call Show_documentation()<CR>
 
 autocmd CursorHold * silent call CocActionAsync("highlight")
 
@@ -67,9 +68,12 @@ augroup CocTsGroup
     autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
-nnoremap <silent><nowait> <LEADER>d :CocList diagnostics<CR>
-nmap <silent> <LEADER>- <Plug>(coc-diagnostic-prev)
-nmap <silent> <LEADER>= <Plug>(coc-diagnostic-next)
+nnoremap <silent><nowait> <leader>d :CocList diagnostics<CR>
+nnoremap <silent><nowait> <leader>o :<C-u>CocOutline<CR>
+nnoremap <silent><nowait> <leader>y :<C-u>CocList -A --normal yank<cr>
+
+nmap <silent> <leader>- <Plug>(coc-diagnostic-prev)
+nmap <silent> <leader>= <Plug>(coc-diagnostic-next)
 
 " Open up coc-commands
 nnoremap <c-c> :CocCommand<CR>
@@ -83,7 +87,6 @@ omap kc <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 " Useful commands
-nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)

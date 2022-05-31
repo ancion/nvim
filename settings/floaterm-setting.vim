@@ -9,7 +9,7 @@ let g:floaterm_wintype      = 'split'
 let g:floaterm_position     = 'rightbelow'
 let g:floaterm_open_command = "vsplit"
 let g:floaterm_title        = '   🐋···Floaterm($1/$2)···💦'
-let g:floaterm_shell        = 'zsh'
+let g:floaterm_shell        = g:shell
 let g:floaterm_borderchars  = "─│─│╭╮╯╰"
 noremap R :FloatermNew ranger<CR>
 
@@ -21,8 +21,8 @@ noremap R :FloatermNew ranger<CR>
 " noremap <LEADER>/ :term<CR>
 " noremap <LEADER>/ :set splitbelow<CR>:split<CR>:term powershell -NoLogo<CR>
 " noremap <LEADER>/ :set splitbelow<CR>:split<CR>:res +10<CR>:term<CR>
-noremap <LEADER>` :FloatermToggle<CR>
-xnoremap <LEADER>` :FloatermToggle<CR>
+noremap <A-`>  :FloatermToggle<CR>
+xnoremap <A-`> :FloatermToggle<CR>
 "
 "vim: foldmethod=marker foldlevel=0:
 

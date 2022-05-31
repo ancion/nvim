@@ -3,7 +3,6 @@
 noremap <LEADER>st :Startify<CR>
 " ======> End <================================================================
 
-
 " ======> Start of figlet <====================================================
 " user tx to make ASII art
 map tx :r !figlet
@@ -20,6 +19,10 @@ let g:asyncrun_open = 6
 " ======> End ================================================================
 
 " ======>  Start of goyo  ====================================================
+let g:goyo_width  = 200
+let g:goyo_height = 200
+let g:goyo_linenr = 1
+
 map <LEADER>gy :Goyo<CR>
 " ======> End ================================================================
 
@@ -153,13 +156,6 @@ let g:php_folding = 1
 "noremap <LEADER>a :call Calc()<CR>
 " ======> End ================================================================
 
-
-" ======> Start of context.vim ===============================================
-"let g:context_add_mappings = 0
-"noremap <leader>ct :ContextToggle<CR>
-" ======> End ================================================================
-
-
 " ======> Start of CTRLP (Dependency for omnisharp) ==========================
 "let g:ctrlp_map = ''
 "let g:ctrlp_cmd = 'CtrlP'
@@ -168,7 +164,6 @@ let g:php_folding = 1
 " ======> Start of nerdTree ==================================================
 "map <C-n> :NERDTreeToggle<CR>
 " ======> End=================================================================
-
 
 " ======> Settings of nerdcommenter {{{
 " ----------------------------------------------------------------------------
@@ -197,6 +192,13 @@ let g:NERDDefaultAlign    = "left"
 "noremap <LEADER>rp :w<CR>:Repl<CR><C-\><C-N><C-w><C-h>
 "noremap <LEADER>rs :ReplSend<CR><C-w><C-l>a<CR><C-\><C-N><C-w><C-h>
 "noremap <LEADER>rt :ReplStop<CR>
+" ----------------------------------------------------------------------------
+" ======> End }}}
+"
+" ======> Settings of context.vim {{{
+" ----------------------------------------------------------------------------
+"let g:context_add_mappings = 0
+"noremap <leader>ct :ContextToggle<CR>
 " ----------------------------------------------------------------------------
 " ======> End }}}
 "

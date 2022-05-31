@@ -16,10 +16,11 @@ require "nvim-treesitter.configs".setup {
         "go",
         "c",
         "bash",
+        "rust",
     },
     highlight = {
         enable = true,
-        disable = { "rust" }, -- list of language to disable
+        disable = { "ruby" }, -- list of language to disable
     },
 }
 EOF
