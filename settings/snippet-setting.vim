@@ -3,8 +3,8 @@
 " ----------------------------------------------------------------------------
 let g:tex_flavor = "latex"
 inoremap <c-n> <nop>
-let g:UltiSnipsExpandTrigger="<M-/>"
-let g:UltiSnipsJumpForwardTrigger="<M-/>"
+let g:UltiSnipsExpandTrigger="<A-/>"
+let g:UltiSnipsJumpForwardTrigger="<A-/>"
 let g:UltiSnipsJumpBackwardTrigger="<c-n>"
 let g:UltiSnipsSnippetDirectories = [
             \g:setting_dir. '/Ultisnips/',

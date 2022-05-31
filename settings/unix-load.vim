@@ -22,7 +22,6 @@ if empty(glob('~/.config/nvim/_machine_specific.vim'))
     let has_machine_specific_file = 0
     silent! exec "!cp ~/.config/nvim/default_configs/_machine_specific_default.vim ~/.config/nvim/_machine_specific.vim"
 endif
-source ~/.config/nvim/_machine_specific.vim
 
 " ============================================================================
 " ==>> Open the _machine_specific.vim file if it has just been created
@@ -30,8 +29,27 @@ if has_machine_specific_file == 0
     exec "e ~/.config/nvim/_machine_specific.vim"
 endif
 
+source ~/.config/nvim/_machine_specific.vim
+
 " -----------------------------------------------------------------------------------------
 " ===== End  }}}
+
+
+"======= local undo and backup file position {{{
+" -----------------------------------------------------------------------------------------
+" 
+silent !mkdir -p ~/.config/nvim/tmp/backup
+silent !mkdir -p ~/.config/nvim/tmp/undo
+silent !mkdir -p ~/.config/nvim/tmp/sessions
+set backupdir=~/.config/nvim/tmp/backup,.
+set directory=~/.config/nvim/tmp/backup,.
+if has('persistent_undo')
+    set undofile
+    set undodir=~/.config/nvim/tmp/undo,.
+endif
+" -----------------------------------------------------------------------------------------
+" ====== End }}}
+
 
 " some useful cammand in vim
 " 1、:w !sudo tee %  save current file with a rooter permistion

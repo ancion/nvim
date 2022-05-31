@@ -1,9 +1,6 @@
 
 " ======> Settings of fzf {{{
 " --------------------------------------------------------------------------------------------
-set rtp+=/usr/bin/fzf
-"set rtp+=~/.fzf/bin/fzf
-"set rtp+=/home/linuxbrew/.linuxbrew/opt/fzf
 noremap <C-f> :Files<CR>
 noremap <C-e> :Rg<CR>
 "noremap <C-h> :History<CR>

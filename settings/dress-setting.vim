@@ -36,10 +36,10 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 "set background=dark
 "colorscheme snazzy
 
- let g:nightflyCursorColor = 1
- let g:nightflyTransparent = 1
- let g:nightflyNormalFloat = 1
- color nightfly
+" let g:nightflyCursorColor = 1
+" let g:nightflyTransparent = 1
+" let g:nightflyNormalFloat = 1
+" color nightfly
 
 "let g:neosolarized_termtrans        = 1
 "let g:neosolarized_contrast         = "normal"
@@ -51,6 +51,10 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 "let g:neosolarized_termBoldAsBright = 1
 "colorscheme NeoSolarized
 
+let g:catppuccin_flavour = "mocha"
+color catppuccin
+
+
 "color purify
 
 "colorscheme dracula
@@ -58,7 +62,6 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 "color gruvbox
 "color xcodelighthc
 
-"colorscheme catppuccin
 
 "let g:one_allow_italics = 1
 "color one
@@ -71,16 +74,17 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 "let g:oceanic_next_terminal_italic = 1
 let g:airline_theme = 'night_owl'
 
-hi Normal       ctermbg=None guibg=None
-hi NonText      ctermfg=Gray guifg=Grey
-hi NormalFloat  ctermbg=None guibg=None
-hi FloatBorder  ctermbg=None guibg=None
-hi Pmenu        ctermbg=None guibg=None
-hi PmenuSel     ctermbg=Cyan guifg=Black guibg=Cyan ctermfg=Black
-hi LineNr       ctermbg=None guibg=None
-hi WinSeparator ctermbg=None guibg=None  guifg=Grey
-hi SignColumn   ctermbg=None guibg=None
-
+if g:window_transparency
+    hi Normal       ctermbg=None guibg=None
+    hi NonText      ctermfg=Gray guifg=Grey
+    hi NormalFloat  ctermbg=None guibg=None
+    hi FloatBorder  ctermbg=None guibg=None
+    hi Pmenu        ctermbg=None guibg=None
+    hi PmenuSel     ctermbg=Cyan guifg=Black guibg=Cyan ctermfg=Black
+    hi LineNr       ctermbg=None guibg=None
+    hi WinSeparator ctermbg=None guibg=None  guifg=Grey
+    hi SignColumn   ctermbg=None guibg=None
+endif
 
 " Set cursor line color on visual mode
 "highlight Visual cterm=NONE ctermbg=236 guifg=NONE guibg=LightBlue
