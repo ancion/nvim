@@ -96,7 +96,7 @@ endif
 
 " ======> Settings of xtabline {{{
 " -----------------------------------------------------------------------------------------
-let g:xtabline_settings = {'theme' : 'default'}
+let g:xtabline_settings = {'theme' : 'paramount'}
 let g:xtabline_settings.enable_mappings = 0
 let g:xtabline_settings.tabline_modes = ['tabs', 'buffers']
 let g:xtabline_settings.enable_persistance = 0

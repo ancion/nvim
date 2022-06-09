@@ -21,6 +21,7 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 set autoindent
+set smartindent
 set list
 set listchars=tab:\|\ ,trail:▫
 set scrolloff=10
@@ -63,10 +64,10 @@ filetype indent on
 " front UI file indent tab size
 augroup UIFileIndent
     autocmd!
-    autocmd FileType javascript,css,html,xml,json setlocal ai
-    autocmd FileType javascript,css,html,xml,josn setlocal tabstop=2
-    autocmd FileType javascript,css,html,xml,json setlocal softtabstop=2
-    autocmd FileType javascript,css,html,xml,json setlocal shiftwidth=2
+    autocmd FileType javascript,typescript,css,html,xml,json setlocal ai
+    autocmd FileType javascript,typescript,css,html,xml,josn setlocal tabstop=2
+    autocmd FileType javascript,typescript,css,html,xml,json setlocal softtabstop=2
+    autocmd FileType javascript,typescript,css,html,xml,json setlocal shiftwidth=2
 augroup end
 
 " WSL yank to system clipboard

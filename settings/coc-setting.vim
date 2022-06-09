@@ -68,7 +68,6 @@ augroup CocTsGroup
     autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
-nnoremap <silent><nowait> <leader>d :CocList diagnostics<CR>
 nnoremap <silent><nowait> <leader>o :<C-u>CocOutline<CR>
 nnoremap <silent><nowait> <leader>y :<C-u>CocList -A --normal yank<cr>
 
@@ -101,6 +100,7 @@ nmap <silent> <leader>a <Plug>(coc-codeaction-selected)
 vmap <silent> <C-S><CR> <Plug>(coc-format-selected)
 
 " coctodolist
+nnoremap <leader>td :CocList diagnostics<CR>
 nnoremap <leader>tn :CocCommand todolist.create<CR>
 nnoremap <leader>tl :CocList todolist<CR>
 nnoremap <leader>tu :CocCommand todolist.download<CR>:CocCommand todolist.upload<CR>
