@@ -151,8 +151,12 @@ imap jj <ESC>
 " go to next line in insert mode with cursor middle in line
 inoremap <C-o> <ESC>o
 
-inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
-inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
+inoremap <expr> <C-j> coc#pum#visible() 
+            \? coc#pum#next(1) 
+            \: pumvisible() ? "\<C-n>" : "\<C-j>"
+inoremap <expr> <C-k> coc#pum#visible() 
+            \? coc#pum#prev(1) 
+            \: pumvisible() ? "\<C-p>" : "\<C-k>"
 
 " ===
 " === Command Mode Cursor Movement
