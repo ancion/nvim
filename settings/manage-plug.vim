@@ -34,7 +34,7 @@ Plug 'vim-airline/vim-airline-themes'
 "Plug 'ajmwagar/vim-deus
 Plug 'theniceboy/vim-deus'
 Plug 'connorholyday/vim-snazzy'
-"Plug 'arzg/vim-colors-xcode'
+Plug 'arzg/vim-colors-xcode'
 "Plug 'rakr/vim-one'
 "Plug 'ayu-theme/ayu-vim'
 Plug 'dracula/vim',{'as':'dracula'}

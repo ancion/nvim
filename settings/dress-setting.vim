@@ -80,7 +80,7 @@ if g:window_transparency
     hi NormalFloat  ctermbg=None guibg=None
     hi FloatBorder  ctermbg=None guibg=None
     hi Pmenu        ctermbg=None guibg=None
-    hi PmenuSel     ctermbg=Cyan guifg=Black guibg=Cyan ctermfg=Black
+    hi PmenuSel     ctermbg=DarkCyan guibg=DarkCyan 
     hi LineNr       ctermbg=None guibg=None
     hi WinSeparator ctermbg=None guibg=None  guifg=Grey
     hi SignColumn   ctermbg=None guibg=None
@@ -96,7 +96,7 @@ endif
 
 " ======> Settings of xtabline {{{
 " -----------------------------------------------------------------------------------------
-let g:xtabline_settings = {'theme' : 'paramount'}
+let g:xtabline_settings = {'theme' : 'default'}
 let g:xtabline_settings.enable_mappings = 0
 let g:xtabline_settings.tabline_modes = ['tabs', 'buffers']
 let g:xtabline_settings.enable_persistance = 0

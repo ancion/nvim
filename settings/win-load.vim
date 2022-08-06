@@ -23,7 +23,7 @@ if empty(glob('$HOME/AppData/Local/nvim/_machine_specific.vim'))
 
     let has_machine_specific_file = 0
     silent! exec "!copy \\%USERPROFILE\\%\\AppData\\Local\\nvim\\default_configs\\_machine_specific_default.vim \\%USERPROFILE\\%\\AppData\\Local\\nvim\\_machine_specific.vim"
-    silent! exec "!copy \\%USERPROFILE\\%\\AppData\\Local\\nvim\\default_configs\\coc-settings.json_win \\%USERPROFILE\\%\\AppData\\Local\\nvim\\coc-settings.json"
+    silent! exec "!mklink \\%USERPROFILE\\%\\AppData\\Local\\nvim\\coc-settings.json \\%USERPROFILE\\%\\AppData\\Local\\nvim\\default_configs\\coc-settings.json_win"
 endif
 
 " ==>> Open the _machine_specific.vim file if it has just been created

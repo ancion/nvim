@@ -24,7 +24,7 @@ let g:coc_global_extensions = [
             \'coc-tslint-plugin',
             \'coc-tsserver',
             \'coc-vimlsp',
-            \'coc-vetur',
+            \'@yaegassy/coc-volar',
             \'coc-yaml',
             \'coc-go',
             \'coc-yank']

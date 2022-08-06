@@ -169,6 +169,7 @@
   "java.configuration.maven.userSettings": "F:/Scoop/persist/maven/conf/settings.xml",
   "java.import.maven.enabled": true,
   "java.import.gradle.enabled": true,
+  "java.import.gradle.wrapper.enabled": false,
   "java.import.gradle.home": "F:/Scoop/apps/gradle/current",
   "java.import.gradle.java.home": "F:/jdk17",
   "java.import.gradle.user.home": "D:/gradle_home",
