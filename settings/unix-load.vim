@@ -15,7 +15,8 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" ===> Create a _machine_specific.vim file to adjust machine specific stuff, like python interpreter location
+" ===> Create a _machine_specific.vim file to adjust machine specific stuff, 
+" like python interpreter location
 " =============================================================================
 let has_machine_specific_file = 1
 if empty(glob('~/.config/nvim/_machine_specific.vim'))

@@ -6,9 +6,8 @@
 
 " Author: @ancion
 
-"  First Time Download Neovim Setting Folder {{{
+"  =====> First Time Download Neovim Setting Folder {{{
 "  ----------------------------------------------------------------------------------
-
 " === Auto load for first time uses
 if empty(glob('$HOME/AppData/Local/nvim/autoload/plug.vim'))
     silent !curl -fLo \%USERPROFILE\%/AppData/Local/nvim/autoload/plug.vim --create-dirs 
@@ -16,7 +15,8 @@ if empty(glob('$HOME/AppData/Local/nvim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" ===> Create a _machine_specific.vim file to adjust machine specific stuff, like python interpreter location
+" ===> Create a _machine_specific.vim file to adjust machine specific stuff, 
+" like python interpreter location
 " =============================================================================
 let has_machine_specific_file = 1
 if empty(glob('$HOME/AppData/Local/nvim/_machine_specific.vim'))
@@ -56,4 +56,5 @@ if has('persistent_undo')
 endif
 " -----------------------------------------------------------------------------------------
 " ====== End }}}
-
+"
+" vim: foldmethod=marker foldlevel=0:

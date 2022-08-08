@@ -1,4 +1,5 @@
-" ======> Settings of floaterm {{{
+
+" ====== Settings of floaterm {{{
 " -----------------------------------------------------------------------------
 let g:floaterm_width        = 0.8
 let g:floaterm_height       = 0.3
@@ -14,15 +15,18 @@ let g:floaterm_borderchars  = "─│─│╭╮╯╰"
 noremap R :FloatermNew ranger<CR>
 
 " -----------------------------------------------------------------------------
-" ======> End }}}
-" vim: foldmethod=marker foldlevel=0:
+" ====== End }}}
+
+" ====== Settings of open a terminal {{{
+" -----------------------------------------------------------------------------
+noremap <A-`>  :FloatermToggle<CR>
+xnoremap <A-`> :FloatermToggle<CR>
 
 " Opening a terminal window
 " noremap <LEADER>/ :term<CR>
 " noremap <LEADER>/ :set splitbelow<CR>:split<CR>:term powershell -NoLogo<CR>
 " noremap <LEADER>/ :set splitbelow<CR>:split<CR>:res +10<CR>:term<CR>
-noremap <A-`>  :FloatermToggle<CR>
-xnoremap <A-`> :FloatermToggle<CR>
+" -----------------------------------------------------------------------------
+" ======> End }}}
 "
-"vim: foldmethod=marker foldlevel=0:
-
+" vim: foldmethod=marker foldlevel=0:
