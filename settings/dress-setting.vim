@@ -51,14 +51,14 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 "let g:neosolarized_termBoldAsBright = 1
 "colorscheme NeoSolarized
 
-let g:catppuccin_flavour = "mocha"
-color catppuccin
+" let g:catppuccin_flavour = "mocha"
+" color catppuccin
 
 
 "color purify
 
 "colorscheme dracula
-"colors deus
+colors deus
 "color gruvbox
 "color xcodelighthc
 
@@ -89,7 +89,7 @@ endif
 " Set cursor line color on visual mode
 "highlight Visual cterm=NONE ctermbg=236 guifg=NONE guibg=LightBlue
 "highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=NONE
-
+highlight CocFloating cterm=None guibg=None
 
 " -----------------------------------------------------------------------------------------
 " =======End }}}

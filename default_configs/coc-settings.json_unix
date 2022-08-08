@@ -1,10 +1,7 @@
 {
-	"coc.preferences.enableFloatHighlight": true,
 	"coc.preferences.snippetStatusText": "Ⓢ ",
 	"coc.preferences.extensionUpdateCheck": "daily",
 	"coc.preferences.messageLevel": "error",
-	"coc.source.around.firstMatch": false,
-	"coc.source.buffer.firstMatch": false,
 	"coc.source.syntax.firstMatch": false,
 	"suggest.detailMaxLength": 60,
 	"suggest.noselect": true,
@@ -12,12 +9,14 @@
 	"suggest.triggerAfterInsertEnter": true,
 	"suggest.autoTrigger": "always",
 	"suggest.timeout": 5000,
-	"suggest.enablePreview": true,
-	"suggest.floatEnable": true,
 	"suggest.detailField": "preview",
 	"suggest.snippetIndicator": "",
-	"suggest.triggerCompletionWait": 100,
-	"suggest.echodocSupport": true,
+	"suggest.triggerCompletionWait": 50,
+	"suggest.floatConfig": {
+		"border": true,
+		"rounded": true,
+		"winblend": 10
+	},
 	"suggest.completionItemKindLabels": {
 		"class": "\uf0e8",
 		"color": "\ue22b",
@@ -141,8 +140,6 @@
 		">>": "gitUnstage"
 	},
 	"tslint.autoFixOnSave": true,
-	"python.autoComplete.addBrackets": true,
-	"python.jediEnabled": false,
 	"python.formatting.provider": "yapf",
 	"python.formatting.yapfArgs": [
 		"--style",
@@ -155,7 +152,6 @@
 	"javascript.suggestionActions.enabled": true,
 	"json.format.enable": true,
 	"prettier.printWidth": 100,
-	"prettier.eslintIntegration": true,
 	"prettier.disableLanguages": [],
 	"prettier.useTabs": true,
 	"prettier.formatterPriority": 1,

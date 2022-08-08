@@ -1,5 +1,4 @@
 {
-  "coc.preferences.enableFloatHighlight": true,
   "coc.preferences.snippetStatusText": "Ⓢ ",
   "coc.preferences.extensionUpdateCheck": "daily",
   "suggest.detailMaxLength": 60,
@@ -7,12 +6,15 @@
   "suggest.enablePreselect": false,
   "suggest.triggerAfterInsertEnter": false,
   "suggest.timeout": 5000,
-  "suggest.enablePreview": true,
-  "suggest.floatEnable": true,
   "suggest.detailField": "preview",
   "suggest.snippetIndicator": "",
-  "suggest.triggerCompletionWait": 100,
+  "suggest.triggerCompletionWait": 50,
   "suggest.echodocSupport": true,
+    "suggest.floatConfig": {
+    "border": true,
+    "rounded": true,
+    "winblend": 50
+  },
   "suggest.completionItemKindLabels": {
     "class": "\uf0e8",
     "color": "\ue22b",
