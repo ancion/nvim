@@ -13,7 +13,7 @@
     "suggest.floatConfig": {
     "border": true,
     "rounded": true,
-    "winblend": 50
+    "winblend": 5
   },
   "suggest.completionItemKindLabels": {
     "class": "\uf0e8",

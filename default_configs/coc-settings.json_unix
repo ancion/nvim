@@ -15,7 +15,7 @@
 	"suggest.floatConfig": {
 		"border": true,
 		"rounded": true,
-		"winblend": 10,
+		"winblend": 2,
 		"shadow": false
 	},
 	"suggest.completionItemKindLabels": {
