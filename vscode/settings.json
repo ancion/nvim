@@ -1,5 +1,5 @@
 {
-  "workbench.colorTheme": "Catppuccin",
+  "workbench.colorTheme": "Catppuccin Mocha",
   "workbench.layoutControl.enabled": true,
   "workbench.layoutControl.type": "both",
   "workbench.startupEditor": "newUntitledFile",
@@ -7,12 +7,14 @@
   "workbench.editor.showTabs": true,
   "workbench.activityBar.visible": true,
   "window.titleSeparator": " ⚡ ",
-  "window.zoomLevel": 0.5,
+  "window.zoomLevel": 1,
+  "window.commandCenter": true,
   "editor.snippetSuggestions": "bottom",
   "editor.inlineSuggest.enabled": true,
   "editor.suggestSelection": "first",
   "editor.scrollbar.horizontal": "hidden",
   "editor.scrollbar.vertical": "hidden",
+  "editor.minimap.enable": false,
   "editor.cursorBlinking": "solid",
   "editor.fontFamily": "'FiraCode Nerd Font', 'SF Mono', Hack, Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
@@ -1114,5 +1116,8 @@
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "emmet.showSuggestionsAsSnippets": true
+  "emmet.showSuggestionsAsSnippets": true,
+  "[vue]": {
+    "editor.defaultFormatter": "Vue.volar"
+  }
 }

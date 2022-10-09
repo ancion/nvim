@@ -1,7 +1,5 @@
 {
-  "coc.preferences.snippetStatusText": "Ⓢ ",
-  "coc.preferences.extensionUpdateCheck": "daily",
-  "suggest.detailMaxLength": 60,
+  "suggest.labelMaxLength": 60,
   "suggest.noselect": true,
   "suggest.enablePreselect": false,
   "suggest.triggerAfterInsertEnter": false,
@@ -51,7 +49,6 @@
   "diagnostic.checkCurrentLine": true,
   "diagnostic.virtualTextPrefix": " ❯❯❯ ",
   "diagnostic.virtualText": true,
-  "codeLens.enable": true,
   "list.previewHighlightGroup": "Statement",
   "list.nextKeymap": "<C-j>",
   "list.previousKeymap": "<C-k>",
@@ -59,6 +56,9 @@
     "$HOME/AppData/Local/nvim/Ultisnips/",
     "$HOME/AppData/Local/nvim/plugged/vim-snippets/UltiSnips/"
   ],
+  "coc.preferences.messageLevel": "error",
+  "coc.source.syntax.firstMatch": false,
+  "coc.preferences.extensionUpdateCheck": "daily",
   "coc.preferences.formatOnSaveFiletypes": [
     "python",
     "dart",
@@ -69,8 +69,6 @@
     "javascript",
     "typescript"
   ],
-  "signature.target": "float",
-  "yank.enableCompletion": false,
   "explorer.width": 35,
   "explorer.quitOnOpen": true,
   "explorer.sources": [
@@ -133,18 +131,21 @@
     "<<": "gitStage",
     ">>": "gitUnstage"
   },
+  "codeLens.enable": true,
+  "signature.target": "float",
+  "yank.enableCompletion": false,
   "tslint.autoFixOnSave": true,
   "python.formatting.provider": "yapf",
   "python.formatting.yapfArgs": [
     "--style",
     "{SPACES_AROUND_POWER_OPERATOR: True, SPACES_BEFORE_COMMENT: 1}"
   ],
-  "html.format.enable": true,
+  "typescript.suggestionActions.enabled": true,
   "javascript.referencesCodeLens.enable": true,
   "javascript.showUnused": true,
   "javascript.suggest.names": true,
   "javascript.suggestionActions.enabled": true,
-  "json.format.enable": true,
+  "volar.autoCompleteRefs": true,
   "coc-actions.hideCursor": false,
   "coc-actions.showActionKind": true,
   "java.home": "F:/jdk17",
@@ -167,7 +168,7 @@
   "java.codeGeneration.useBlocks": true,
   "java.codeGeneration.generateComments": true,
   "java.codeGeneration.hashCodeEquals.useInstanceof": true,
-  "java.jdt.ls.vmargs": "-javaagent:D:/maven_repository/repo_current/org/projectlombok/lombok/1.18.20/lombok-1.18.20.jar",
+  "java.jdt.ls.vmargs": "-javaagent:D:/maven_repository/repo_current/org/projectlombok/lombok/1.18.20/lombok-1.18.22.jar",
   "java.configuration.maven.userSettings": "F:/Scoop/persist/maven/conf/settings.xml",
   "java.import.maven.enabled": true,
   "java.import.gradle.enabled": true,

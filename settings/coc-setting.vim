@@ -25,6 +25,7 @@ let g:coc_global_extensions = [
             \'coc-tsserver',
             \'coc-vimlsp',
             \'@yaegassy/coc-volar',
+            \'@yaegassy/coc-volar-tools',
             \'coc-yaml',
             \'coc-go',
             \'coc-yank']
@@ -46,7 +47,7 @@ inoremap <silent><expr> <CR> coc#pum#visible()
 
 inoremap <silent><expr> <c-space> coc#refresh()
 
-nnoremap M :call Show_documentation()<CR>
+nnoremap <c-h> :call Show_documentation()<CR>
 
 function! CheckBackspace() abort
     let col = col('.') - 1
@@ -62,7 +63,7 @@ function! Show_documentation()
     else 
         exec "!" . &keywordprg . " " .expand('<cword>')
     endif
-    execute 'normal srv'
+    "execute 'normal srv'
 endfunction
 
 autocmd CursorHold * silent call CocActionAsync("highlight")

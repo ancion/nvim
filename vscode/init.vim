@@ -88,3 +88,8 @@ noremap s <nop>
 
 noremap K 5k
 noremap J 5j
+
+" copy still end of line
+nnoremap Y y$
+" cosy to system clipboard
+vnoremap Y "+y
