@@ -59,6 +59,8 @@
 	"coc.preferences.formatOnSaveFiletypes": [
 		"typescript",
 		"javascript",
+        "javascriptreact",
+        "typescriptreact"
 		"html",
 		"css",
 		"python",

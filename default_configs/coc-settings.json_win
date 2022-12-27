@@ -8,7 +8,6 @@
   "suggest.detailField": "preview",
   "suggest.snippetIndicator": "",
   "suggest.triggerCompletionWait": 50,
-  "suggest.echodocSupport": true,
     "suggest.floatConfig": {
     "border": true,
     "rounded": true,

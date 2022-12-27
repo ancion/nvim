@@ -142,7 +142,7 @@ let g:VM_maps["Redo"]               = '<C-r>'
 
 " ======> Settings of vista {{{
 " -----------------------------------------------------------------------------
-noremap <LEADER>v :Vista coc<CR>
+noremap <LEADER>vv :Vista coc<CR>
 noremap <c-t> :silent! Vista finder coc<CR>
 let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 let g:vista_default_executive = 'ctags'

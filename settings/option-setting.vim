@@ -64,10 +64,10 @@ filetype indent on
 " front UI file indent tab size
 augroup UIFileIndent
     autocmd!
-    autocmd FileType javascript,typescript*,css,html,xml,json,vue setlocal ai
-    autocmd FileType javascript,typescript*,css,html,xml,josn,vue setlocal tabstop=2
-    autocmd FileType javascript,typescript*,css,html,xml,json,vue setlocal softtabstop=2
-    autocmd FileType javascript,typescript*,css,html,xml,json,vue setlocal shiftwidth=2
+    autocmd FileType javascript*,typescript*,css,html,xml,json,vue setlocal ai
+    autocmd FileType javascript*,typescript*,css,html,xml,josn,vue setlocal tabstop=2
+    autocmd FileType javascript*,typescript*,css,html,xml,json,vue setlocal softtabstop=2
+    autocmd FileType javascript*,typescript*,css,html,xml,json,vue setlocal shiftwidth=2
 augroup end
 
 " WSL yank to system clipboard
