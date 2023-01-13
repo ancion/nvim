@@ -53,7 +53,7 @@ Plug 'folke/tokyonight.nvim'
 "=============================================================================
 
 "Plug 'jaxbot/semantic-highlight.vim'
-Plug 'chrisbra/Colorizer' " Show colors with :ColorHighlight
+"Plug 'chrisbra/Colorizer' " Show colors with :ColorHighlight
 Plug 'RRethy/vim-illuminate'
 "Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase'  }
 Plug 'nvim-treesitter/nvim-treesitter'
@@ -100,7 +100,7 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'junegunn/fzf.vim'
 "Plug 'yuki-ycino/fzf-preview.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
-Plug 'kevinhwang91/rnvimr'
+"Plug 'kevinhwang91/rnvimr'
 
 "=============================================================================
 "======> Snippets <============================
@@ -261,7 +261,7 @@ Plug 'luochen1990/rainbow'
 Plug 'mg979/vim-xtabline'
 Plug 'wincent/terminus'
 Plug 'kshenoy/vim-signature'
-Plug 'lambdalisue/suda.vim' " do stuff like :sudowrite"
+Plug 'lambdalisue/suda.vim' "do stuff like :sudowrite
 
 
 " Dependencies

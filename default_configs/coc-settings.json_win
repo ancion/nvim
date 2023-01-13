@@ -1,252 +1,304 @@
 {
-  "suggest.labelMaxLength": 60,
-  "suggest.noselect": true,
-  "suggest.enablePreselect": false,
-  "suggest.triggerAfterInsertEnter": true,
-  "suggest.autoTrigger": "always",
-  "suggest.timeout": 5000,
-  "suggest.detailField": "preview",
-  "suggest.snippetIndicator": "",
-  "suggest.triggerCompletionWait": 50,
-    "suggest.floatConfig": {
-    "border": true,
-    "rounded": true,
-    "winblend": 2,
-    "shadom": false
-  },
-  "suggest.completionItemKindLabels": {
-    "class": "\uf0e8",
-    "color": "\ue22b",
-    "constant": "\uf8fe",
-    "default": "\uf29c",
-    "enum": "\uf435",
-    "enumMember": "\uf02b",
-    "event": "\ufacd",
-    "field": "\uf93d",
-    "file": "\uf723",
-    "folder": "\uf115",
-    "function": "\u0192",
-    "interface": "\uf417",
-    "keyword": "\uf1de",
-    "method": "\uf6a6",
-    "module": "\uf40d",
-    "operator": "\uf915",
-    "property": "\ue624",
-    "reference": "\ufa46",
-    "snippet": "\ue60b",
-    "struct": "\ufb44",
-    "text": "\ue612",
-    "typeParameter": "\uf728",
-    "unit": "\uf475",
-    "value": "\uf89f",
-    "variable": "\ue71b"
-  },
-  "diagnostic.errorSign": "×",
-  "diagnostic.warningSign": "»",
-  "diagnostic.infoSign": "ღ",
-  "diagnostic.hintSign": "ஐ",
-  "diagnostic.displayByAle": false,
-  "diagnostic.refreshOnInsertMode": false,
-  "diagnostic.checkCurrentLine": true,
-  "diagnostic.virtualTextPrefix": " ❯❯❯ ",
-  "diagnostic.virtualText": true,
-  "list.previewHighlightGroup": "Statement",
-  "list.nextKeymap": "<C-j>",
-  "list.previousKeymap": "<C-k>",
-  "coc.preferences.extensionUpdateCheck": "daily",
-  "coc.preferences.messageLevel": "error",
-  "coc.source.syntax.firstMatch": false,
-  "coc.preferences.formatOnSaveFiletypes": [
-    "python",
-    "dart",
-    "json",
-    "golang",
-    "vue",
-    "html",
-    "javascript",
-    "typescript"
-  ],
-  "explorer.width": 38,
-  "explorer.quitOnOpen": true,
-  "explorer.sources": [
-    {
-      "name": "buffer",
-      "expand": false
-    },
-    {
-      "name": "file",
-      "expand": true
-    }
-  ],
-  "explorer.file.column.indent.indentLine": true,
-  "explorer.file.showHiddenFiles": true,
-  "explorer.icon.enableNerdfont": true,
-  "explorer.git.showIgnored": true,
-  "explorer.git.icon.status.added": "A",
-  "explorer.git.icon.status.renamed": "R",
-  "explorer.git.icon.status.unmerged": "U",
-  "explorer.git.icon.status.untracked": "?",
-  "explorer.keyMappingMode": "none",
-  "explorer.buffer.showHiddenBuffers": false,
-  "explorer.keyMappings.global": {
-    "k": "nodePrev",
-    "j": "nodeNext",
-    "h": "toggleSelection",
-    "<tab>": "actionMenu",
-    "n": "collapse",
-    "gl": "expandRecursive",
-    "gh": "collapseRecursive",
-    "i": ["wait", "expandable?", "expand", "open"],
-    "<cr>": ["wait", "expandable?", "cd", "open"],
-    "I": "open:vsplit",
-    "o": ["wait", "expanded?", "collapse", "expand"],
-    "O": "open:tab",
-    "N": "gotoParent",
-    "l": "gotoParent",
-    "yp": "copyFilepath",
-    "yn": "copyFilename",
-    "yy": "copyFile",
-    "dd": "cutFile",
-    "pp": "pasteFile",
-    "dD": "deleteForever",
-    "a": "addFile",
-    "M": "addDirectory",
-    "cw": "rename",
-    ".": "toggleHidden",
-    "zh": "toggleHidden",
-    "R": "refresh",
-    "?": "help",
-    "q": "quit",
-    "X": "systemExecute",
-    "gd": "listDrive",
-    "f": "search",
-    "F": "searchRecursive",
-    "B": "gotoSource:file",
-    "b": "gotoSource:buffer",
-    "[[": "sourcePrev",
-    "]]": "sourceNext",
-    "[d": "diagnosticPrev",
-    "]d": "diagnosticNext",
-    "[c": "gitPrev",
-    "]c": "gitNext",
-    "<<": "gitStage",
-    ">>": "gitUnstage"
-  },
-  "codeLens.enable": true,
-  "signature.target": "float",
-  "yank.enableCompletion": false,
-  "tslint.autoFixOnSave": true,
-  "python.formatting.provider": "yapf",
-  "python.formatting.yapfArgs": [
-    "--style",
-    "{SPACES_AROUND_POWER_OPERATOR: True, SPACES_BEFORE_COMMENT: 1}"
-  ],
-  "typescript.suggestionActions.enabled": true,
-  "javascript.referencesCodeLens.enable": true,
-  "javascript.showUnused": true,
-  "javascript.suggest.names": true,
-  "javascript.suggestionActions.enabled": true,
-  "volar.autoCompleteRefs": true,
-  "coc-actions.hideCursor": false,
-  "coc-actions.showActionKind": true,
-  "prettier.printWidth": 100,
-  "prettier.disableLanguages": [],
-  "prettier.useTabs": true,
-  "prettier.formatterPriority": 1,
-  "prettier.trailingComma": "all",
-  "prettier.singleQuote": false,
-  "java.home": "F:/jdk17",
-  "java.configuration.runtimes": [
-    {
-      "name": "JavaSE-1.8",
-      "path": "F:/jdk8"
-    },
-    {
-      "name": "JavaSE-17",
-      "path": "F:/jdk17"
-    }
-  ],
-  "java.completion.enabled": true,
-  "java.completion.maxResults": 15,
-  "java.completion.guessMethodArguments": true,
-  "java.signatureHelp.enabled": true,
-  "java.referencesCodeLens.enabled": true,
-  "java.implementationsCodeLens.enabled": true,
-  "java.codeGeneration.useBlocks": true,
-  "java.codeGeneration.generateComments": true,
-  "java.codeGeneration.hashCodeEquals.useInstanceof": true,
-  "java.jdt.ls.vmargs": "-javaagent:D:/maven_repository/repo_current/org/projectlombok/lombok/1.18.20/lombok-1.18.22.jar",
-  "java.configuration.maven.userSettings": "F:/Scoop/persist/maven/conf/settings.xml",
-  "java.import.maven.enabled": true,
-  "java.import.gradle.enabled": true,
-  "java.import.gradle.wrapper.enabled": false,
-  "java.import.gradle.home": "F:/Scoop/apps/gradle/current",
-  "java.import.gradle.java.home": "F:/jdk17",
-  "java.import.gradle.user.home": "D:/gradle_home",
-  "diagnostic-languageserver.filetypes": {
-    "vim": "vint",
-    "email": "languagetool",
-    "markdown": ["write-good", "markdownlint"],
-    "sh": "shellcheck",
-    "elixir": ["mix_credo", "mix_credo_compile"],
-    "eelixir": ["mix_credo", "mix_credo_compile"],
-    "php": ["phpstan", "psalm"],
-    "dart": "dartfmt"
-  },
-  "diagnostic-languageserver.formatFiletypes": {
-    "dart": "dartfmt",
-    "elixir": "mix_format",
-    "eelixir": "mix_format"
-  },
-  "languageserver": {
-    "groovy": {
-      "command": "java",
-      "args": [
-        "-jar",
-        "D:/groovy/groovy-language-server/build/libs/groovy-language-server-all.jar"
-      ],
-      "filetypes": ["groovy", "gradle"]
-    },
-    "lua": {
-      "command": "lua-lsp",
-      "filetypes": ["lua"]
-    },
-    "golang": {
-      "command": "gopls",
-      "rootPatterns": ["go.mod"],
-      "filetypes": ["go"],
-      "initializationOptions": {
-        "gocodeCompletionEnabled": true,
-        "diagnosticsEnabled": true,
-        "lintTool": "golint"
-      }
-    },
-    "bash": {
-      "command": "bash-language-server",
-      "args": ["start"],
-      "filetypes": ["sh"],
-      "ignoredRootPaths": []
-    },
-    "ccls": {
-      "command": "ccls",
-      "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
-      "rootPatterns": [
-        ".ccls",
-        ".ccls-root",
-        "compile_commands.json",
-        ".git/",
-        ".hg/"
-      ],
-      "initializationOptions": {
-        "cache": {
-          "directory": "/tmp/ccls"
-        }
-      }
-    },
-    "dockerfile": {
-        "command": "docker-langserver",
-        "filetypes": ["dockerfile"],
-        "args": ["--stdio"]
-    }
-  }
+	"suggest.labelMaxLength": 60,
+	"suggest.noselect": true,
+	"suggest.enablePreselect": false,
+	"suggest.triggerAfterInsertEnter": true,
+	"suggest.autoTrigger": "always",
+	"suggest.timeout": 5000,
+	"suggest.detailField": "preview",
+	"suggest.snippetIndicator": "",
+	"suggest.triggerCompletionWait": 50,
+	"suggest.floatConfig": {
+		"border": true,
+		"rounded": true,
+		"winblend": 2,
+		"shadom": false
+	},
+	"suggest.completionItemKindLabels": {
+		"class": " ",
+		"color": " ",
+		"constant": " ",
+		"default": " ",
+		"enum": " ",
+		"enumMember": " ",
+		"event": " ",
+		"field": " ",
+		"file": "",
+		"folder": " ",
+		"function": " ",
+		"interface": "ﮣ ",
+		"keyword": " ",
+		"method": " ",
+		"module": "ﯟ ",
+		"operator": " ",
+		"property": " ",
+		"reference": " ",
+		"snippet": " ",
+		"struct": " ",
+		"text": " ",
+		"typeParameter": "",
+		"unit": " ",
+		"value": " ",
+		"variable": " "
+	},
+	"diagnostic.errorSign": "",
+	"diagnostic.warningSign": "",
+	"diagnostic.infoSign": "",
+	"diagnostic.hintSign": " ",
+	"diagnostic.displayByAle": false,
+	"diagnostic.refreshOnInsertMode": false,
+	"diagnostic.checkCurrentLine": true,
+	"diagnostic.virtualTextPrefix": " ❯❯❯ ",
+	"diagnostic.virtualText": true,
+	"list.previewHighlightGroup": "Statement",
+	"list.nextKeymap": "<C-j>",
+	"list.previousKeymap": "<C-k>",
+	"coc.preferences.extensionUpdateCheck": "daily",
+	"coc.preferences.messageLevel": "error",
+	"coc.source.syntax.firstMatch": false,
+	"coc.preferences.formatOnSaveFiletypes": [
+		"python",
+		"dart",
+		"json",
+		"golang",
+		"vue",
+		"html",
+		"javascript",
+		"typescript",
+		"javascriptreact",
+		"typescriptreact"
+	],
+	"explorer.width": 38,
+	"explorer.quitOnOpen": true,
+	"explorer.sources": [
+		{
+			"name": "buffer",
+			"expand": false
+		},
+		{
+			"name": "file",
+			"expand": true
+		}
+	],
+	"explorer.file.column.indent.indentLine": true,
+	"explorer.file.showHiddenFiles": true,
+	"explorer.icon.enableNerdfont": true,
+	"explorer.git.showIgnored": true,
+	"explorer.git.icon.status.added": "A",
+	"explorer.git.icon.status.renamed": "R",
+	"explorer.git.icon.status.unmerged": "U",
+	"explorer.git.icon.status.untracked": "?",
+	"explorer.keyMappingMode": "none",
+	"explorer.buffer.showHiddenBuffers": false,
+	"explorer.keyMappings.global": {
+		"k": "nodePrev",
+		"j": "nodeNext",
+		"h": "toggleSelection",
+		"<tab>": "actionMenu",
+		"n": "collapse",
+		"gl": "expandRecursive",
+		"gh": "collapseRecursive",
+		"i": [
+			"wait",
+			"expandable?",
+			"expand",
+			"open"
+		],
+		"<cr>": [
+			"wait",
+			"expandable?",
+			"cd",
+			"open"
+		],
+		"I": "open:vsplit",
+		"o": [
+			"wait",
+			"expanded?",
+			"collapse",
+			"expand"
+		],
+		"O": "open:tab",
+		"N": "gotoParent",
+		"l": "gotoParent",
+		"yp": "copyFilepath",
+		"yn": "copyFilename",
+		"yy": "copyFile",
+		"dd": "cutFile",
+		"pp": "pasteFile",
+		"dD": "deleteForever",
+		"a": "addFile",
+		"M": "addDirectory",
+		"cw": "rename",
+		".": "toggleHidden",
+		"zh": "toggleHidden",
+		"R": "refresh",
+		"?": "help",
+		"q": "quit",
+		"X": "systemExecute",
+		"gd": "listDrive",
+		"f": "search",
+		"F": "searchRecursive",
+		"B": "gotoSource:file",
+		"b": "gotoSource:buffer",
+		"[[": "sourcePrev",
+		"]]": "sourceNext",
+		"[d": "diagnosticPrev",
+		"]d": "diagnosticNext",
+		"[c": "gitPrev",
+		"]c": "gitNext",
+		"<<": "gitStage",
+		">>": "gitUnstage"
+	},
+	"codeLens.enable": true,
+	"signature.target": "float",
+	"yank.enableCompletion": false,
+	"tslint.autoFixOnSave": true,
+	"python.formatting.provider": "yapf",
+	"python.formatting.yapfArgs": [
+		"--style",
+		"{SPACES_AROUND_POWER_OPERATOR: True, SPACES_BEFORE_COMMENT: 1}"
+	],
+	"typescript.suggestionActions.enabled": true,
+	"javascript.referencesCodeLens.enable": true,
+	"javascript.showUnused": true,
+	"javascript.suggest.names": true,
+	"javascript.suggestionActions.enabled": true,
+	"volar.autoCompleteRefs": true,
+	"coc-actions.hideCursor": false,
+	"coc-actions.showActionKind": true,
+	"prettier.printWidth": 100,
+	"prettier.disableLanguages": [],
+	"prettier.useTabs": true,
+	"prettier.formatterPriority": 1,
+	"prettier.trailingComma": "all",
+	"prettier.singleQuote": false,
+	"java.home": "F:/jdk17",
+	"java.configuration.runtimes": [
+		{
+			"name": "JavaSE-1.8",
+			"path": "F:/jdk8"
+		},
+		{
+			"name": "JavaSE-17",
+			"path": "F:/jdk17"
+		}
+	],
+	"java.completion.enabled": true,
+	"java.completion.maxResults": 15,
+	"java.completion.guessMethodArguments": true,
+	"java.signatureHelp.enabled": true,
+	"java.referencesCodeLens.enabled": true,
+	"java.implementationsCodeLens.enabled": true,
+	"java.codeGeneration.useBlocks": true,
+	"java.codeGeneration.generateComments": true,
+	"java.codeGeneration.hashCodeEquals.useInstanceof": true,
+	"java.jdt.ls.vmargs": "-javaagent:D:/maven_repository/repo_current/org/projectlombok/lombok/1.18.20/lombok-1.18.22.jar",
+	"java.configuration.maven.userSettings": "F:/Scoop/persist/maven/conf/settings.xml",
+	"java.import.maven.enabled": true,
+	"java.import.gradle.enabled": true,
+	"java.import.gradle.wrapper.enabled": false,
+	"java.import.gradle.home": "F:/Scoop/apps/gradle/current",
+	"java.import.gradle.java.home": "F:/jdk17",
+	"java.import.gradle.user.home": "D:/gradle_home",
+	"diagnostic-languageserver.filetypes": {
+		"vim": "vint",
+		"email": "languagetool",
+		"markdown": [
+			"write-good",
+			"markdownlint"
+		],
+		"sh": "shellcheck",
+		"elixir": [
+			"mix_credo",
+			"mix_credo_compile"
+		],
+		"eelixir": [
+			"mix_credo",
+			"mix_credo_compile"
+		],
+		"php": [
+			"phpstan",
+			"psalm"
+		],
+		"dart": "dartfmt"
+	},
+	"diagnostic-languageserver.formatFiletypes": {
+		"dart": "dartfmt",
+		"elixir": "mix_format",
+		"eelixir": "mix_format"
+	},
+	"languageserver": {
+		"groovy": {
+			"command": "java",
+			"args": [
+				"-jar",
+				"D:/groovy/groovy-language-server/build/libs/groovy-language-server-all.jar"
+			],
+			"filetypes": [
+				"groovy",
+				"gradle"
+			]
+		},
+		"lua": {
+			"command": "lua-lsp",
+			"filetypes": [
+				"lua"
+			]
+		},
+		"golang": {
+			"command": "gopls",
+			"rootPatterns": [
+				"go.mod"
+			],
+			"filetypes": [
+				"go"
+			],
+			"initializationOptions": {
+				"gocodeCompletionEnabled": true,
+				"diagnosticsEnabled": true,
+				"lintTool": "golint"
+			}
+		},
+		"bash": {
+			"command": "bash-language-server",
+			"args": [
+				"start"
+			],
+			"filetypes": [
+				"sh"
+			],
+			"ignoredRootPaths": []
+		},
+		"ccls": {
+			"command": "ccls",
+			"filetypes": [
+				"c",
+				"cpp",
+				"cuda",
+				"objc",
+				"objcpp"
+			],
+			"rootPatterns": [
+				".ccls",
+				".ccls-root",
+				"compile_commands.json",
+				".git/",
+				".hg/"
+			],
+			"initializationOptions": {
+				"cache": {
+					"directory": "/tmp/ccls"
+				}
+			}
+		},
+		"dockerfile": {
+			"command": "docker-langserver",
+			"filetypes": [
+				"dockerfile"
+			],
+			"args": [
+				"--stdio"
+			]
+		}
+	}
 }

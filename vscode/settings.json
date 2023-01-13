@@ -3,7 +3,6 @@
   "workbench.layoutControl.enabled": true,
   "workbench.layoutControl.type": "both",
   "workbench.startupEditor": "newUntitledFile",
-  "workbench.list.automaticKeyboardNavigation": false,
   "workbench.editor.showTabs": true,
   "workbench.activityBar.visible": true,
   "window.titleSeparator": " ⚡ ",
@@ -14,11 +13,9 @@
   "editor.suggestSelection": "first",
   "editor.scrollbar.horizontal": "hidden",
   "editor.scrollbar.vertical": "hidden",
-  "editor.minimap.enable": false,
   "editor.cursorBlinking": "solid",
   "editor.fontFamily": "'FiraCode Nerd Font', 'SF Mono', Hack, Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
-  "vscode_vibrancy.opacity": 0.9,
   "terminal.integrated.gpuAcceleration": "on",
   "terminal.integrated.profiles.windows": {
     "powershell_profile": {

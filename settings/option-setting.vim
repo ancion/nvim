@@ -9,6 +9,8 @@ set autochdir
 " ===
 " === Editor behavior
 " ===
+filetype indent on
+filetype plugin on
 syntax on
 set hidden
 set number
@@ -58,14 +60,12 @@ set guifont=FiraCode\ Nerd\ Font\ Mono:h12
 set colorcolumn=100
 set updatetime=100
 set virtualedit=block
-filetype indent on
-"filetype plugin on
 
 " front UI file indent tab size
 augroup UIFileIndent
     autocmd!
     autocmd FileType javascript*,typescript*,css,html,xml,json,vue setlocal ai
-    autocmd FileType javascript*,typescript*,css,html,xml,josn,vue setlocal tabstop=2
+    autocmd FileType javascript*,typescript*,css,html,xml,json,vue setlocal tabstop=2
     autocmd FileType javascript*,typescript*,css,html,xml,json,vue setlocal softtabstop=2
     autocmd FileType javascript*,typescript*,css,html,xml,json,vue setlocal shiftwidth=2
 augroup end
