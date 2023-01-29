@@ -14,6 +14,24 @@
 		"winblend": 2,
 		"shadom": false
 	},
+	"diagnostic.floatConfig": {
+		"border": true,
+		"rounded": true,
+		"winblend": 2,
+		"shadow": false
+	},
+	"hover.floatConfig": {
+		"border": true,
+		"rounded": true,
+		"winblend": 2,
+		"shadow": false
+	},
+	"signature.floatConfig": {
+		"border": true,
+		"rounded": true,
+		"winblend": 2,
+		"shadow": false
+	},
 	"suggest.completionItemKindLabels": {
 		"class": " ",
 		"color": " ",
@@ -50,24 +68,16 @@
 	"diagnostic.checkCurrentLine": true,
 	"diagnostic.virtualTextPrefix": " ❯❯❯ ",
 	"diagnostic.virtualText": true,
-	"list.previewHighlightGroup": "Statement",
-	"list.nextKeymap": "<C-j>",
+	"diagnostic.messageLevel": "waring",
+	"diagonostic.enableSign": true,
+	"list.nextKeymap ": "<C-j>",
 	"list.previousKeymap": "<C-k>",
-	"coc.preferences.extensionUpdateCheck": "daily",
+	"list.previewHighlightGroup": "Statement",
+	"coc.preferences.formatOnSave": true,
+	"coc.preferences.formatOnType": true,
 	"coc.preferences.messageLevel": "error",
 	"coc.source.syntax.firstMatch": false,
-	"coc.preferences.formatOnSaveFiletypes": [
-		"python",
-		"dart",
-		"json",
-		"golang",
-		"vue",
-		"html",
-		"javascript",
-		"typescript",
-		"javascriptreact",
-		"typescriptreact"
-	],
+	"coc.preferences.formatOnSaveTimeout": 300,
 	"explorer.width": 38,
 	"explorer.quitOnOpen": true,
 	"explorer.sources": [
@@ -159,7 +169,7 @@
 		"{SPACES_AROUND_POWER_OPERATOR: True, SPACES_BEFORE_COMMENT: 1}"
 	],
 	"typescript.suggestionActions.enabled": true,
-	"javascript.referencesCodeLens.enable": true,
+	"javascript.referencesCodeLens.enabled": true,
 	"javascript.showUnused": true,
 	"javascript.suggest.names": true,
 	"javascript.suggestionActions.enabled": true,
@@ -172,7 +182,7 @@
 	"prettier.formatterPriority": 1,
 	"prettier.trailingComma": "all",
 	"prettier.singleQuote": false,
-	"java.home": "F:/jdk17",
+	"java.jdt.ls.java.home": "F:/jdk17",
 	"java.configuration.runtimes": [
 		{
 			"name": "JavaSE-1.8",
@@ -183,6 +193,13 @@
 			"path": "F:/jdk17"
 		}
 	],
+	"java.jdt.ls.statusIcons": {
+		"busy": "Busy",
+		"ready": "OK",
+		"warning": "Warning",
+		"Error": "Error"
+	},
+	"java.jdt.ls.vmargs": "-javaagent:D:/maven_repository/repo_current/org/projectlombok/lombok/1.18.22/lombok-1.18.22.jar",
 	"java.completion.enabled": true,
 	"java.completion.maxResults": 15,
 	"java.completion.guessMethodArguments": true,
@@ -192,7 +209,6 @@
 	"java.codeGeneration.useBlocks": true,
 	"java.codeGeneration.generateComments": true,
 	"java.codeGeneration.hashCodeEquals.useInstanceof": true,
-	"java.jdt.ls.vmargs": "-javaagent:D:/maven_repository/repo_current/org/projectlombok/lombok/1.18.20/lombok-1.18.22.jar",
 	"java.configuration.maven.userSettings": "F:/Scoop/persist/maven/conf/settings.xml",
 	"java.import.maven.enabled": true,
 	"java.import.gradle.enabled": true,

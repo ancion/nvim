@@ -14,6 +14,24 @@
 		"winblend": 2,
 		"shadow": false
 	},
+	"diagnostic.floatConfig": {
+		"border": true,
+		"rounded": true,
+		"winblend": 2,
+		"shadow": false
+	},
+	"hover.floatConfig": {
+		"border": true,
+		"rounded": true,
+		"winblend": 2,
+		"shadow": false
+	},
+	"signature.floatConfig": {
+		"border": true,
+		"rounded": true,
+		"winblend": 2,
+		"shadow": false
+	},
 	"suggest.completionItemKindLabels": {
 		"class": " ",
 		"color": " ",
@@ -51,25 +69,14 @@
 	"diagnostic.virtualTextPrefix": " ❯❯❯ ",
 	"diagnostic.virtualText": true,
 	"list.previewHighlightGroup": "Statement",
-	"list.nextKeymap": "<C-b>",
+	"list.nextKeymap": "<C-j>",
 	"list.previousKeymap": "<C-k>",
 	"coc.preferences.extensionUpdateCheck": "daily",
+	"coc.preferences.formatOnSave": true,
+	"coc.preferences.formatOnType": true,
 	"coc.preferences.messageLevel": "error",
 	"coc.source.syntax.firstMatch": false,
-	"coc.preferences.formatOnSaveFiletypes": [
-		"html",
-		"css",
-		"python",
-		"json",
-		"dart",
-		"vue",
-		"java",
-		"yaml",
-		"typescript",
-		"javascript",
-		"javascriptreact",
-		"typescriptreact"
-	],
+	"coc.preferences.formatOnSaveTimeout": 300,
 	"explorer.width": 38,
 	"explorer.quitOnOpen": true,
 	"explorer.sources": [
@@ -100,25 +107,10 @@
 		"n": "collapse",
 		"gl": "expandRecursive",
 		"gh": "collapseRecursive",
-		"i": [
-			"wait",
-			"expandable?",
-			"expand",
-			"open"
-		],
-		"<cr>": [
-			"wait",
-			"expandable?",
-			"cd",
-			"open"
-		],
+		"i": ["wait", "expandable?", "expand", "open"],
+		"<cr>": ["wait", "expandable?", "cd", "open"],
 		"I": "open:vsplit",
-		"o": [
-			"wait",
-			"expanded?",
-			"collapse",
-			"expand"
-		],
+		"o": ["wait", "expanded?", "collapse", "expand"],
 		"O": "open:tab",
 		"N": "gotoParent",
 		"l": "gotoParent",
@@ -161,7 +153,7 @@
 		"{SPACES_AROUND_POWER_OPERATOR: True, SPACES_BEFORE_COMMENT: 1}"
 	],
 	"typescript.suggestionActions.enabled": true,
-	"javascript.referencesCodeLens.enable": true,
+	"javascript.referencesCodeLens.enabled": true,
 	"javascript.showUnused": true,
 	"javascript.suggest.names": true,
 	"javascript.suggestionActions.enabled": true,
@@ -177,23 +169,11 @@
 	"diagnostic-languageserver.filetypes": {
 		"vim": "vint",
 		"email": "languagetool",
-		"markdown": [
-			"write-good",
-			"markdownlint"
-		],
+		"markdown": ["write-good", "markdownlint"],
 		"sh": "shellcheck",
-		"elixir": [
-			"mix_credo",
-			"mix_credo_compile"
-		],
-		"eelixir": [
-			"mix_credo",
-			"mix_credo_compile"
-		],
-		"php": [
-			"phpstan",
-			"psalm"
-		],
+		"elixir": ["mix_credo", "mix_credo_compile"],
+		"eelixir": ["mix_credo", "mix_credo_compile"],
+		"php": ["phpstan", "psalm"],
 		"dart": "dartfmt"
 	},
 	"diagnostic-languageserver.formatFiletypes": {
@@ -204,18 +184,12 @@
 	"languageserver": {
 		"lua": {
 			"command": "lua-lsp",
-			"filetypes": [
-				"lua"
-			]
+			"filetypes": ["lua"]
 		},
 		"golang": {
 			"command": "gopls",
-			"rootPatterns": [
-				"go.mod"
-			],
-			"filetypes": [
-				"go"
-			],
+			"rootPatterns": ["go.mod"],
+			"filetypes": ["go"],
 			"initializationOptions": {
 				"gocodeCompletionEnabled": true,
 				"diagnosticsEnabled": true,
@@ -224,32 +198,14 @@
 		},
 		"bash": {
 			"command": "bash-language-server",
-			"args": [
-				"start"
-			],
-			"filetypes": [
-				"sh"
-			],
-			"ignoredRootPaths": [
-				"~"
-			]
+			"args": ["start"],
+			"filetypes": ["sh"],
+			"ignoredRootPaths": ["~"]
 		},
 		"ccls": {
 			"command": "ccls",
-			"filetypes": [
-				"c",
-				"cpp",
-				"cuda",
-				"objc",
-				"objcpp"
-			],
-			"rootPatterns": [
-				".ccls",
-				".ccls-root",
-				"compile_commands.json",
-				".git/",
-				".hg/"
-			],
+			"filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
+			"rootPatterns": [".ccls", ".ccls-root", "compile_commands.json", ".git/", ".hg/"],
 			"initializationOptions": {
 				"cache": {
 					"directory": "/tmp/ccls"
@@ -258,12 +214,8 @@
 		},
 		"dockerfile": {
 			"command": "docker-langserver",
-			"filetypes": [
-				"dockerfile"
-			],
-			"args": [
-				"--stdio"
-			]
+			"filetypes": ["dockerfile"],
+			"args": ["--stdio"]
 		}
 	}
 }
