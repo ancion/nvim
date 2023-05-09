@@ -75,7 +75,7 @@ Plug 'mbbill/undotree'
 "======> DUBUGGER  TOOL <===================
 "=============================================================================
 
-" Debugger for python
+" Debugger for python go bash node chrome
 Plug 'puremourning/vimspector', {'do': './install_gadget.py  --enable-python --enable-go --enable-bash --force-enable-node --force-enable-chrome'}
 
 "=============================================================================
@@ -247,7 +247,6 @@ Plug 'osyo-manga/vim-anzu'
 
 Plug 'makerj/vim-pdf'
 "Plug 'liuchengxu/vim-clap'
-"Plug 'jceb/vim-orgmode'
 Plug 'voldikss/vim-floaterm'
 " This plug can show you a list files recently opened when you start nvim
 Plug 'mhinz/vim-startify'
@@ -262,7 +261,8 @@ Plug 'mg979/vim-xtabline'
 Plug 'wincent/terminus'
 Plug 'kshenoy/vim-signature'
 Plug 'lambdalisue/suda.vim' "do stuff like :sudowrite
-
+" blank line add indent line
+Plug 'lukas-reineke/indent-blankline.nvim'
 
 " Dependencies
 Plug 'MarcWeber/vim-addon-mw-utils'

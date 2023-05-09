@@ -24,10 +24,12 @@ set shiftwidth=4
 set expandtab
 set autoindent
 set smartindent
-set list
-set listchars=tab:\|\ ,trail:▫
+" set list
+" set listchars=tab:\|\ ,trail:▫
 set scrolloff=10
-set timeoutlen=500
+set timeoutlen=300
+set pumheight=20
+set pumblend=10
 "set notimeout
 set viewoptions=cursor,folds,slash,unix
 set nowrap

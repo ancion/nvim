@@ -68,7 +68,7 @@
 	"diagnostic.checkCurrentLine": true,
 	"diagnostic.virtualTextPrefix": " ❯❯❯ ",
 	"diagnostic.virtualText": true,
-	"diagnostic.messageLevel": "waring",
+	"diagnostic.messageLevel": "warning",
 	"diagonostic.enableSign": true,
 	"list.nextKeymap ": "<C-j>",
 	"list.previousKeymap": "<C-k>",
@@ -173,7 +173,6 @@
 	"javascript.showUnused": true,
 	"javascript.suggest.names": true,
 	"javascript.suggestionActions.enabled": true,
-	"volar.autoCompleteRefs": true,
 	"coc-actions.hideCursor": false,
 	"coc-actions.showActionKind": true,
 	"prettier.printWidth": 100,
@@ -190,19 +189,20 @@
 		},
 		{
 			"name": "JavaSE-17",
-			"path": "F:/jdk17"
+			"path": "F:/jdk17",
+			"default": true
 		}
 	],
 	"java.jdt.ls.statusIcons": {
 		"busy": "Busy",
-		"ready": "OK",
+		"ready": "JDT",
 		"warning": "Warning",
 		"Error": "Error"
 	},
-	"java.jdt.ls.vmargs": "-javaagent:D:/maven_repository/repo_current/org/projectlombok/lombok/1.18.22/lombok-1.18.22.jar",
 	"java.completion.enabled": true,
 	"java.completion.maxResults": 15,
 	"java.completion.guessMethodArguments": true,
+	"java.compile.nullAnalysis.mode": "disabled",
 	"java.signatureHelp.enabled": true,
 	"java.referencesCodeLens.enabled": true,
 	"java.implementationsCodeLens.enabled": true,
@@ -244,17 +244,6 @@
 		"eelixir": "mix_format"
 	},
 	"languageserver": {
-		"groovy": {
-			"command": "java",
-			"args": [
-				"-jar",
-				"D:/groovy/groovy-language-server/build/libs/groovy-language-server-all.jar"
-			],
-			"filetypes": [
-				"groovy",
-				"gradle"
-			]
-		},
 		"lua": {
 			"command": "lua-lsp",
 			"filetypes": [
