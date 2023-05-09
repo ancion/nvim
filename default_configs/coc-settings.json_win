@@ -81,14 +81,8 @@
 	"explorer.width": 38,
 	"explorer.quitOnOpen": true,
 	"explorer.sources": [
-		{
-			"name": "buffer",
-			"expand": false
-		},
-		{
-			"name": "file",
-			"expand": true
-		}
+		{ "name": "buffer", "expand": false },
+		{ "name": "file", "expand": true }
 	],
 	"explorer.file.column.indent.indentLine": true,
 	"explorer.file.showHiddenFiles": true,
@@ -108,25 +102,10 @@
 		"n": "collapse",
 		"gl": "expandRecursive",
 		"gh": "collapseRecursive",
-		"i": [
-			"wait",
-			"expandable?",
-			"expand",
-			"open"
-		],
-		"<cr>": [
-			"wait",
-			"expandable?",
-			"cd",
-			"open"
-		],
+		"i": [ "wait", "expandable?", "expand", "open" ],
+		"<cr>": [ "wait", "expandable?", "cd", "open" ],
 		"I": "open:vsplit",
-		"o": [
-			"wait",
-			"expanded?",
-			"collapse",
-			"expand"
-		],
+		"o": [ "wait", "expanded?", "collapse", "expand" ],
 		"O": "open:tab",
 		"N": "gotoParent",
 		"l": "gotoParent",
@@ -219,23 +198,10 @@
 	"diagnostic-languageserver.filetypes": {
 		"vim": "vint",
 		"email": "languagetool",
-		"markdown": [
-			"write-good",
-			"markdownlint"
-		],
+		"markdown": [ "write-good", "markdownlint" ],
 		"sh": "shellcheck",
-		"elixir": [
-			"mix_credo",
-			"mix_credo_compile"
-		],
-		"eelixir": [
-			"mix_credo",
-			"mix_credo_compile"
-		],
-		"php": [
-			"phpstan",
-			"psalm"
-		],
+		"elixir": [ "mix_credo", "mix_credo_compile" ],
+		"eelixir": [ "mix_credo", "mix_credo_compile" ],
 		"dart": "dartfmt"
 	},
 	"diagnostic-languageserver.formatFiletypes": {
@@ -246,18 +212,12 @@
 	"languageserver": {
 		"lua": {
 			"command": "lua-lsp",
-			"filetypes": [
-				"lua"
-			]
+			"filetypes": [ "lua" ]
 		},
 		"golang": {
 			"command": "gopls",
-			"rootPatterns": [
-				"go.mod"
-			],
-			"filetypes": [
-				"go"
-			],
+			"rootPatterns": [ "go.mod" ],
+			"filetypes": [ "go" ],
 			"initializationOptions": {
 				"gocodeCompletionEnabled": true,
 				"diagnosticsEnabled": true,
@@ -266,44 +226,22 @@
 		},
 		"bash": {
 			"command": "bash-language-server",
-			"args": [
-				"start"
-			],
-			"filetypes": [
-				"sh"
-			],
+			"args": [ "start" ],
+			"filetypes": [ "sh" ],
 			"ignoredRootPaths": []
 		},
 		"ccls": {
 			"command": "ccls",
-			"filetypes": [
-				"c",
-				"cpp",
-				"cuda",
-				"objc",
-				"objcpp"
-			],
-			"rootPatterns": [
-				".ccls",
-				".ccls-root",
-				"compile_commands.json",
-				".git/",
-				".hg/"
-			],
+			"filetypes": [ "c", "cpp", "cuda", "objc", "objcpp" ],
+			"rootPatterns": [ ".ccls", ".ccls-root", "compile_commands.json", ".git/", ".hg/" ],
 			"initializationOptions": {
-				"cache": {
-					"directory": "/tmp/ccls"
-				}
+				"cache": { "directory": "/tmp/ccls" }
 			}
 		},
 		"dockerfile": {
 			"command": "docker-langserver",
-			"filetypes": [
-				"dockerfile"
-			],
-			"args": [
-				"--stdio"
-			]
+			"filetypes": [ "dockerfile" ],
+			"args": [ "--stdio" ]
 		}
 	}
 }

@@ -81,14 +81,8 @@
 	"explorer.width": 38,
 	"explorer.quitOnOpen": true,
 	"explorer.sources": [
-		{
-			"name": "buffer",
-			"expand": false
-		},
-		{
-			"name": "file",
-			"expand": true
-		}
+		{ "name": "buffer", "expand": false },
+		{ "name": "file", "expand": true }
 	],
 	"explorer.file.column.indent.indentLine": true,
 	"explorer.file.showHiddenFiles": true,
@@ -108,25 +102,10 @@
 		"n": "collapse",
 		"gl": "expandRecursive",
 		"gh": "collapseRecursive",
-		"i": [
-			"wait",
-			"expandable?",
-			"expand",
-			"open"
-		],
-		"<cr>": [
-			"wait",
-			"expandable?",
-			"cd",
-			"open"
-		],
+		"i": ["wait", "expandable?", "expand", "open"],
+		"<cr>": ["wait", "expandable?", "cd", "open"],
 		"I": "open:vsplit",
-		"o": [
-			"wait",
-			"expanded?",
-			"collapse",
-			"expand"
-		],
+		"o": ["wait", "expanded?", "collapse", "expand"],
 		"O": "open:tab",
 		"N": "gotoParent",
 		"l": "gotoParent",
@@ -185,19 +164,10 @@
 	"diagnostic-languageserver.filetypes": {
 		"vim": "vint",
 		"email": "languagetool",
-		"markdown": [
-			"write-good",
-			"markdownlint"
-		],
+		"markdown": ["write-good", "markdownlint"],
 		"sh": "shellcheck",
-		"elixir": [
-			"mix_credo",
-			"mix_credo_compile"
-		],
-		"eelixir": [
-			"mix_credo",
-			"mix_credo_compile"
-		],
+		"elixir": ["mix_credo", "mix_credo_compile"],
+		"eelixir": ["mix_credo", "mix_credo_compile"],
 		"dart": "dartfmt"
 	},
 	"diagnostic-languageserver.formatFiletypes": {
