@@ -3,12 +3,11 @@
 " --------------------------------------------------------------------------------------------
 noremap <M-f> :Files<CR>
 noremap <M-e> :Rg<CR>
-"noremap <C-h> :History<CR>
 noremap <M-d> :BD<CR>
-noremap <M-\> :BTags<CR>
+noremap <M-t> :BTags<CR>
 noremap <M-l> :Lines<CR>
 noremap <M-b> :Buffers<CR>
-noremap <M-h> :History:<CR>
+noremap <M-;> :History:<CR>
 
 let g:fzf_preview_window = 'right:60%'
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'

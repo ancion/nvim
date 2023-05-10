@@ -46,7 +46,7 @@ inoremap <silent><expr> <CR> coc#pum#visible()
 
 inoremap <silent><expr> <c-space> coc#refresh()
 
-nnoremap <c-h> :call Show_documentation()<CR>
+nnoremap <M-h> :call Show_documentation()<CR>
 
 function! CheckBackspace() abort
     let col = col('.') - 1
@@ -109,7 +109,7 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <leader>rn <Plug>(coc-rename)
-nmap <LEADER>e :CocCommand explorer<CR>
+nmap <leader>e :CocCommand explorer<CR>
 " coc-translator
 nmap ts <Plug>(coc-translator-p)
 

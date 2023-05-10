@@ -36,10 +36,10 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 "set background=dark
 "colorscheme snazzy
 
-" let g:nightflyCursorColor = 1
-" let g:nightflyTransparent = 1
-" let g:nightflyNormalFloat = 1
-" color nightfly
+"let g:nightflyCursorColor = 1
+"let g:nightflyTransparent = 1
+"let g:nightflyNormalFloat = 1
+"color nightfly
 
 "let g:neosolarized_termtrans        = 1
 "let g:neosolarized_contrast         = "normal"
@@ -57,7 +57,7 @@ color catppuccin
 "color purify
 
 "colorscheme dracula
-" colors deus
+"colors deus
 "color gruvbox
 "color xcodelighthc
 
@@ -95,12 +95,13 @@ highlight CocFloating cterm=None guibg=None
 
 " ======> Settings of xtabline {{{
 " -----------------------------------------------------------------------------------------
-let g:xtabline_settings = {'theme' : 'default'}
+let g:xtabline_settings = {'theme' : 'dracula'}
 let g:xtabline_settings.enable_mappings = 0
 let g:xtabline_settings.tabline_modes = ['tabs', 'buffers']
 let g:xtabline_settings.enable_persistance = 0
 let g:xtabline_settings.last_open_first = 1
-noremap to :XTabCycleMode<CR>
+let g:xtabline_settings.current_tab_paths = 0
+noremap <M-o> :XTabMode<CR>
 noremap \p :XTabInfo<CR>
 " -----------------------------------------------------------------------------------------
 " ======> End }}}

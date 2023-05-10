@@ -26,6 +26,7 @@ Plug 'skywind3000/asyncrun.vim'
 "======== Pretty Dress  ==> just give a little of color to the IDE============
 "=============================================================================
 
+Plug 'mg979/vim-xtabline'
 "Plug 'theniceboy/eleline.vim'
 "Plug 'bling/vim-bufferline'
 Plug 'vim-airline/vim-airline'
@@ -127,22 +128,22 @@ Plug 'theniceboy/bullets.vim'
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'theniceboy/vim-gitignore', { 'for': ['gitignore', 'vim-plug'] }
-"Plug 'mhinz/vim-signify'
 Plug 'airblade/vim-gitgutter'
 
 "=============================================================================
 "======> HTML, CSS, JavaScript, PHP, JSON, etc.
 "=============================================================================
-Plug 'elzr/vim-json'
+"Plug 'elzr/vim-json'
 "Plug 'hail2u/vim-css3-syntax', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
-"Plug 'spf13/PIV', { 'for' :['php', 'vim-plug'] }
 "Plug 'pangloss/vim-javascript', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
-Plug 'yuezk/vim-js', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
+" Plug 'jelera/vim-javascript-syntax', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
+"Plug 'yuezk/vim-js', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
 Plug 'MaxMEllon/vim-jsx-pretty', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
-Plug 'jelera/vim-javascript-syntax', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
 "Plug 'jaxbot/browserlink.vim'
 Plug 'mattn/emmet-vim'
 Plug 'posva/vim-vue'
+Plug 'neoclide/jsonc.vim'
+
 "=============================================================================
 "======> Go <=====================
 "=============================================================================
@@ -220,6 +221,7 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'svermeulen/vim-subversive'
 Plug 'theniceboy/argtextobj.vim'
 Plug 'rhysd/clever-f.vim'
+Plug 'MarcWeber/vim-addon-mw-utils'
 
 " Input Method Autoswitch
 Plug 'rlue/vim-barbaric' " slowing down vim-multiple-cursors
@@ -250,22 +252,18 @@ Plug 'makerj/vim-pdf'
 Plug 'voldikss/vim-floaterm'
 " This plug can show you a list files recently opened when you start nvim
 Plug 'mhinz/vim-startify'
-
+Plug 'lambdalisue/suda.vim' "do stuff like :sudowrite
 Plug 'folke/which-key.nvim'
-"Plug 'liuchengxu/vim-which-key'
 
 " Other visual enhancement
 Plug 'ryanoasis/vim-devicons'
 Plug 'luochen1990/rainbow'
-Plug 'mg979/vim-xtabline'
 Plug 'wincent/terminus'
 Plug 'kshenoy/vim-signature'
-Plug 'lambdalisue/suda.vim' "do stuff like :sudowrite
 " blank line add indent line
 Plug 'lukas-reineke/indent-blankline.nvim'
 
 " Dependencies
-Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'kana/vim-textobj-user'
 Plug 'roxma/nvim-yarp'
 "Plug 'rbgrouleff/bclose.vim' " For ranger.vim
