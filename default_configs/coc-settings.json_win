@@ -6,13 +6,21 @@
 	"suggest.autoTrigger": "always",
 	"suggest.timeout": 5000,
 	"suggest.detailField": "preview",
-	"suggest.snippetIndicator": "",
+	"suggest.snippetIndicator": "  ",
+	"suggest.removeDuplicateItems": true,
 	"suggest.triggerCompletionWait": 50,
+	"suggest.pumFloatConfig": {
+		"border": true,
+		"rounded": true,
+		"winblend": 2,
+		"borderhighlight": "CocFloating"
+	},
 	"suggest.floatConfig": {
 		"border": true,
 		"rounded": true,
 		"winblend": 2,
-		"shadom": false
+		"shadow": false,
+		"borderhighlight": "CocFloating"
 	},
 	"diagnostic.floatConfig": {
 		"border": true,
@@ -32,32 +40,34 @@
 		"winblend": 2,
 		"shadow": false
 	},
+	"suggest.formatItems": ["kind", "menu", "abbr", "shortcut"],
 	"suggest.completionItemKindLabels": {
-		"class": " ",
-		"color": " ",
-		"constant": " ",
-		"default": " ",
-		"enum": " ",
-		"enumMember": " ",
-		"event": " ",
-		"field": " ",
-		"file": "",
-		"folder": " ",
-		"function": " ",
-		"interface": "ﮣ ",
-		"keyword": " ",
-		"method": " ",
-		"module": "ﯟ ",
-		"operator": " ",
-		"property": " ",
-		"reference": " ",
-		"snippet": " ",
+		"class": "  ",
+		"color": "  ",
+		"constant": "  ",
+		"constructor": "  ",
+		"default": "  ",
+		"enum": "  ",
+		"enumMember": "  ",
+		"event": "  ",
+		"field": "  ",
+		"file": "  ",
+		"folder": "  ",
+		"function": "   ",
+		"interface": "  ",
+		"keyword": "  ",
+		"method": "  ",
+		"module": "  ",
+		"operator": "  ",
+		"property": "  ",
+		"reference": "  ",
+		"snippet": "  ",
 		"struct": " ",
-		"text": " ",
-		"typeParameter": "",
-		"unit": " ",
-		"value": " ",
-		"variable": " "
+		"text": "  ",
+		"typeParameter": "  ",
+		"unit": "  ",
+		"value": "  ",
+		"variable": "  "
 	},
 	"diagnostic.errorSign": "",
 	"diagnostic.warningSign": "",
@@ -69,10 +79,10 @@
 	"diagnostic.virtualTextPrefix": " ❯❯❯ ",
 	"diagnostic.virtualText": true,
 	"diagnostic.messageLevel": "warning",
-	"diagonostic.enableSign": true,
+	"list.previewHighlightGroup": "Statement",
 	"list.nextKeymap ": "<C-j>",
 	"list.previousKeymap": "<C-k>",
-	"list.previewHighlightGroup": "Statement",
+	"coc.preferences.extensionUpdateCheck": "daily",
 	"coc.preferences.formatOnSave": true,
 	"coc.preferences.formatOnType": true,
 	"coc.preferences.messageLevel": "error",
@@ -102,10 +112,10 @@
 		"n": "collapse",
 		"gl": "expandRecursive",
 		"gh": "collapseRecursive",
-		"i": [ "wait", "expandable?", "expand", "open" ],
-		"<cr>": [ "wait", "expandable?", "cd", "open" ],
+		"i": ["wait", "expandable?", "expand", "open"],
+		"<cr>": ["wait", "expandable?", "cd", "open"],
 		"I": "open:vsplit",
-		"o": [ "wait", "expanded?", "collapse", "expand" ],
+		"o": ["wait", "expanded?", "collapse", "expand"],
 		"O": "open:tab",
 		"N": "gotoParent",
 		"l": "gotoParent",
@@ -198,10 +208,10 @@
 	"diagnostic-languageserver.filetypes": {
 		"vim": "vint",
 		"email": "languagetool",
-		"markdown": [ "write-good", "markdownlint" ],
+		"markdown": ["write-good", "markdownlint"],
 		"sh": "shellcheck",
-		"elixir": [ "mix_credo", "mix_credo_compile" ],
-		"eelixir": [ "mix_credo", "mix_credo_compile" ],
+		"elixir": ["mix_credo", "mix_credo_compile"],
+		"eelixir": ["mix_credo", "mix_credo_compile"],
 		"dart": "dartfmt"
 	},
 	"diagnostic-languageserver.formatFiletypes": {
@@ -212,12 +222,12 @@
 	"languageserver": {
 		"lua": {
 			"command": "lua-lsp",
-			"filetypes": [ "lua" ]
+			"filetypes": ["lua"]
 		},
 		"golang": {
 			"command": "gopls",
-			"rootPatterns": [ "go.mod" ],
-			"filetypes": [ "go" ],
+			"rootPatterns": ["go.mod"],
+			"filetypes": ["go"],
 			"initializationOptions": {
 				"gocodeCompletionEnabled": true,
 				"diagnosticsEnabled": true,
@@ -226,22 +236,24 @@
 		},
 		"bash": {
 			"command": "bash-language-server",
-			"args": [ "start" ],
-			"filetypes": [ "sh" ],
+			"args": ["start"],
+			"filetypes": ["sh"],
 			"ignoredRootPaths": []
 		},
 		"ccls": {
 			"command": "ccls",
-			"filetypes": [ "c", "cpp", "cuda", "objc", "objcpp" ],
-			"rootPatterns": [ ".ccls", ".ccls-root", "compile_commands.json", ".git/", ".hg/" ],
+			"filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
+			"rootPatterns": [".ccls", ".ccls-root", "compile_commands.json", ".git/", ".hg/"],
 			"initializationOptions": {
-				"cache": { "directory": "/tmp/ccls" }
+				"cache": {
+					"directory": "/tmp/ccls"
+				}
 			}
 		},
 		"dockerfile": {
 			"command": "docker-langserver",
-			"filetypes": [ "dockerfile" ],
-			"args": [ "--stdio" ]
+			"filetypes": ["dockerfile"],
+			"args": ["--stdio"]
 		}
 	}
 }
