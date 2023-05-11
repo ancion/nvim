@@ -4,9 +4,11 @@
 let g:coc_global_extensions = [
             \'coc-actions',
             \'coc-css',
+            \'coc-emmet',
             \'coc-diagnostic',
             \'coc-explorer',
             \'coc-gitignore',
+            \'coc-go',
             \'coc-html',
             \'coc-json',
             \'coc-java',
@@ -26,7 +28,6 @@ let g:coc_global_extensions = [
             \'coc-vimlsp',
             \'coc-vetur',
             \'coc-yaml',
-            \'coc-go',
             \'coc-yank']
 
 inoremap <silent><expr> <Tab>

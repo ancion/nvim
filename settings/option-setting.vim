@@ -66,10 +66,10 @@ set virtualedit=block
 " front UI file indent tab size
 augroup UIFileIndent
     autocmd!
-    autocmd FileType javascript*,typescript*,css,html,xml,json,vue setlocal ai
-    autocmd FileType javascript*,typescript*,css,html,xml,json,vue setlocal tabstop=2
-    autocmd FileType javascript*,typescript*,css,html,xml,json,vue setlocal softtabstop=2
-    autocmd FileType javascript*,typescript*,css,html,xml,json,vue setlocal shiftwidth=2
+    autocmd FileType javascript*,typescript*,css,html,xml,json,jsonc,vue setlocal ai
+    autocmd FileType javascript*,typescript*,css,html,xml,json,jsonc,vue setlocal tabstop=2
+    autocmd FileType javascript*,typescript*,css,html,xml,json,jsonc,vue setlocal softtabstop=2
+    autocmd FileType javascript*,typescript*,css,html,xml,json,jsonc,vue setlocal shiftwidth=2
 augroup end
 
 " WSL yank to system clipboard
@@ -110,8 +110,6 @@ vnoremap Y "+y
 " Indentation
 nnoremap < <<
 nnoremap > >>
-
-
 
 " ===
 " === Cursor Movement
@@ -205,7 +203,6 @@ noremap sv <C-w>t<C-w>H
 " Rotate screens
 noremap srx <C-w>b<C-w>K
 noremap srv <C-w>b<C-w>H
-
 
 " ===
 " === Tab management
