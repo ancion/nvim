@@ -2,8 +2,8 @@
 " =====> PlatForm information {{{
 " ------------------------------------------------------------------------------
 " this is function return a string representate you computer platform
-" like windows or linux or macos 
-" use this to load different configration file 
+" like windows or linux or macos
+" use this to load different configration file
 function! Mysys()
     if has("win32") || has("win64")||has("win95")
         return "windows"
@@ -32,7 +32,7 @@ endif
 
 " =====> Function of Run and Complier {{{
 " ------------------------------------------------------------------------------
-noremap <F22> :call CompileRunGcc()<CR>
+noremap <F58> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
     exec "w"
     if &filetype == 'c'
@@ -90,7 +90,7 @@ if Mysys() == "linux"
     source $HOME/.config/nvim/settings/unix-load.vim
     source $HOME/.config/nvim/settings/manage-plug.vim
     source $HOME/.config/nvim/settings/dress-setting.vim
-    source $HOME/.config/nvim/settings/floaterm-setting.vim  
+    source $HOME/.config/nvim/settings/floaterm-setting.vim
     source $HOME/.config/nvim/settings/fzf-setting.vim
     source $HOME/.config/nvim/settings/git-setting.vim
     source $HOME/.config/nvim/settings/coc-setting.vim
@@ -118,7 +118,7 @@ elseif Mysys() == "windows"
     source $HOME/AppData/Local/nvim/settings/fzf-setting.vim
     source $HOME/AppData/Local/nvim/settings/git-setting.vim
     source $HOME/AppData/Local/nvim/settings/coc-setting.vim
-    source $HOME/AppData/Local/nvim/settings/app-setting.vim 
+    source $HOME/AppData/Local/nvim/settings/app-setting.vim
     source $HOME/AppData/Local/nvim/settings/undo-setting.vim
     source $HOME/AppData/Local/nvim/settings/debug-setting.vim
     source $HOME/AppData/Local/nvim/settings/golang-setting.vim
