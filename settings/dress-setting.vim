@@ -79,9 +79,9 @@ if g:window_transparency
     hi NormalFloat  ctermbg=None guibg=None
     hi FloatBorder  ctermbg=None guibg=None
     hi Pmenu        ctermbg=None guibg=None
-    hi PmenuSel     ctermbg=DarkCyan guibg=DarkCyan 
+    hi PmenuSel     ctermbg=Cyan guibg=#2b506e
     hi LineNr       ctermbg=None guibg=None
-    hi WinSeparator ctermbg=None guibg=None  guifg=Grey
+    hi WinSeparator ctermbg=None guibg=None guifg=Grey
     hi SignColumn   ctermbg=None guibg=None
 endif
 
@@ -95,7 +95,7 @@ highlight CocFloating cterm=None guibg=None
 
 " ======> Settings of xtabline {{{
 " -----------------------------------------------------------------------------------------
-let g:xtabline_settings = {'theme' : 'dracula'}
+let g:xtabline_settings = {'theme' : 'default'}
 let g:xtabline_settings.enable_mappings = 0
 let g:xtabline_settings.tabline_modes = ['tabs', 'buffers']
 let g:xtabline_settings.enable_persistance = 0

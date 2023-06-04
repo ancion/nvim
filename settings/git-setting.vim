@@ -38,7 +38,7 @@ noremap <LEADER>gi :FzfGitignore<CR>
 " -----------------------------------------------------------------------------
 " Open up lazygit
 noremap \g :Git<CR>
-noremap <c-g> :tabe<CR>:-tabmove<CR>:term lazygit<CR>
+noremap <leader>gg :tabe<CR>:-tabmove<CR>:term lazygit<CR>
 "noremap <c-h> :tabe<CR>:-tabmove<CR>:term ranger<CR>
 " -----------------------------------------------------------------------------
 " ======> End }}}

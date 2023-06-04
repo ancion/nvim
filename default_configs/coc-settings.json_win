@@ -50,10 +50,10 @@
 		"enum": "  ",
 		"enumMember": "  ",
 		"event": "  ",
-		"field": "  ",
+		"field": "  ",
 		"file": "  ",
 		"folder": "  ",
-		"function": "  ",
+		"function": " 󰡱 ",
 		"interface": "  ",
 		"keyword": "  ",
 		"method": "  ",
@@ -67,7 +67,7 @@
 		"typeParameter": "  ",
 		"unit": "  ",
 		"value": "  ",
-		"variable": "  "
+		"variable": "  "
 	},
 	"diagnostic.errorSign": "",
 	"diagnostic.warningSign": "",
@@ -81,7 +81,7 @@
 	"diagnostic.messageLevel": "warning",
 	"diagnostic.messageTarget": "echo",
 	"list.previewHighlightGroup": "Statement",
-	"list.nextKeymap ": "<C-j>",
+	"list.nextKeymap": "<C-j>",
 	"list.previousKeymap": "<C-k>",
 	"coc.preferences.extensionUpdateCheck": "daily",
 	"coc.preferences.formatOnSave": true,
@@ -89,6 +89,7 @@
 	"coc.preferences.messageLevel": "error",
 	"coc.source.syntax.firstMatch": false,
 	"coc.preferences.formatOnSaveTimeout": 300,
+	"java.format.enabled": false,
 	"explorer.width": 38,
 	"explorer.quitOnOpen": true,
 	"explorer.sources": [
