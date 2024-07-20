@@ -51,13 +51,13 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 "let g:neosolarized_termBoldAsBright = 1
 "colorscheme NeoSolarized
 
-let g:catppuccin_flavour = "mocha"
-color catppuccin
+" let g:catppuccin_flavour = "mocha"
+" color catppuccin
 
 "color purify
 
 "colorscheme dracula
-"colors deus
+colors deus
 "color gruvbox
 "color xcodelighthc
 

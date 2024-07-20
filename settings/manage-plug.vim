@@ -84,7 +84,7 @@ Plug 'puremourning/vimspector', {'do': './install_gadget.py  --enable-python --e
 "=============================================================================
 
 " Auto Complete
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'npm  ci'}
 Plug 'wellle/tmux-complete.vim'
 Plug 'github/copilot.vim'
 

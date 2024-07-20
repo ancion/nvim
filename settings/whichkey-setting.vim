@@ -24,10 +24,8 @@ lua << EOF
             separator = "➜",            -- symbol used between a key and it's label
             group = "+"                 -- symbol prepended to a group
         },
-        window = {
+        win = {
             border = "rounded",          -- none, single, double, shadow
-            position = "bottom",        -- bottom, top
-            margin = {0, 0, 0, 0},      -- extra window margin [top, right, bottom, left]
             padding = {1, 1, 1, 1}      -- extra window padding [top, right, bottom, left]
         },
         layout = {
@@ -35,7 +33,7 @@ lua << EOF
             width = {min = 20, max = 50}, -- min and max width of the columns
             spacing = 3                   -- spacing between columns
         },
-        hidden = {"<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ "}, -- hide mapping boilerplate
+        -- hidden = {"<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ "}, -- hide mapping boilerplate
         show_help = true -- show help message on the command line when the popup is visible
     }
 EOF
